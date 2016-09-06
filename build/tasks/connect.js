@@ -13,12 +13,18 @@ module.exports = function () {
           return [
             function (req, res) {
               var url = parse(req.url);
+              var target = 'dist' + url.pathname;
 
-              if (!fs.existsSync('dist' + url.pathname)) {
-                req.url = '/index.html';
+              try {
+                fs.statSync(target);
+                if (target.slice(-1) === "/") {
+                  fs.createReadStream('dist/index.html').pipe(res);
+                } else {
+                  fs.createReadStream(target).pipe(res);
+                }
+              } catch (e) {
+                fs.createReadStream('dist/index.html').pipe(res);
               }
-
-              fs.createReadStream('dist' + req.url).pipe(res);
             }
           ];
         }

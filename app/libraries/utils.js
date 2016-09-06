@@ -35,7 +35,7 @@ define(function (require, exports, module) {
 
         options.beforeSend = function (xhr) {
           xhr.setRequestHeader(
-            'token',
+            'Authorization', 'Token token=' +
             $.cookie('token') || module.config().defaultToken
           );
         };
