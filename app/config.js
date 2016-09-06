@@ -41,10 +41,10 @@ require.config({
 
   config: {
     'modules/models/base': {
-      apiUrl: 'https://thisistest.site/api'
+      apiUrl: 'http://thisistest.site/api'
     },
     'modules/collections/base': {
-      apiUrl: 'https://thisistest.site/api'
+      apiUrl: 'http://thisistest.site/api'
     },
     'utils': {
       defaultToken: '3LD4V41' // if u lucky, get your lucky!
