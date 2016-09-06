@@ -12,10 +12,9 @@ module.exports = function () {
         middleware: function (connect, options) {
           return [
             function (req, res) {
-              var file, url;
-              url = parse(req.url);
-              file = url.pathname.split('/').splice(-1)[0];
-              if (!path.extname(file)) {
+              var url = parse(req.url);
+
+              if (!fs.existsSync('dist' + url.pathname)) {
                 req.url = '/index.html';
               }
 

@@ -14,8 +14,8 @@ module.exports = function () {
           dest: "dist/assets/"
         },
         {
-          src: "package.json",
-          dest: "dist/package.json"
+          src: "robots.txt",
+          dest: "dist/robots.txt"
         }
       ]
     }
