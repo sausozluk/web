@@ -10,6 +10,8 @@
     "almond": "~0.2.9",
     "noty": "2.3.6",
     "nprogress": "0.2.0",
-    "backbone.middleware": "0.0.3"
+    "backbone.middleware": "0.0.3",
+    "requirejs-web-workers": "1.0.1",
+    "moment": "2.13.0"
   }
 }

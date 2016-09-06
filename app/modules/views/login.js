@@ -4,6 +4,8 @@ define(function (require, exports, module) {
   var LoginTemplate = require('template!../../templates/login');
   var app = require('app');
   var cache = require('cache');
+  var userController = require('../controllers/user');
+  require('jquery.cookie');
 
   module.exports = Backbone.View.extend({
     events: {
@@ -12,8 +14,21 @@ define(function (require, exports, module) {
 
     doLogin: function (e) {
       e.preventDefault();
-      cache.trigger('auth-true');
-      app.router.navigate('/', true);
+
+      userController.doLogin({
+        email: $('#email').val(),
+        password: $('#password').val()
+      }, function (data) {
+        $.cookie('token', data.session.token);
+        cache.trigger('auth-true');
+        if (!!cache.lastTry) {
+          var target = cache.lastTry;
+          delete cache.lastTry;
+          app.router.navigate(target, true);
+        } else {
+          app.router.navigate('/', true);
+        }
+      });
     },
 
     render: function () {

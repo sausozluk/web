@@ -11,7 +11,8 @@ require.config({
     'backbone.middleware': '../deps/backbone.middleware/backbone.middleware',
     'app': './app',
     'utils': './libraries/utils',
-    'cache': './libraries/cache'
+    'cache': './libraries/cache',
+    'moment': '../deps/moment/min/moment-with-locales.min'
   },
 
   lodashLoader: {
@@ -40,10 +41,10 @@ require.config({
 
   config: {
     'modules/models/base': {
-      apiUrl: 'http://localhost:3000'
+      apiUrl: 'https://thisistest.site/api'
     },
     'modules/collections/base': {
-      apiUrl: 'http://localhost:3000'
+      apiUrl: 'https://thisistest.site/api'
     },
     'utils': {
       defaultToken: '3LD4V41' // if u lucky, get your lucky!

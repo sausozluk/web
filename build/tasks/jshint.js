@@ -3,7 +3,8 @@ module.exports = function () {
   return this.config("jshint", {
     all: ["app/**/*.js"],
     options: {
-      jshintrc: ".jshintrc"
+      jshintrc: ".jshintrc",
+      reporterOutput: ""
     }
   });
 };

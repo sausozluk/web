@@ -13,23 +13,23 @@ define(function (require, exports, module) {
   module.exports = Backbone.Router.extend({
     routes: {
       '(/)': {
-        m: auth.isGuess,
+        m: auth.isVoid,
         f: 'home'
       },
       'register(/)': {
-        m: auth.isGuess,
+        m: auth.isNotSecure,
         f: 'register'
       },
       'login(/)': {
-        m: auth.isGuess,
+        m: auth.isNotSecure,
         f: 'login'
       },
       'logout(/)': {
-        m: auth.isGuess,
+        m: auth.isSecure,
         f: 'logout'
       },
       '*path': {
-        m: auth.isGuess,
+        m: auth.isVoid,
         f: 'default'
       }
     },

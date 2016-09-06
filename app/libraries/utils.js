@@ -4,6 +4,7 @@ define(function (require, exports, module) {
   require('jquery.noty');
   var _ = require('underscore');
   var Backbone = require('backbone');
+  var NProgress = require('nprogress');
 
   var doNoty = function (type, message) {
     noty({
@@ -34,14 +35,27 @@ define(function (require, exports, module) {
         options = options || {};
 
         options.beforeSend = function (xhr) {
+          NProgress.start();
           xhr.setRequestHeader(
             'Authorization', 'Token token=' +
-            $.cookie('token') || module.config().defaultToken
+            ($.cookie('token') || module.config().defaultToken)
           );
         };
 
         options.error = function (xhr, status, error) {
-          doNoty('error', xhr.status === 0 ? 'server gone :(' : 'error!');
+          NProgress.done();
+          doNoty('error', xhr.status === 0 ? 'server gone :(' : (typeof xhr.responseJSON !== 'undefined' ? xhr.responseJSON.error : 'wow'));
+        };
+
+        var _ = options.success;
+
+        options.success = function () {
+          NProgress.done();
+          if (!arguments[0].success) {
+            doNoty('error', arguments[0].message);
+          } else {
+            _.apply(this, arguments);
+          }
         };
 
         return sync.call(Backbone, method, model, options);
@@ -53,6 +67,17 @@ define(function (require, exports, module) {
           app.activeView.remove();
           app.activeView.unbind();
         }
+      };
+    },
+    defineGlobalErrorHandler: function () {
+      window.onerror = function (message, url, lineNo) {
+        doNoty('error', message);
+
+        console.log('Error: ' + message +
+          '\nUrl: ' + url +
+          '\nLine Number: ' + lineNo);
+
+        return true;
       };
     },
     doNoty: doNoty
