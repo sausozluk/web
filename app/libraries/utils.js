@@ -52,7 +52,14 @@ define(function (require, exports, module) {
         options.success = function () {
           NProgress.done();
           if (!arguments[0].success) {
-            doNoty('error', arguments[0].message);
+            var msg = arguments[0].message;
+            if ($.isArray(msg)) {
+              for (var i in msg) {
+                doNoty('error', msg[i]);
+              }
+            } else {
+              doNoty('error', msg);
+            }
           } else {
             _.apply(this, arguments);
           }
