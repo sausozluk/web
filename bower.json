@@ -1,0 +1,15 @@
+{
+  "name": "sausozluk-app",
+  "dependencies": {
+    "lodash": "2.4.1",
+    "lodash-template-loader": "0.1.6",
+    "backbone": "1.1.2",
+    "jquery": "2.1.1",
+    "requirejs": "2.1.14",
+    "jquery.cookie": "1.4.1",
+    "almond": "~0.2.9",
+    "noty": "2.3.6",
+    "nprogress": "0.2.0",
+    "backbone.middleware": "0.0.3"
+  }
+}

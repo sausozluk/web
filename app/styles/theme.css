@@ -1,0 +1,250 @@
+body {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+div.navbar {
+    background-color: #404096;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 40px;
+    width: 100%;
+}
+
+a.logo {
+    line-height: 40px;
+    font-size: 14pt;
+    font-family: 'Baloo Paaji', cursive;
+    text-decoration: none;
+    color: #fff;
+    margin-left: 10px;
+}
+
+ul.menu {
+    float: right;
+    margin-right: 10px;
+}
+
+ul.menu > li {
+    float: left;
+}
+
+ul.menu > li a {
+    color: #fff;
+    line-height: 40px;
+    font-size: 10pt;
+    text-decoration: none;
+    padding: 5px 8px;
+    border-radius: 8px;
+}
+
+ul.menu > li a:hover {
+    color: #404096;
+    background-color: #fff;
+}
+
+div.wrapper {
+    display: block;
+    margin-top: 40px;
+}
+
+div.left {
+    float: left;
+    width: 240px;
+    border-right: 1px solid #dbdbdb;
+    height: 100%;
+    position: fixed;
+}
+
+div.stairs {
+    display: block;
+}
+
+div.stairs > span.title {
+    display: block;
+    font-size: 12pt;
+    color: #404096;
+    padding-left: 12px;
+    margin: 20px 0px 8px 0px;
+}
+
+div.stairs > span.subtitle {
+    display: block;
+    font-size: 9pt;
+    color: #999;
+    padding-left: 12px;
+}
+
+ul.topics {
+    display: block;
+    margin-top: 24px;
+    border-top: 1px solid #dbdbdb;
+}
+
+ul.topics > li {
+    display: block;
+}
+
+ul.topics > li a {
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 5px 0px 5px 12px;
+    color: #666;
+}
+
+ul.topics > li a:hover {
+    background-color: #fafafa;
+}
+
+ul.topics > li a > span.subject {
+    font-size: 9pt;
+    padding-right: 4px;
+    display: block;
+    line-height: 18px;
+}
+
+ul.topics > li a > span.count {
+    padding: 2px 4px;
+    background: #888;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 9pt;
+    float: right;
+    margin-right: 6px;
+}
+
+div.content {
+    display: block;
+    float: left;
+    width: calc(100% - 280px);
+    margin-left: 240px;
+    padding: 20px;
+}
+
+h1.topic_title {
+    font-size: 20pt;
+}
+
+ul.topic_actions {
+    display: block;
+    margin-top: 18px;
+    height: 18px;
+}
+
+ul.topic_actions > li {
+    float: left;
+    font-size: 9pt;
+}
+
+ul.topic_actions > li.break {
+    margin-left: 16px;
+}
+
+ul.topic_actions > li > span {
+    padding-right: 10px;
+    color: #666666;
+}
+
+ul.topic_actions > li > a > i {
+    margin-right: 5px;
+}
+
+ul.topic_actions > li > span > i {
+    margin-right: 5px;
+}
+
+ul.topic_actions > li > a {
+    padding-right: 6px;
+    color: #666666;
+    text-decoration: none;
+}
+
+ul.topic_actions > li > a:hover {
+    text-decoration: underline;
+}
+
+ul.entries {
+    display: block;
+    margin-top: 16px;
+}
+
+ul.entries > li {
+    display: block;
+    padding: 10px 0;
+}
+
+ul.entries > li > span.no {
+    display: block;
+    border-bottom: 1px solid #dddddd;
+    color: #999;
+    font-size: 8pt;
+    padding-bottom: 6px;
+}
+
+ul.entries > li > div.text {
+    display: block;
+    font-size: 10pt;
+    padding: 14px 0 24px 0;
+    line-height: 20px;
+    text-align: justify;
+}
+
+ul.entries > li > div.info {
+    float: right;
+    display: block;
+}
+
+ul.entries > li > div.info > ul.vote {
+    display: inline-block;
+    float: left;
+}
+
+ul.entries > li > div.info > ul.vote > li {
+    float: left;
+    margin-right: 8px;
+}
+
+ul.entries > li > div.info > ul.vote > li > a {
+    color: #999;
+    font-size: 10pt;
+    text-decoration: none;
+}
+
+h1.form_title {
+    font-size: 20pt;
+    margin-bottom: 50px;
+}
+
+ul.form {
+    display: block;
+}
+
+ul.form > li {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 10pt;
+}
+
+ul.form > li > input{
+    outline: none;
+    border: 1px solid #dbdbdb;
+    padding: 5px;
+    min-width: 240px;
+    margin-bottom: 10px;
+}
+
+ul.form > li > button {
+    padding: 5px;
+    color: #fff;
+    min-width: 80px;
+    background-color: rgb(64,64,150);
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+}
+
+ul.form > li > button:active {
+    background-color: rgba(64,64,150,.75);
+}
