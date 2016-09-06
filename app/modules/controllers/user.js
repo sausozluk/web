@@ -24,9 +24,11 @@ define(function (require, exports, module) {
     },
     'logout': function (data, callback) {
       var ajaxModel = new AjaxModel();
-      ajaxModel.changeUrl('/auth/logout');
+      ajaxModel.set('id', +new Date());
+      ajaxModel.changeUrl('/sessions');
 
-      ajaxModel.save({}, {
+      ajaxModel.destroy({
+        url: ajaxModel.urlRoot(),
         success: function (model, response) {
           callback();
         }
