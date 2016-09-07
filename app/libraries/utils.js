@@ -44,7 +44,7 @@ define(function (require, exports, module) {
 
         options.error = function (xhr, status, error) {
           NProgress.done();
-          doNoty('error', xhr.status === 0 ? 'server gone :(' : (typeof xhr.responseJSON !== 'undefined' ? xhr.responseJSON.error : 'wow'));
+          doNoty('error', xhr.status === 0 ? 'server gone :(' : 'fuck, we forgot something :(');
         };
 
         var _ = options.success;
