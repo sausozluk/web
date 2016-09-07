@@ -18,7 +18,7 @@ require.config({
   },
 
   lodashLoader: {
-    ext: '.tpl'
+    ext: '.html'
   },
 
   deps: ['main'],
