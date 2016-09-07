@@ -248,3 +248,15 @@ ul.form > li > button {
 ul.form > li > button:active {
     background-color: rgba(64,64,150,.75);
 }
+
+@media screen and (max-width: 600px) {
+    .left {
+        visibility: hidden;
+        display: none;
+    }
+
+    .content {
+        width: inherit !important;
+        margin-left: inherit !important;
+    }
+}
