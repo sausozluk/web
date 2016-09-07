@@ -1,6 +1,6 @@
-# sausozluk-bb
+# sausozluk / web
 
-> sausozluk@backbone
+> web client implementation for sausozluk which is developed with Backbone.
 
 ## requirements
 
@@ -14,6 +14,10 @@ $ sudo npm install -g grunt-cli bower
 $ npm install
 $ bower install
 ```
+
+## config
+
+> app/config.js
 
 ## run (build)
 
