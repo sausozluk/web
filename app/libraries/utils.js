@@ -77,12 +77,14 @@ define(function (require, exports, module) {
       };
     },
     defineGlobalErrorHandler: function () {
-      window.onerror = function (message, url, lineNo) {
+      window.onerror = function (message, url, line) {
         doNoty('error', message);
 
-        console.log('Error: ' + message +
-          '\nUrl: ' + url +
-          '\nLine Number: ' + lineNo);
+        console.log({
+          error: message,
+          url: url,
+          line: line
+        });
 
         return true;
       };

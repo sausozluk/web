@@ -4,6 +4,7 @@ define(function (require, exports, module) {
   var LoginTemplate = require('template!../../templates/login');
   var app = require('app');
   var cache = require('cache');
+  var utils = require('utils');
   var userController = require('../controllers/user');
   require('jquery.cookie');
 
@@ -21,6 +22,7 @@ define(function (require, exports, module) {
       }, function (data) {
         $.cookie('token', data.session.token);
         cache.trigger('auth-true');
+        utils.doNoty('success', 'yaaa şapşik ♥');
         if (!!cache.lastTry) {
           var target = cache.lastTry;
           delete cache.lastTry;

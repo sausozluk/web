@@ -4,6 +4,7 @@ define(function (require, exports, module) {
   var RegisterTemplate = require('template!../../templates/register');
   var app = require('app');
   var cache = require('cache');
+  var utils = require('utils');
   var userController = require('../controllers/user');
   require('jquery.cookie');
 
@@ -21,6 +22,7 @@ define(function (require, exports, module) {
         password: $('#password').val()
       }, function (data) {
         if (data.success) {
+          utils.doNoty('success', 'gel gel sen de gel');
           app.router.navigate('/', true);
         }
       });

@@ -4,6 +4,7 @@ define(function (require, exports, module) {
   var LogoutTemplate = require('template!../../templates/logout');
   var app = require('app');
   var cache = require('cache');
+  var utils = require('utils');
   var UserController = require('../controllers/user');
   require('jquery.cookie');
 
@@ -22,6 +23,7 @@ define(function (require, exports, module) {
         $.removeCookie('token');
 
         cache.trigger('auth-false');
+        utils.doNoty('success', 'sad but true :<');
         app.router.navigate('/login', true);
       });
     }
