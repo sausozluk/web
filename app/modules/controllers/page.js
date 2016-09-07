@@ -2,6 +2,7 @@ define(function (require, exports, module) {
   var RegisterView = require('../views/register');
   var ErrorView = require('../views/error');
   var HomeView = require('../views/home');
+  var TopicView = require('../views/topic');
   var LoginView = require('../views/login');
   var LogoutView = require('../views/logout');
 
@@ -14,6 +15,9 @@ define(function (require, exports, module) {
     },
     'home': function () {
       return new HomeView();
+    },
+    'topic': function () {
+      return new TopicView();
     },
     'login': function () {
       return new LoginView();

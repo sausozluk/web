@@ -28,6 +28,10 @@ define(function (require, exports, module) {
         m: auth.isSecure,
         f: 'logout'
       },
+      ':url--:id(/)': {
+        m: auth.isVoid,
+        f: 'topic'
+      },
       '*path': {
         m: auth.isVoid,
         f: 'default'
@@ -50,6 +54,10 @@ define(function (require, exports, module) {
 
     logout: function () {
       cache.appView.renderPage(PageController.logout());
+    },
+
+    topic: function (url, id) {
+      cache.appView.renderPage(PageController.topic(), [url, id]);
     },
 
     default: function () {
