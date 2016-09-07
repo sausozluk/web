@@ -3,6 +3,7 @@ require.config({
     'underscore': '../deps/lodash/dist/lodash.underscore',
     'lodash': '../deps/lodash/dist/lodash',
     'template': '../deps/lodash-template-loader/loader',
+    'text': '../deps/text/text',
     'jquery': '../deps/jquery/dist/jquery',
     'backbone': '../deps/backbone/backbone',
     'jquery.cookie': '../deps/jquery.cookie/jquery.cookie',
@@ -12,7 +13,8 @@ require.config({
     'app': './app',
     'utils': './libraries/utils',
     'cache': './libraries/cache',
-    'moment': '../deps/moment/min/moment-with-locales.min'
+    'moment': '../deps/moment/min/moment-with-locales.min',
+    'boss': './libraries/boss'
   },
 
   lodashLoader: {

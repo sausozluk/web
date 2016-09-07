@@ -1,8 +1,11 @@
 define(function (require, exports, module) {
   var utils = require('utils');
   var cache = require('cache');
+  var boss = require('boss');
   var AppView = require('modules/views/globals/app');
   var appView = new AppView();
+
+  boss.startCounter();
 
   utils.historyTrick();
   utils.tokenSync();
