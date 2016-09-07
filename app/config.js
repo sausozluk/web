@@ -41,10 +41,10 @@ require.config({
 
   config: {
     'modules/models/base': {
-      apiUrl: 'http://thisistest.site/api'
+      apiUrl: 'https://api.sausozluk.org'
     },
     'modules/collections/base': {
-      apiUrl: 'http://thisistest.site/api'
+      apiUrl: 'https://api.sausozluk.org'
     },
     'utils': {
       defaultToken: '3LD4V41' // if u lucky, get your lucky!

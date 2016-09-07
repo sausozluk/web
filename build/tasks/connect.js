@@ -1,6 +1,5 @@
 var parse = require('url').parse;
 var fs = require('fs');
-var proxy = require('proxy-middleware');
 var url = require('url');
 
 module.exports = function () {
@@ -12,10 +11,6 @@ module.exports = function () {
         base: 'dist',
         middleware: function (connect, options) {
           var middlewares = [];
-
-          var proxyOptions = url.parse('https://api.sausozluk.org/');
-          proxyOptions.route = '/api';
-          middlewares.push(proxy(proxyOptions));
 
           middlewares.push(function (req, res) {
             var url = parse(req.url);
