@@ -138,7 +138,7 @@ ul.topic_actions > li {
 }
 
 ul.topic_actions > li.break {
-    margin-left: 16px;
+    margin-left: 5px;
 }
 
 ul.topic_actions > li > span {
@@ -249,7 +249,7 @@ ul.form > li > button:active {
     background-color: rgba(64,64,150,.75);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 850px) {
     .left {
         visibility: hidden;
         display: none;
