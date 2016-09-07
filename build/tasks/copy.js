@@ -16,6 +16,10 @@ module.exports = function () {
         {
           src: "robots.txt",
           dest: "dist/robots.txt"
+        },
+        {
+          src: "favicon.ico",
+          dest: "dist/favicon.ico"
         }
       ]
     }
