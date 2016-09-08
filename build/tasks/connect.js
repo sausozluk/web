@@ -1,6 +1,7 @@
 var parse = require('url').parse;
 var fs = require('fs');
-var url = require('url');
+var mime = require('mime-types');
+var path = require('path');
 
 module.exports = function () {
   this.loadNpmTasks('grunt-contrib-connect');
@@ -21,6 +22,8 @@ module.exports = function () {
               if (target.slice(-1) === "/") {
                 fs.createReadStream('dist/index.html').pipe(res);
               } else {
+                var contentType = mime.contentType(path.extname(target));
+                res.setHeader('content-type', contentType);
                 fs.createReadStream(target).pipe(res);
               }
             } catch (e) {
