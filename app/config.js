@@ -14,7 +14,8 @@ require.config({
     'utils': './libraries/utils',
     'cache': './libraries/cache',
     'moment': '../deps/moment/min/moment-with-locales.min',
-    'boss': './libraries/boss'
+    'boss': './libraries/boss',
+    'favicon': '../deps/favico.js/favico-0.3.10.min'
   },
 
   lodashLoader: {
