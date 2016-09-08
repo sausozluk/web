@@ -8,7 +8,7 @@ define(function (require, exports, module) {
 
     setTagsContent: function (text) {
       document.title = text;
-      $('[name="Description"]').attr('content', text);
+      $('[name="Description"]').attr('content', (text + " hakkında gereksiz şeyler içerir"));
     },
 
     render: function (url, id) {
