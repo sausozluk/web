@@ -249,7 +249,15 @@ ul.form > li > button:active {
     background-color: rgba(64,64,150,.75);
 }
 
+.left-menu {
+    visibility: hidden;
+}
+
 @media screen and (max-width: 850px) {
+    .left-menu {
+        visibility: visible;
+    }
+
     .left {
         visibility: hidden;
         display: none;
@@ -258,5 +266,10 @@ ul.form > li > button:active {
     .content {
         width: inherit !important;
         margin-left: inherit !important;
+    }
+
+    .content.today {
+        padding: 0px;
+        width: 100% !important;
     }
 }

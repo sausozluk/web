@@ -5,6 +5,7 @@ define(function (require, exports, module) {
   var TopicView = require('../views/topic');
   var LoginView = require('../views/login');
   var LogoutView = require('../views/logout');
+  var TodayView = require('../views/today');
 
   module.exports = {
     'register': function () {
@@ -24,6 +25,9 @@ define(function (require, exports, module) {
     },
     'logout': function () {
       return new LogoutView();
+    },
+    'today': function () {
+      return new TodayView();
     }
   };
 });

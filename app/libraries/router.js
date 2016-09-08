@@ -28,6 +28,10 @@ define(function (require, exports, module) {
         m: auth.isSecure,
         f: 'logout'
       },
+      'bugun': {
+        m: auth.isVoid,
+        f: 'today'
+      },
       ':url--:id(/)': {
         m: auth.isVoid,
         f: 'topic'
@@ -58,6 +62,10 @@ define(function (require, exports, module) {
 
     topic: function (url, id) {
       cache.appView.renderPage(PageController.topic(), [url, id]);
+    },
+
+    today: function () {
+      cache.appView.renderPage(PageController.today());
     },
 
     default: function () {

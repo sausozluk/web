@@ -33,9 +33,12 @@ define(function (require, exports, module) {
 
     renderPage: function (activeView, args) {
       NProgress.start();
+      var app = $('#app');
+      app.removeClass();
+      app.addClass('content');
       this.activeView = activeView;
       this.activeView.render.apply(this.activeView, args);
-      $('#app').html($(this.activeView.el)).promise().done(function () {
+      app.html($(this.activeView.el)).promise().done(function () {
         NProgress.done();
       });
     }
