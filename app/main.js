@@ -1,5 +1,7 @@
-require(['backbone', 'app', 'libraries/router'],
-  function (Backbone, app, Router) {
+require(['extends', 'backbone', 'app', 'libraries/router'],
+  function (_extends, Backbone, app, Router) {
+    console.log(_extends);
+
     var isProduction = $('meta[name="production"]').attr('value');
 
     app.router = new Router();

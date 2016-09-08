@@ -4,11 +4,16 @@ define(function (require, exports, module) {
   var TopicTemplate = require('template!../../templates/topic');
 
   module.exports = Backbone.View.extend({
-    events: {
+    events: {},
+
+    setTagsContent: function (text) {
+      document.title = text;
+      $('[name="Description"]').attr('content', text);
     },
 
     render: function (url, id) {
       $(this.el).html(TopicTemplate({title: url}));
+      this.setTagsContent(url.replaceAll('-', ' '));
     }
   });
 });
