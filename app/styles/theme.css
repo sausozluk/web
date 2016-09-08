@@ -17,6 +17,7 @@ a.logo {
     text-decoration: none;
     color: #fff;
     margin-left: 10px;
+    float: left;
 }
 
 ul.menu {
