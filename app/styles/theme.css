@@ -98,7 +98,7 @@ ul.topics > li a:hover {
 }
 
 ul.topics > li a > span.subject {
-    font-size: 9pt;
+    font-size: 0.8em;
     padding-right: 4px;
     display: block;
     line-height: 18px;
