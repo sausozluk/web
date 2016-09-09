@@ -44,10 +44,12 @@ require.config({
 
   config: {
     'modules/models/base': {
-      apiUrl: 'https://api.sausozluk.org'
+      apiUrl: 'https://api.sausozluk.org',
+      mockUrl: '/api'
     },
     'modules/collections/base': {
-      apiUrl: 'https://api.sausozluk.org'
+      apiUrl: 'https://api.sausozluk.org',
+      mockUrl: '/api'
     },
     'utils': {
       defaultToken: '3LD4V41' // if u lucky, get your lucky!

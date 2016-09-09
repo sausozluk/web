@@ -1,0 +1,9 @@
+{
+  "success": true,
+  "data": {
+    "id": "1",
+    "title": "başlık mı, işte burada! bu bir uzun başlıktır",
+    "clean": "baslik-mi-iste-burada-bu-bir-uzun-basliktir",
+    "count": 5
+  }
+}

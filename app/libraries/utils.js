@@ -28,8 +28,51 @@ define(function (require, exports, module) {
         }
       });
     },
+    tokenCollectionSync: function (options) {
+      options = options || {};
+
+      options.beforeSend = function (xhr) {
+        NProgress.start();
+        xhr.setRequestHeader(
+          'Authorization', 'Token token=' +
+          ($.cookie('token') || module.config().defaultToken)
+        );
+      };
+
+      options.error = function (xhr, status, error) {
+        NProgress.done();
+        doNoty('error', xhr.status === 0 ? 'server gone :(' : 'fuck, we forgot something :(');
+      };
+
+      var _ = options.success;
+
+      options.success = function (collection, response, xhr) {
+        NProgress.done();
+        if (!arguments[1].success) {
+          var msg = arguments[1].message;
+          if ($.isArray(msg)) {
+            for (var i in msg) {
+              doNoty('error', msg[i]);
+            }
+          } else {
+            doNoty('error', msg);
+          }
+        } else {
+          _.apply(this, arguments);
+        }
+      };
+
+      return options;
+    },
     tokenSync: function () {
       var sync = Backbone.sync;
+
+      var fetch = Backbone.Collection.fetch;
+
+      Backbone.Collection.fetch = function() {
+        console.log(arguments);
+        return fetch.call(this, arguments);
+      };
 
       Backbone.sync = function (method, model, options) {
         options = options || {};

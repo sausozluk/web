@@ -3,14 +3,14 @@ define(function (require, exports, module) {
 
   module.exports = Backbone.Model.extend({
     getApiUrl: function () {
-      return module.config().apiUrl;
+      return this.isMock ? module.config().mockUrl : module.config().apiUrl;
     },
     parse: function (response, options) {
       if (options.collection) {
         return response;
       } else {
-        return response;
+        return response.data;
       }
-    },
+    }
   });
 });

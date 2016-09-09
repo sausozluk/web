@@ -1,0 +1,89 @@
+{
+  "success": true,
+  "data": [
+    {
+      "id": "1",
+      "title": "başlık mı, işte burada! bu bir uzun başlıktır",
+      "clean": "baslik-mi-iste-burada-bu-bir-uzun-basliktir",
+      "count": 5
+    },
+    {
+      "id": "2",
+      "title": "başlık denemesi",
+      "clean": "baslik-denemesi",
+      "count": 2
+    },
+    {
+      "id": "3",
+      "title": "başlık denemesi 2",
+      "clean": "baslik-denemesi-2",
+      "count": 0
+    },
+    {
+      "id": "4",
+      "title": "entry sayısı olmayan çok uzun bir başlık, satırlarca da sürebilmelidir",
+      "clean": "entry-sayisi-olmayan-cok-uzun-bir-baslik-satirlarca-da-surebilmelidir",
+      "count": 0
+    },
+    {
+      "id": "5",
+      "title": "hem entry sayısı var hem de girilen entry çok fazla, ne olacak şimdi",
+      "clean": "hem-entry-sayisi-var-hem-de-girilen-entry-cok-fazla-ne-olacak-simdi",
+      "count": 239
+    },
+    {
+      "id": "6",
+      "title": "neremi neremi",
+      "clean": "neremi-neremi",
+      "count": 0
+    },
+    {
+      "id": "7",
+      "title": "bu da başlık işte vasıfsız şey",
+      "clean": "bu-da-baslik-iste-vasifsiz-sey",
+      "count": 0
+    },
+    {
+      "id": "8",
+      "title": "saat 12 olmuş lan",
+      "clean": "saat-12-olmus-lan",
+      "count": 86
+    },
+    {
+      "id": "9",
+      "title": "bu sözlüğü sana yazdım",
+      "clean": "bu-sozlugu-sana-yazdim",
+      "count": 0
+    },
+    {
+      "id": "10",
+      "title": "o gemi bir gün gelecek",
+      "clean": "o-gemi-bir-gun-gelecek",
+      "count": 0
+    },
+    {
+      "id": "11",
+      "title": "güliverin gezileri",
+      "clean": "guliverin-gezileri",
+      "count": 28
+    },
+    {
+      "id": "12",
+      "title": "bir kız bana emmi dedi",
+      "clean": "bir-kiz-bana-emmi-dedi",
+      "count": 0
+    },
+    {
+      "id": "13",
+      "title": "nikah masası",
+      "clean": "nikah-masasi",
+      "count": 0
+    },
+    {
+      "id": "14",
+      "title": "eriğe düşelim",
+      "clean": "erige-duselim",
+      "count": 0
+    }
+  ]
+}
