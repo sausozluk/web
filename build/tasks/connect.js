@@ -67,11 +67,11 @@ module.exports = function () {
         port: 1337,
         base: 'dist',
         middleware: function (connect, options) {
-          var middlewares = [];
-          middlewares.push(compression());
-          middlewares.push(mocker("/api", "mock"));
-          middlewares.push(pushState);
-          return middlewares;
+          return [
+            compression(),
+            mocker("/api", "mock"),
+            pushState
+          ];
         }
       }
     }
