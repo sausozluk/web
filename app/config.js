@@ -44,11 +44,11 @@ require.config({
 
   config: {
     'modules/models/base': {
-      apiUrl: 'https://api.sausozluk.org',
+      apiUrl: 'http://beta.sausozluk.org/api',
       mockUrl: '/api'
     },
     'modules/collections/base': {
-      apiUrl: 'https://api.sausozluk.org',
+      apiUrl: 'http://beta.sausozluk.org/api',
       mockUrl: '/api'
     },
     'utils': {
