@@ -69,7 +69,7 @@ module.exports = function () {
         middleware: function (connect, options) {
           return [
             compression(),
-            mocker("/api", "mock"),
+            mocker("/fake-api", "mock"),
             pushState
           ];
         }
