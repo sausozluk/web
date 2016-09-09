@@ -14,12 +14,26 @@ define(function (require, exports, module) {
     description: 'all man must login',
 
     events: {
-      'click #ok': 'doLogin'
+      'click #ok': 'doLoginWithClick',
+      'keyup #email': 'doLoginWithEnter',
+      'keyup #password': 'doLoginWithEnter'
     },
 
-    doLogin: function (e) {
+    doLoginWithClick: function (e) {
       e.preventDefault();
 
+      this.doLogin();
+    },
+
+    doLoginWithEnter: function (e) {
+      e.preventDefault();
+
+      if (e.keyCode === 13) {
+        this.doLogin();
+      }
+    },
+
+    doLogin: function () {
       userController.doLogin({
         email: $('#email').val(),
         password: $('#password').val()
