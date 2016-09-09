@@ -2,6 +2,7 @@ var parse = require('url').parse;
 var fs = require('fs');
 var mime = require('mime-types');
 var path = require('path');
+var compression = require('compression');
 
 var mocker = function (urlRoot, pathRoot) {
   pathRoot = pathRoot.replace(urlRoot, '');
@@ -38,6 +39,26 @@ var mocker = function (urlRoot, pathRoot) {
   };
 };
 
+var pushState = function (req, res) {
+  var url = parse(req.url);
+  var target = 'dist' + url.pathname;
+
+  try {
+    fs.statSync(target);
+    if (target.slice(-1) === "/") {
+      fs.createReadStream('dist/index.html').pipe(res);
+    } else {
+      res.writeHead(200, {
+        "Content-Type": mime.contentType(path.extname(target))
+      });
+
+      fs.createReadStream(target).pipe(res);
+    }
+  } catch (e) {
+    fs.createReadStream('dist/index.html').pipe(res);
+  }
+};
+
 module.exports = function () {
   this.loadNpmTasks('grunt-contrib-connect');
   return this.config('connect', {
@@ -47,29 +68,9 @@ module.exports = function () {
         base: 'dist',
         middleware: function (connect, options) {
           var middlewares = [];
-
+          middlewares.push(compression());
           middlewares.push(mocker("/api", "mock"));
-
-          middlewares.push(function (req, res) {
-            var url = parse(req.url);
-            var target = 'dist' + url.pathname;
-
-            try {
-              fs.statSync(target);
-              if (target.slice(-1) === "/") {
-                fs.createReadStream('dist/index.html').pipe(res);
-              } else {
-                res.writeHead(200, {
-                  "Content-Type": mime.contentType(path.extname(target))
-                });
-
-                fs.createReadStream(target).pipe(res);
-              }
-            } catch (e) {
-              fs.createReadStream('dist/index.html').pipe(res);
-            }
-          });
-
+          middlewares.push(pushState);
           return middlewares;
         }
       }
