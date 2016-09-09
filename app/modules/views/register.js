@@ -21,10 +21,10 @@ define(function (require, exports, module) {
         username: $('#username').val(),
         password: $('#password').val()
       }, function (data) {
-        if (data.success) {
-          utils.doNoty('success', 'gel gel sen de gel');
-          app.router.navigate('/', true);
-        }
+        $.cookie('token', data.token);
+        cache.trigger('auth-true');
+        utils.doNoty('success', 'gel gel sen de gel');
+        app.router.navigate('/', true);
       });
     },
 

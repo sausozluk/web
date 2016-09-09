@@ -20,7 +20,7 @@ define(function (require, exports, module) {
         email: $('#email').val(),
         password: $('#password').val()
       }, function (data) {
-        $.cookie('token', data.session.token);
+        $.cookie('token', data.token);
         cache.trigger('auth-true');
         utils.doNoty('success', 'yaaa şapşik ♥');
         if (!!cache.lastTry) {

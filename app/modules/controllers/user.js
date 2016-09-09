@@ -8,7 +8,7 @@ define(function (require, exports, module) {
 
       ajaxModel.save(data, {
         success: function (model, response) {
-          callback(response);
+          callback(response.data);
         }
       });
     },
@@ -40,7 +40,7 @@ define(function (require, exports, module) {
 
       ajaxModel.save(data, {
         success: function (model, response) {
-          callback(response);
+          callback(response.data);
         }
       });
     }
