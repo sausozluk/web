@@ -9,20 +9,29 @@ var mocker = function (urlRoot, pathRoot) {
   return function (req, res, next) {
     if (req.url.indexOf(urlRoot) === 0) {
       var url = req.url.split('?')[0];
-
-      fs.readFile(
-        './' + pathRoot + url + '/' + req.method + '.json',
-        function (err, buf) {
+      var target = './' + pathRoot + url + '/' + req.method + '.json';
+      try {
+        fs.statSync(target);
+        fs.readFile(target, function (err, buf) {
           if (err) return next(err);
 
-          var resp = {
-            headers: {'Content-Type': 'application/json; charset=utf-8', 'Content-Length': buf.length},
-            body: buf
-          };
+          res.writeHead(200, {
+            'Content-Type': 'application/json; charset=utf-8',
+            'Content-Length': buf.length
+          });
 
-          res.writeHead(200, resp.headers);
-          res.end(resp.body);
+          res.end(buf);
         });
+      } catch (e) {
+        res.writeHead(200, {
+          'Content-Type': 'application/json; charset=utf-8'
+        });
+
+        res.end(JSON.stringify({
+          success: false,
+          message: "yok ki"
+        }));
+      }
     } else {
       next();
     }
@@ -50,8 +59,10 @@ module.exports = function () {
               if (target.slice(-1) === "/") {
                 fs.createReadStream('dist/index.html').pipe(res);
               } else {
-                var contentType = mime.contentType(path.extname(target));
-                res.setHeader('content-type', contentType);
+                res.writeHead(200, {
+                  "Content-Type": mime.contentType(path.extname(target))
+                });
+
                 fs.createReadStream(target).pipe(res);
               }
             } catch (e) {

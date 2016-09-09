@@ -2,6 +2,7 @@ define(function (require, exports, module) {
   var $ = require('jquery');
   var Backbone = require('backbone');
   var TopicTemplate = require('template!../../templates/topic');
+  var topicController = require('../controllers/topic');
 
   module.exports = Backbone.View.extend({
     events: {},
@@ -12,8 +13,10 @@ define(function (require, exports, module) {
     },
 
     render: function (url, id) {
-      $(this.el).html(TopicTemplate({title: url}));
-      this.setTagsContent(url.replaceAll('-', ' '));
+      topicController.getTopicById(id, (function (topic) {
+        $(this.el).html(TopicTemplate(topic.toJSON()));
+        this.setTagsContent(topic.get('title'));
+      }).bind(this));
     }
   });
 });

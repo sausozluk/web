@@ -11,6 +11,15 @@ define(function (require, exports, module) {
           callback(topicCollection);
         }
       });
+    },
+    getTopicById: function (id, callback) {
+      var topicModel = new TopicModel({id: id});
+
+      topicModel.fetch({
+        success: function () {
+          callback(topicModel);
+        }
+      });
     }
   };
 });
