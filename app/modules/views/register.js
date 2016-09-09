@@ -9,6 +9,10 @@ define(function (require, exports, module) {
   require('jquery.cookie');
 
   module.exports = Backbone.View.extend({
+    title: 'kaydol',
+
+    description: 'hadi yine iyiyiz',
+
     events: {
       'click #ok': 'doRegister'
     },

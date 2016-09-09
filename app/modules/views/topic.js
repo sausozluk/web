@@ -7,7 +7,7 @@ define(function (require, exports, module) {
   module.exports = Backbone.View.extend({
     events: {},
 
-    setTagsContent: function (text) {
+    setTitleAndDescription: function (text) {
       document.title = text;
       $('[name="description"]').attr('content', ('"' + text + '" hakkında gereksiz şeyler içerir'));
     },
@@ -15,7 +15,7 @@ define(function (require, exports, module) {
     render: function (url, id) {
       topicController.getTopicById(id, (function (topic) {
         $(this.el).html(TopicTemplate(topic.toJSON()));
-        this.setTagsContent(topic.get('title'));
+        this.setTitleAndDescription(topic.get('title'));
       }).bind(this));
     }
   });

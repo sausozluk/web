@@ -9,12 +9,11 @@ define(function (require, exports, module) {
   require('jquery.cookie');
 
   module.exports = Backbone.View.extend({
-    events: {
-    },
+    title: 'kalkan gemi',
 
-    doLogout: function () {
-      cache.trigger('auth-false');
-      app.router.navigate('/', true);
+    description: 'gidene elveda denen yer',
+
+    events: {
     },
 
     render: function () {

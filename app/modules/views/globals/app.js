@@ -31,6 +31,11 @@ define(function (require, exports, module) {
       $('#content').append($(this.contentView.el));
     },
 
+    setTitleAndDescription: function (title, description) {
+      document.title = title;
+      $('[name="description"]').attr('content', description);
+    },
+
     renderPage: function (activeView, args) {
       NProgress.start();
       var app = $('#app');
@@ -38,9 +43,12 @@ define(function (require, exports, module) {
       app.addClass('content');
       this.activeView = activeView;
       this.activeView.render.apply(this.activeView, args);
-      app.html($(this.activeView.el)).promise().done(function () {
+      app.html($(this.activeView.el)).promise().done((function () {
+        if (!!this.activeView.title && !!this.activeView.description) {
+          this.setTitleAndDescription(this.activeView.title, this.activeView.description);
+        }
         NProgress.done();
-      });
+      }).bind(this));
     }
   });
 });

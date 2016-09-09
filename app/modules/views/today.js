@@ -4,6 +4,10 @@ define(function (require, exports, module) {
   var LeftFrameComponent = require('./components/left-frame');
 
   module.exports = Backbone.View.extend({
+    title: 'bugün',
+
+    description: '"bugün" neler olmuş öyle?',
+
     events: {
     },
 

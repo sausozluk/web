@@ -4,8 +4,11 @@ define(function (require, exports, module) {
   var HomeTemplate = require('template!../../templates/home');
 
   module.exports = Backbone.View.extend({
-    events: {
-    },
+    title: 'saüsözlük',
+    
+    description: 'sakarya üniversitesi\'nin interaktif sözlüğü gibi',
+
+    events: {},
 
     render: function () {
       $(this.el).html(HomeTemplate({}));
