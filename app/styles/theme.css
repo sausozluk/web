@@ -281,28 +281,29 @@ ul.form > li > button:active {
     }
 }
 
-.onclick-menu:focus [class*="-content"],
-.onclick-menu:active [class*="-content"] {
-    outline: none;
-    background: #404096;
-    display: block;
-    visibility: visible;
+.dropdown-menu:focus {
+    outline: 0;
 }
 
-[class*="-content"] {
-    background: #222;
+.dropdown-menu:focus .dropdown-content,
+.dropdown-menu:active .dropdown-content {
+    display: block;
+}
+
+.dropdown-content {
+    background: #404096;
     position: absolute;
-    z-index: 1;
+    z-index: 1000;
     right: 0;
-    top: 50px;
-    visibility: hidden;
-    border-radius: 8px;
-    transition: visibility 0.5s;
+    top: 100%;
+    border-radius: 3px;
+    margin-top: -1px;
+    border: 1px solid #fff;
     display: none;
 }
 
-[class*="-content"] li,
-[class*="-content"] li a {
+.dropdown-content li,
+.dropdown-content li a {
     padding: 0 8px;
     line-height: 30px;
     display: block;

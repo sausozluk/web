@@ -4,8 +4,7 @@ define(function (require, exports, module) {
   var HeaderTemplate = require('template!../../../templates/globals/header');
 
   module.exports = Backbone.View.extend({
-    events: {
-    },
+    events: {},
 
     initialize: function () {
     },
