@@ -29,7 +29,7 @@ ul.menu > li {
     float: left;
 }
 
-ul.menu > li a {
+ul.menu > li .menu-link, .dropdown-link {
     color: #fff;
     line-height: 40px;
     font-size: 10pt;
@@ -38,7 +38,7 @@ ul.menu > li a {
     border-radius: 8px;
 }
 
-ul.menu > li a:hover {
+ul.menu > li .menu-link:hover, .dropdown-link:hover {
     color: #404096;
     background-color: #fff;
 }
@@ -226,7 +226,7 @@ ul.form > li {
     font-size: 10pt;
 }
 
-ul.form > li > input{
+ul.form > li > input {
     outline: none;
     border: 1px solid #dbdbdb;
     padding: 5px;
@@ -238,7 +238,7 @@ ul.form > li > button {
     padding: 5px;
     color: #fff;
     min-width: 80px;
-    background-color: rgb(64,64,150);
+    background-color: rgb(64, 64, 150);
     border: none;
     cursor: pointer;
     border-radius: 3px;
@@ -246,7 +246,7 @@ ul.form > li > button {
 }
 
 ul.form > li > button:active {
-    background-color: rgba(64,64,150,.75);
+    background-color: rgba(64, 64, 150, .75);
 }
 
 .left-menu {
@@ -272,4 +272,34 @@ ul.form > li > button:active {
         padding: 0px;
         width: 100% !important;
     }
+}
+
+.onclick-menu:focus [class*="-content"],
+.onclick-menu:active [class*="-content"] {
+    outline: none;
+    background: #404096;
+    display: block;
+    visibility: visible;
+}
+
+[class*="-content"] {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 50px;
+    visibility: hidden;
+    border-radius: 8px;
+    transition: visibility 0.5s;
+    display: none;
+}
+
+[class*="-content"] li,
+[class*="-content"] li a {
+    padding: 0 8px;
+    line-height: 40px;
+    display: block;
+    float: none;
+    color: #fff;
+    font-size: 10pt;
+    text-decoration: none;
 }

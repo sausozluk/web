@@ -36,6 +36,10 @@ define(function (require, exports, module) {
         m: auth.isVoid,
         f: 'topic'
       },
+      'h/:nick(/)': {
+        m: auth.isVoid,
+        f: 'profile'
+      },
       '*path': {
         m: auth.isVoid,
         f: 'default'
@@ -62,6 +66,10 @@ define(function (require, exports, module) {
 
     topic: function (url, id) {
       cache.appView.renderPage(PageController.topic(), [url, id]);
+    },
+
+    profile: function (nick) {
+      cache.appView.renderPage(PageController.profile(), [nick]);
     },
 
     today: function () {
