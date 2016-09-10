@@ -40,6 +40,7 @@ define(function (require, exports, module) {
       };
 
       options.error = function (xhr, status, error) {
+        console.log(error);
         NProgress.done();
         doNoty('error', xhr.status === 0 ? 'server gone :(' : 'fuck, we forgot something :(');
       };
@@ -69,7 +70,7 @@ define(function (require, exports, module) {
 
       var fetch = Backbone.Collection.fetch;
 
-      Backbone.Collection.fetch = function() {
+      Backbone.Collection.fetch = function () {
         console.log(arguments);
         return fetch.call(this, arguments);
       };
@@ -86,6 +87,7 @@ define(function (require, exports, module) {
         };
 
         options.error = function (xhr, status, error) {
+          console.log(error);
           NProgress.done();
           doNoty('error', xhr.status === 0 ? 'server gone :(' : 'fuck, we forgot something :(');
         };
