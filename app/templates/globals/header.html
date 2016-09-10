@@ -1,25 +1,26 @@
 <a class="logo" href="#">saüsözlük</a>
 <ul class="menu left-menu" style="float: left; margin-left: 10px;">
-    <li><a href="bugun" class="menu-link"><i class="fa fa-rss"></i> bugün</a></li>
+    <li><a href="/bugun" class="menu-link"><i class="fa fa-rss"></i> bugün</a></li>
 </ul>
 <ul class="menu">
     <% if (auth === true) { %>
-    <li><a href="h/guguluk" class="menu-link"><i class="fa fa-user"></i> ben</a></li>
+    <li><a href="/h/guguluk" class="menu-link"><i class="fa fa-user"></i> ben</a></li>
+    <li><a href="/inbox" class="menu-link"><i class="fa fa-inbox"></i> mesaj</a></li>
     <li>
         <div class="onclick-menu" onclick="" tabindex="0">
             <span class="dropdown-link">...</span>
             <ul class="onclick-content">
                 <li>
-                    <a href="settings"> ayarlar</a>
+                    <a href="/settings"> ayarlar</a>
                 </li>
                 <li>
-                    <a href="logout"> çıkış</a>
+                    <a href="/logout"> çıkış</a>
                 </li>
             </ul>
         </div>
     </li>
     <% } else { %>
-    <li><a href="register" class="menu-link">kaydol</a></li>
-    <li><a href="login" class="menu-link">oturum aç</a></li>
+    <li><a href="/register" class="menu-link">kaydol</a></li>
+    <li><a href="/login" class="menu-link">oturum aç</a></li>
     <% } %>
 </ul>

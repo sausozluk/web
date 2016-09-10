@@ -28,9 +28,17 @@ define(function (require, exports, module) {
         m: auth.isSecure,
         f: 'logout'
       },
-      'bugun': {
+      'bugun(/)': {
         m: auth.isVoid,
         f: 'today'
+      },
+      'settings(/)': {
+        m: auth.isSecure,
+        f: 'settings'
+      },
+      'inbox(/)': {
+        m: auth.isSecure,
+        f: 'inbox'
       },
       ':url--:id(/)': {
         m: auth.isVoid,
@@ -74,6 +82,14 @@ define(function (require, exports, module) {
 
     today: function () {
       cache.appView.renderPage(PageController.today());
+    },
+
+    settings: function () {
+      cache.appView.renderPage(PageController.settings());
+    },
+
+    inbox: function () {
+      cache.appView.renderPage(PageController.inbox());
     },
 
     default: function () {

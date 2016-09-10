@@ -7,6 +7,8 @@ define(function (require, exports, module) {
   var LogoutView = require('../views/logout');
   var TodayView = require('../views/today');
   var ProfileView = require('../views/profile');
+  var SettingsView = require('../views/settings');
+  var InboxView = require('../views/inbox');
 
   module.exports = {
     'register': function () {
@@ -32,6 +34,12 @@ define(function (require, exports, module) {
     },
     'profile': function () {
       return new ProfileView();
+    },
+    'settings': function () {
+      return new SettingsView();
+    },
+    'inbox': function () {
+      return new InboxView();
     }
   };
 });
