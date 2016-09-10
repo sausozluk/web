@@ -32,7 +32,7 @@ ul.menu > li {
 ul.menu > li .menu-link, .dropdown-link {
     color: #fff;
     line-height: 40px;
-    font-size: 0.8em;
+    font-size: 10pt;
     text-decoration: none;
     padding: 5px 8px;
     border-radius: 8px;
@@ -253,6 +253,13 @@ ul.form > li > button:active {
     visibility: hidden;
 }
 
+@media screen and (max-width: 320px) {
+    .menu-link-text {
+        visibility: hidden;
+        display: none;
+    }
+}
+
 @media screen and (max-width: 850px) {
     .left-menu {
         visibility: visible;
@@ -283,6 +290,7 @@ ul.form > li > button:active {
 }
 
 [class*="-content"] {
+    background: #222;
     position: absolute;
     z-index: 1;
     right: 0;
@@ -296,10 +304,10 @@ ul.form > li > button:active {
 [class*="-content"] li,
 [class*="-content"] li a {
     padding: 0 8px;
-    line-height: 40px;
+    line-height: 30px;
     display: block;
     float: none;
     color: #fff;
-    font-size: 9pt;
+    font-size: 10pt;
     text-decoration: none;
 }
