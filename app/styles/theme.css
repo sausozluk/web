@@ -32,7 +32,7 @@ ul.menu > li {
 ul.menu > li .menu-link, .dropdown-link {
     color: #fff;
     line-height: 40px;
-    font-size: 10pt;
+    font-size: 0.8em;
     text-decoration: none;
     padding: 5px 8px;
     border-radius: 8px;
@@ -300,6 +300,6 @@ ul.form > li > button:active {
     display: block;
     float: none;
     color: #fff;
-    font-size: 10pt;
+    font-size: 9pt;
     text-decoration: none;
 }
