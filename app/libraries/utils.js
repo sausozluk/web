@@ -40,7 +40,6 @@ define(function (require, exports, module) {
       };
 
       options.error = function (xhr, status, error) {
-        console.log(argnames);
         NProgress.done();
         doNoty('error', xhr.status === 0 ? 'server gone :(' : 'fuck, we forgot something :(');
       };
@@ -82,7 +81,6 @@ define(function (require, exports, module) {
         };
 
         options.error = function (xhr, status, error) {
-          console.log(arguments);
           NProgress.done();
           doNoty('error', xhr.status === 0 ? 'server gone :(' : 'fuck, we forgot something :(');
         };
