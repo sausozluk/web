@@ -2,7 +2,6 @@ define(function (require, exports, module) {
   var UserController = require('./user');
   var app = require('app');
   var cache = require('cache');
-  require('jquery.cookie');
 
   module.exports = {
     isNotSecure: function (route, args, next) {

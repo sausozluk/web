@@ -10,7 +10,6 @@ define(function (require, exports, module) {
   utils.historyTrick();
   utils.tokenSync();
   utils.defineGlobalErrorHandler();
-
   appView.render();
 
   cache.appView = appView;

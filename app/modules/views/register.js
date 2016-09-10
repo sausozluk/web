@@ -5,8 +5,8 @@ define(function (require, exports, module) {
   var app = require('app');
   var cache = require('cache');
   var utils = require('utils');
+  var storage = require('storage');
   var userController = require('../controllers/user');
-  require('jquery.cookie');
 
   module.exports = Backbone.View.extend({
     title: 'kaydol',
@@ -25,7 +25,8 @@ define(function (require, exports, module) {
         username: $('#username').val(),
         password: $('#password').val()
       }, function (data) {
-        $.cookie('token', data.token);
+        storage.id = data.user_id;
+        storage.token = data.token;
         cache.trigger('auth-true');
         utils.doNoty('success', 'gel gel sen de gel');
         app.router.navigate('/', true);

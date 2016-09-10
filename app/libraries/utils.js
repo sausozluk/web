@@ -1,10 +1,10 @@
 define(function (require, exports, module) {
   var $ = require('jquery');
-  require('jquery.cookie');
   require('jquery.noty');
   var _ = require('underscore');
   var Backbone = require('backbone');
   var NProgress = require('nprogress');
+  var storage = require('storage');
 
   var doNoty = function (type, message) {
     noty({
@@ -35,7 +35,7 @@ define(function (require, exports, module) {
         NProgress.start();
         xhr.setRequestHeader(
           'Authorization', 'Token token=' +
-          ($.cookie('token') || module.config().defaultToken)
+          (storage.token || module.config().defaultToken)
         );
       };
 
@@ -67,8 +67,6 @@ define(function (require, exports, module) {
     tokenSync: function () {
       var sync = Backbone.sync;
 
-      var fetch = Backbone.Collection.fetch;
-
       Backbone.sync = function (method, model, options) {
         options = options || {};
 
@@ -76,7 +74,7 @@ define(function (require, exports, module) {
           NProgress.start();
           xhr.setRequestHeader(
             'Authorization', 'Token token=' +
-            ($.cookie('token') || module.config().defaultToken)
+            (storage.token || module.config().defaultToken)
           );
         };
 

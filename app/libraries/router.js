@@ -44,7 +44,7 @@ define(function (require, exports, module) {
         m: auth.isVoid,
         f: 'topic'
       },
-      'h/:nick(/)': {
+      'biri/:nick(/)': {
         m: auth.isVoid,
         f: 'profile'
       },
