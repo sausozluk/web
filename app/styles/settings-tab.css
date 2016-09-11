@@ -1,0 +1,31 @@
+.settings-tabs-menu {
+    border-bottom: 1px solid #404096;
+}
+
+.settings-tabs-menu li {
+    display: inline-block;
+    border-radius: 4px 4px 0 0;
+    padding: 4px 8px;
+    margin-bottom: -1px;
+}
+
+.settings-tabs-menu li.current {
+    border: 1px solid #404096;
+    border-bottom-color: #fff;
+}
+
+.settings-tab {
+    float: left;
+    margin-bottom: 20px;
+    width: auto;
+}
+
+.settings-tab-content {
+    width: 80%;
+    padding: 20px;
+    display: none;
+}
+
+#pref-tab {
+    display: block;
+}
