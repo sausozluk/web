@@ -241,7 +241,6 @@ ul.form > li > input {
     outline: none;
     border: 1px solid #dbdbdb;
     padding: 5px;
-    min-width: 240px;
     margin-bottom: 10px;
 }
 
@@ -269,10 +268,6 @@ ul.form > li > button:active {
         visibility: hidden;
         display: none;
     }
-
-    ul.form>li>input {
-        min-width: 10px;
-    }
 }
 
 @media screen and (max-width: 850px) {
@@ -286,7 +281,7 @@ ul.form > li > button:active {
     }
 
     .content {
-        width: inherit !important;
+        width: calc(100% - 40px) !important;
         margin-left: inherit !important;
     }
 
