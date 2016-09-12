@@ -73,6 +73,8 @@ define(function (require, exports, module) {
           }));
 
           utils.doNoty('success', 'vayyy, okuyo musunuz kaça gidiyosunuz?');
+
+          $('#new_entry').val('');
         }).bind(this));
       } else {
         utils.doNoty('error', 'yakışmadı');

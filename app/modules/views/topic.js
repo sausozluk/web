@@ -43,12 +43,17 @@ define(function (require, exports, module) {
       $(this.el).find('.entries').after(this.composeComponent.render().el);
     },
 
+    renderItem: function (model) {
+      var item = new EntryItemView({model: model});
+      $(this.el).find('.entries').append(item.render().el);
+    },
+
     render: function (url, id) {
       topicController.getTopicById(id, (function (topic) {
         $(this.el).html(TopicTemplate(topic.toJSON()));
         this.setTitleAndDescription(topic.get('title'));
 
-        topic.entries.on('add', this.render.bind(this, url, id), this);
+        topic.entries.on('add', this.renderItem, this);
 
         topic.entries.forEach((function (model) {
           var item = new EntryItemView({model: model});
