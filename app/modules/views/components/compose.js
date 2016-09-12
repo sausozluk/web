@@ -28,14 +28,18 @@ define(function (require, exports, module) {
       e.preventDefault();
 
       var value = prompt('hangi başlığa bkz verilecek?');
-      utils.insertAtCaret('new_entry', '(bkz: ' + value + ')');
+      if (value) {
+        utils.insertAtCaret('new_entry', '(bkz: ' + value + ')');
+      }
     },
 
     handleYildiz: function (e) {
       e.preventDefault();
 
       var value = prompt('yıldız içinde ne görünecek?');
-      utils.insertAtCaret('new_entry', '`:' + value + '`');
+      if (value) {
+        utils.insertAtCaret('new_entry', '`:' + value + '`');
+      }
     },
 
     handleLink: function (e) {
@@ -43,7 +47,9 @@ define(function (require, exports, module) {
 
       var address = prompt('hangi adrese gidecek?', 'http://');
       var text = prompt('verilecek linkin adı ne olacak?');
-      utils.insertAtCaret('new_entry', '[' + address + ' ' + text + ']');
+      if (address && text) {
+        utils.insertAtCaret('new_entry', '[' + address + ' ' + text + ']');
+      }
     },
 
     validate: function (text) {
