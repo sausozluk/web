@@ -107,6 +107,7 @@ ul.topics > li a > span.subject {
     padding-right: 4px;
     display: block;
     line-height: 18px;
+    text-transform: lowercase;
 }
 
 ul.topics > li a > span.count {
@@ -130,6 +131,7 @@ div.content {
 
 h1.topic_title {
     font-size: 20pt;
+    text-transform: lowercase;
 }
 
 ul.topic_actions {
@@ -194,6 +196,7 @@ ul.entries > li > div.text {
     padding: 14px 0 24px 0;
     line-height: 20px;
     text-align: justify;
+    text-transform: lowercase;
 }
 
 ul.entries > li > div.info {

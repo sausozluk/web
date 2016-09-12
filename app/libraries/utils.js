@@ -15,6 +15,15 @@ define(function (require, exports, module) {
     });
   };
 
+  var slugify = function (text) {
+    return text.toString().toLowerCase()
+      .replace(/\s+/g, '-')           // Replace spaces with -
+      .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+      .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+      .replace(/^-+/, '')             // Trim - from start of text
+      .replace(/-+$/, '');            // Trim - from end of text
+  };
+
   module.exports = {
     historyTrick: function () {
       $(document).on('click', 'a:not([data-bypass])', function (evt) {
