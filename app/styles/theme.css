@@ -120,6 +120,7 @@ div.content {
     width: calc(100% - 280px);
     margin-left: 240px;
     padding: 20px;
+    margin-right: 20px;
 }
 
 h1.topic_title {
@@ -267,6 +268,10 @@ ul.form > li > button:active {
     .menu-link-text {
         visibility: hidden;
         display: none;
+    }
+
+    ul.form>li>input {
+        min-width: 10px;
     }
 }
 

@@ -27,6 +27,9 @@ define(function (require, exports, module) {
       }, function (data) {
         storage.id = data.user_id;
         storage.token = data.token;
+        storage.permission = data.authority;
+        storage.email = data.email;
+        storage.username = data.username;
         cache.trigger('auth-true');
         utils.doNoty('success', 'gel gel sen de gel');
         app.router.navigate('/', true);

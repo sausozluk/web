@@ -2,6 +2,7 @@ define(function (require, exports, module) {
   var $ = require('jquery');
   var Backbone = require('backbone');
   var HeaderTemplate = require('template!../../../templates/globals/header');
+  var storage = require('storage');
 
   module.exports = Backbone.View.extend({
     events: {},
@@ -14,7 +15,11 @@ define(function (require, exports, module) {
     },
 
     renderWithAuth: function (auth) {
-      $(this.el).html(HeaderTemplate({auth: auth}));
+      $(this.el).html(HeaderTemplate({
+        auth: auth, data: auth ? {
+          username: storage.username
+        } : {}
+      }));
     }
   });
 });
