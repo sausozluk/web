@@ -1,4 +1,5 @@
 define(function (require, exports, module) {
+  var $ = require('jquery');
   var TopicModel = require('../models/topic');
   var TopicCollection = require('../collections/topic');
 
@@ -7,6 +8,7 @@ define(function (require, exports, module) {
       var topicCollection = new TopicCollection();
 
       topicCollection.fetch({
+        data: $.param({limit: 25}),
         success: function () {
           callback(topicCollection);
         }
