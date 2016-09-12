@@ -29,6 +29,8 @@ div.compose > ul.buttons > li > a {
     font-size: 9pt;
     text-decoration: none;
     color: #666666;
+    cursor: pointer;
+    border: 1px solid #dbdbdb;
 }
 
 div.compose > ul.buttons > li > a:hover {
@@ -42,6 +44,7 @@ div.compose > ul.buttons > li > a:hover {
 div.compose > ul.buttons > li > a.primary {
     background-color: #404096;
     color: #fff;
+    border: 1px solid #404096;
 }
 
 div.compose > ul.buttons > li > a.primary:hover {
