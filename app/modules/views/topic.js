@@ -38,8 +38,8 @@ define(function (require, exports, module) {
       $('[name="description"]').attr('content', ('"' + text + '" hakkında gereksiz şeyler içerir'));
     },
 
-    renderCompose: function (id) {
-      this.composeComponent = new ComposeComponent({id: id});
+    renderCompose: function (model, entries) {
+      this.composeComponent = new ComposeComponent({model: model, entries: entries});
       $(this.el).find('.entries').after(this.composeComponent.render().el);
     },
 
@@ -48,13 +48,15 @@ define(function (require, exports, module) {
         $(this.el).html(TopicTemplate(topic.toJSON()));
         this.setTitleAndDescription(topic.get('title'));
 
+        topic.entries.on('add', this.render.bind(this, url, id), this);
+
         topic.entries.forEach((function (model) {
           var item = new EntryItemView({model: model});
           $(this.el).find('.entries').append(item.render().el);
         }).bind(this));
 
         if (storage.username) {
-          this.renderCompose(id);
+          this.renderCompose(topic, topic.entries);
         }
       }).bind(this));
     }

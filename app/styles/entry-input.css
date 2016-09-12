@@ -4,7 +4,7 @@ div.compose {
 }
 
 div.compose > textarea {
-    width: 75%;
+    width: 90%;
     padding: 8px;
     border: 1px solid #dbdbdb;
     resize: vertical;
