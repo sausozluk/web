@@ -1,21 +1,21 @@
 <a class="logo" href="#">saüsözlük</a>
 <ul class="menu left-menu" style="float: left; margin-left: 10px;">
-    <li><a href="/bugun" class="menu-link"><i class="fa fa-rss"></i><span class="menu-link-text"> bugün</span></a></li>
+    <li><a href="/bugun" class="menu-link"><i class="fa fa-rss"></i><span class="menu-link-text">bugün</span></a></li>
 </ul>
 <ul class="menu">
     <% if (auth === true) { %>
-    <li><a href="/biri/<%= data.username %>" class="menu-link"><i class="fa fa-user"></i><span class="menu-link-text"> ben</span></a>
+    <li><a href="/biri/<%= data.username %>" class="menu-link"><i class="fa fa-user"></i><span class="menu-link-text">ben</span></a>
     </li>
-    <li><a href="/inbox" class="menu-link"><i class="fa fa-inbox"></i><span class="menu-link-text"> mesaj</span></a>
+    <li><a href="/inbox" class="menu-link"><i class="fa fa-inbox"></i><span class="menu-link-text">mesaj</span></a>
     </li>
     <li class="dropdown-menu" tabindex="0" onclick="">
         <span class="dropdown-link">...</span>
         <ul class="dropdown-content">
             <li>
-                <a href="/settings" class="dropdown-sub-link"> ayarlar</a>
+                <a href="/settings" class="dropdown-sub-link">ayarlar</a>
             </li>
             <li>
-                <a href="/logout" class="dropdown-sub-link"> çıkış</a>
+                <a href="/logout" class="dropdown-sub-link">çıkış</a>
             </li>
         </ul>
     </li>

@@ -36,11 +36,16 @@ ul.menu > li .menu-link, .dropdown-link {
     text-decoration: none;
     padding: 5px 8px;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 ul.menu > li .menu-link:hover, .dropdown-link:hover {
     color: #404096;
     background-color: #fff;
+}
+
+ul.menu > li .menu-link > span.menu-link-text {
+    padding-left: 8px;
 }
 
 div.wrapper {
@@ -106,7 +111,7 @@ ul.topics > li a > span.subject {
 
 ul.topics > li a > span.count {
     padding: 2px 4px;
-    background: #888;
+    background: #999;
     color: #fff;
     border-radius: 4px;
     font-size: 9pt;
@@ -318,11 +323,19 @@ ul.form > li > button:active {
 
 .dropdown-content li,
 .dropdown-content li a {
-    padding: 0 8px;
     line-height: 30px;
     display: block;
     float: none;
     color: #fff;
     font-size: 10pt;
     text-decoration: none;
+    cursor: pointer;
+}
+
+.dropdown-content li a {
+    padding: 0 16px;
+}
+
+.dropdown-content li a:hover {
+    background-color: rgba(255, 255, 255, .3);
 }
