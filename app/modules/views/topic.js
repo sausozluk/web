@@ -4,6 +4,8 @@ define(function (require, exports, module) {
   var TopicTemplate = require('template!../../templates/topic');
   var EntryItemTemplate = require('template!../../templates/components/entry-item');
   var topicController = require('../controllers/topic');
+  var ComposeComponent = require('./components/compose');
+  var storage = require('storage');
 
   var EntryItemView = Backbone.View.extend({
     template: EntryItemTemplate,
@@ -36,6 +38,11 @@ define(function (require, exports, module) {
       $('[name="description"]').attr('content', ('"' + text + '" hakkında gereksiz şeyler içerir'));
     },
 
+    renderCompose: function (id) {
+      this.composeComponent = new ComposeComponent({id: id});
+      $(this.el).find('.entries').after(this.composeComponent.render().el);
+    },
+
     render: function (url, id) {
       topicController.getTopicById(id, (function (topic) {
         $(this.el).html(TopicTemplate(topic.toJSON()));
@@ -45,6 +52,10 @@ define(function (require, exports, module) {
           var item = new EntryItemView({model: model});
           $(this.el).find('.entries').append(item.render().el);
         }).bind(this));
+
+        if (storage.username) {
+          this.renderCompose(id);
+        }
       }).bind(this));
     }
   });

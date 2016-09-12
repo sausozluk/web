@@ -20,6 +20,9 @@ define(function (require, exports, module) {
       UserController.logout({}, function () {
         storage.remove('id');
         storage.remove('token');
+        storage.remove('authority');
+        storage.remove('username');
+        storage.remove('email');
         cache.trigger('auth-false');
         utils.doNoty('success', 'sad but true :<');
         app.router.navigate('/login', true);
