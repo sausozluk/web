@@ -2,7 +2,31 @@ define(function (require, exports, module) {
   var $ = require('jquery');
   var Backbone = require('backbone');
   var TopicTemplate = require('template!../../templates/topic');
+  var EntryItemTemplate = require('template!../../templates/components/entry-item');
   var topicController = require('../controllers/topic');
+
+  var EntryItemView = Backbone.View.extend({
+    template: EntryItemTemplate,
+
+    tagName: 'li',
+
+    events: {},
+
+    selfDestroy: function (e) {
+      e.preventDefault();
+
+      this.model.destroy();
+    },
+
+    initialize: function () {
+      this.model.on('destroy', this.remove, this);
+    },
+
+    render: function () {
+      $(this.el).html(this.template(this.model.toJSON()));
+      return this;
+    }
+  });
 
   module.exports = Backbone.View.extend({
     events: {},
@@ -16,6 +40,11 @@ define(function (require, exports, module) {
       topicController.getTopicById(id, (function (topic) {
         $(this.el).html(TopicTemplate(topic.toJSON()));
         this.setTitleAndDescription(topic.get('title'));
+
+        topic.entries.forEach((function (model) {
+          var item = new EntryItemView({model: model});
+          $(this.el).find('.entries').append(item.render().el);
+        }).bind(this));
       }).bind(this));
     }
   });
