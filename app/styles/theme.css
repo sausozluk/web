@@ -269,7 +269,6 @@ ul.form > li > input {
     border: 1px solid #dbdbdb;
     padding: 5px;
     margin-bottom: 10px;
-    min-width: 200px;
 }
 
 ul.form > li > button {
