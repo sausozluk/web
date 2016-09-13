@@ -8,6 +8,7 @@ define(function (require, exports, module) {
   var ComposeComponent = require('./components/compose');
   var storage = require('storage');
   var utils = require('utils');
+  var cache = require('cache');
 
   var EntryItemView = Backbone.View.extend({
     template: EntryItemTemplate,
@@ -54,9 +55,12 @@ define(function (require, exports, module) {
     },
 
     selfDestroy: function () {
-      this.model.destroy();
-
-      utils.doNoty('success', 'ne kadar güzeldi o günler');
+      this.model.destroy({
+        success: function () {
+          utils.doNoty('success', 'ne kadar güzeldi o günler');
+          cache.trigger('reload-left');
+        }
+      });
     },
 
     initialize: function () {

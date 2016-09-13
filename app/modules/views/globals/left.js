@@ -14,6 +14,11 @@ define(function (require, exports, module) {
       this.leftFrameComponent.render();
     },
 
+    reload: function () {
+      this.leftFrameComponent.render();
+      this.render();
+    },
+
     render: function () {
       $(this.el).html(this.leftFrameComponent.el);
     }

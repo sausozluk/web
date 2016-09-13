@@ -19,5 +19,11 @@ define(function (require, exports, module) {
     }
   });
 
+  cache.on('reload-left', function () {
+    if (cache.appView !== 'undefined') {
+      cache.appView.leftView.reload();
+    }
+  });
+
   module.exports = cache;
 });

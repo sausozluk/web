@@ -6,6 +6,7 @@ define(function (require, exports, module) {
   var EntryModel = require('../../models/entry');
   var utils = require('utils');
   var storage = require('storage');
+  var cache = require('cache');
 
   module.exports = Backbone.View.extend({
     template: ComposeTemplate,
@@ -83,8 +84,8 @@ define(function (require, exports, module) {
           }));
 
           utils.doNoty('success', 'vayyy, okuyo musunuz kaça gidiyosunuz?');
-
           $('#new_entry').val('');
+          cache.trigger('reload-left');
         }).bind(this));
       } else {
         utils.doNoty('error', 'yakışmadı');

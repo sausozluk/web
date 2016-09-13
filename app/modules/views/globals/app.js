@@ -27,8 +27,9 @@ define(function (require, exports, module) {
       this.leftView.render();
       this.contentView.render();
       $('#head').html($(this.headerView.el));
-      $('#content').append($(this.leftView.el));
-      $('#content').append($(this.contentView.el));
+      this.contentEl = this.contentEl || $('#content');
+      this.contentEl.append($(this.leftView.el));
+      this.contentEl.append($(this.contentView.el));
     },
 
     setTitleAndDescription: function (title, description) {
