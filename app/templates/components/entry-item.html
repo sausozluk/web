@@ -1,7 +1,7 @@
-<span class="no">#<%= id %></span>
+<span class="no">#<%- id %></span>
 
 <div class="text">
-    <%= text %>
+    <%- text %>
 </div>
 <div class="info">
     <ul class="vote">
@@ -9,7 +9,7 @@
             <a href="#">
                 <i class="fa fa-thumbs-o-up"></i>
                 <% if (upvotes_count > 0) { %>
-                <span class="vote_text"><%= upvotes_count %></span>
+                <span class="vote_text"><%- upvotes_count %></span>
                 <% } %>
             </a>
         </li>
@@ -17,10 +17,10 @@
             <a href="#">
                 <i class="fa fa-thumbs-o-down"></i>
                 <% if (downvotes_count > 0) { %>
-                <span class="vote_text"><%= downvotes_count %></span>
+                <span class="vote_text"><%- downvotes_count %></span>
                 <% } %>
             </a>
         </li>
-        <li><a href="/biri/<%= username %>"><%= username %></a></li>
+        <li><a href="/biri/<%- username %>"><%- username %></a></li>
     </ul>
 </div>
