@@ -11,6 +11,12 @@ define(function (require, exports, module) {
       } else {
         return response.data;
       }
+    },
+    up: function (field) {
+      this.set(field, this.get(field) + 1);
+    },
+    down: function (field) {
+      this.set(field, this.get(field) - 1);
     }
   });
 });

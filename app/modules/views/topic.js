@@ -4,6 +4,7 @@ define(function (require, exports, module) {
   var TopicTemplate = require('template!../../templates/topic');
   var EntryItemTemplate = require('template!../../templates/components/entry-item');
   var topicController = require('../controllers/topic');
+  var entryController = require('../controllers/entry');
   var ComposeComponent = require('./components/compose');
   var storage = require('storage');
 
@@ -12,7 +13,35 @@ define(function (require, exports, module) {
 
     tagName: 'li',
 
-    events: {},
+    events: {
+      'click .up-vote': 'handleClickUpVote',
+      'click .down-vote': 'handleClickDownVote'
+    },
+
+    updateVotes: function (res) {
+      this.model.set({
+        'upvotes_count': res.upvotes_count,
+        'downvotes_count': res.downvotes_count
+      });
+    },
+
+    handleClickUpVote: function (e) {
+      e.preventDefault();
+
+      entryController.upVote(
+        this.model.get('id'), (function (res) {
+          this.updateVotes(res.data);
+        }).bind(this));
+    },
+
+    handleClickDownVote: function (e) {
+      e.preventDefault();
+
+      entryController.downVote(
+        this.model.get('id'), (function (res) {
+          this.updateVotes(res.data);
+        }).bind(this));
+    },
 
     selfDestroy: function (e) {
       e.preventDefault();
@@ -22,6 +51,7 @@ define(function (require, exports, module) {
 
     initialize: function () {
       this.model.on('destroy', this.remove, this);
+      this.model.on('change', this.render, this);
     },
 
     render: function () {
