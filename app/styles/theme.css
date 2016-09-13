@@ -306,7 +306,7 @@ div.footer > a:hover {
     width: 0;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 380px) {
     .menu-link-text {
         visibility: hidden;
         display: none;
