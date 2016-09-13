@@ -73,7 +73,11 @@ define(function (require, exports, module) {
           this.entries.add(new EntryModel({
             id: response.data.id,
             text: text,
-            username: storage.username,
+            user: {
+              id: storage.id,
+              username: storage.username,
+              slug: storage.slug
+            },
             upvotes_count: 0,
             downvotes_count: 0
           }));

@@ -7,7 +7,7 @@ define(function (require, exports, module) {
         return result;
       }
 
-      var arr = atob(result).split('-');
+      var arr = atob(result).split('|');
 
       if (arr[1] === 'number') {
         return parseFloat(arr[0]);
@@ -18,7 +18,7 @@ define(function (require, exports, module) {
       }
     },
     set: function (k, v) {
-      localStorage[k] = btoa(v + '-' + typeof v);
+      localStorage[k] = btoa(v + '|' + typeof v);
     },
     remove: function (k) {
       localStorage.removeItem(k);
@@ -41,6 +41,9 @@ define(function (require, exports, module) {
     get permission() {
       return dillikasarli.get('permission');
     },
+    get slug() {
+      return dillikasarli.get('slug');
+    },
     set id(id) {
       dillikasarli.set('id', id);
     },
@@ -55,6 +58,9 @@ define(function (require, exports, module) {
     },
     set permission(permission) {
       dillikasarli.set('permission', permission);
+    },
+    set slug(slug) {
+      dillikasarli.set('slug', slug);
     },
     remove: dillikasarli.remove
   };

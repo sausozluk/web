@@ -23,6 +23,7 @@ define(function (require, exports, module) {
         storage.remove('authority');
         storage.remove('username');
         storage.remove('email');
+        storage.remove('slug');
         cache.trigger('auth-false');
         utils.doNoty('success', 'sad but true :<');
         app.router.navigate('/login', true);

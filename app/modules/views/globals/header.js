@@ -17,7 +17,7 @@ define(function (require, exports, module) {
     renderWithAuth: function (auth) {
       $(this.el).html(HeaderTemplate({
         auth: auth, data: auth ? {
-          username: storage.username
+          slug: storage.slug
         } : {}
       }));
     }

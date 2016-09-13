@@ -7,6 +7,7 @@ define(function (require, exports, module) {
   var entryController = require('../controllers/entry');
   var ComposeComponent = require('./components/compose');
   var storage = require('storage');
+  var utils = require('utils');
 
   var EntryItemView = Backbone.View.extend({
     template: EntryItemTemplate,
@@ -15,7 +16,8 @@ define(function (require, exports, module) {
 
     events: {
       'click .up-vote': 'handleClickUpVote',
-      'click .down-vote': 'handleClickDownVote'
+      'click .down-vote': 'handleClickDownVote',
+      'click .remove': 'handleClickRemove'
     },
 
     updateVotes: function (res) {
@@ -34,6 +36,14 @@ define(function (require, exports, module) {
         }).bind(this));
     },
 
+    handleClickRemove: function (e) {
+      e.preventDefault();
+
+      if (confirm('eminsin?')) {
+        this.selfDestroy();
+      }
+    },
+
     handleClickDownVote: function (e) {
       e.preventDefault();
 
@@ -43,10 +53,10 @@ define(function (require, exports, module) {
         }).bind(this));
     },
 
-    selfDestroy: function (e) {
-      e.preventDefault();
-
+    selfDestroy: function () {
       this.model.destroy();
+
+      utils.doNoty('success', 'ne kadar güzeldi o günler');
     },
 
     initialize: function () {
@@ -55,7 +65,9 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      $(this.el).html(this.template(this.model.toJSON()));
+      var json = this.model.toJSON();
+      json.system_id = storage.id;
+      $(this.el).html(this.template(json));
       return this;
     }
   });

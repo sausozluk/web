@@ -30,6 +30,7 @@ define(function (require, exports, module) {
         storage.permission = data.authority;
         storage.email = data.email;
         storage.username = data.username;
+        storage.slug = data.slug;
         cache.trigger('auth-true');
         utils.doNoty('success', 'gel gel sen de gel');
         app.router.navigate('/', true);

@@ -21,6 +21,13 @@
                 <% } %>
             </a>
         </li>
-        <li><a href="/biri/<%- username %>"><%- username %></a></li>
+        <% if (user.id === system_id) { %>
+        <li>
+            <a class="remove">
+                <i class="fa fa-times"></i>
+            </a>
+        </li>
+        <% } %>
+        <li><a href="/biri/<%- user.slug %>"><%- user.username %></a></li>
     </ul>
 </div>
