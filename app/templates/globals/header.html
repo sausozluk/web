@@ -1,6 +1,10 @@
 <a class="logo" href="#">saüsözlük</a>
+<div class="search">
+    <input id="search" type="text" placeholder="açık ara bul kon" />
+</div>
 <ul class="menu left-menu" style="float: left; margin-left: 10px;">
-    <li><a href="/bugun" class="menu-link"><i class="fa fa-rss"></i><span class="menu-link-text">bugün</span></a></li>
+    <li><a href="/bugun" class="menu-link"><i class="fa fa-flash"></i><span class="menu-link-text">bugün</span></a></li>
+    <li><a href="/ara" class="menu-link"><i class="fa fa-search"></i></a></li>
 </ul>
 <ul class="menu">
     <% if (auth === true) { %>
@@ -20,7 +24,7 @@
         </ul>
     </li>
     <% } else { %>
-    <li><a href="/register" class="menu-link">kaydol</a></li>
+    <li class="register-item"><a href="/register" class="menu-link">kaydol</a></li>
     <li><a href="/login" class="menu-link">oturum aç</a></li>
     <% } %>
 </ul>
