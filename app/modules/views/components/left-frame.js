@@ -46,8 +46,12 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      $(this.el).html(this.template({title: 'bugün', subtitle: '25 başlık, 236 entry'}));
       this.getTopics((function (topics) {
+        $(this.el).html(this.template({
+          title: 'bugün',
+          subtitle: topics.topics_count + ' başlık, ' + topics.entries_count + ' entry'
+        }));
+
         topics.forEach((function (model) {
           var item = new TopicItemView({model: model});
           $(this.el).find('ul').append(item.render().el);
