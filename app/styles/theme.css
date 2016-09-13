@@ -3,7 +3,7 @@ body {
 }
 
 div.navbar {
-    background-color: #404096;
+    background-color: #488eb2;
     position: fixed;
     left: 0;
     top: 0;
@@ -55,7 +55,7 @@ ul.menu > li .menu-link, .dropdown-link {
 }
 
 ul.menu > li .menu-link:hover, .dropdown-link:hover {
-    color: #404096;
+    color: #488eb2;
     background-color: #fff;
 }
 
@@ -83,7 +83,7 @@ div.stairs {
 div.stairs > span.title {
     display: block;
     font-size: 12pt;
-    color: #404096;
+    color: #488eb2;
     padding-left: 12px;
     margin: 20px 0px 8px 0px;
 }
@@ -276,7 +276,7 @@ ul.form > li > button {
     padding: 5px;
     color: #fff;
     min-width: 80px;
-    background-color: rgb(64, 64, 150);
+    background-color: rgb(72, 142, 178);
     border: none;
     cursor: pointer;
     border-radius: 3px;
@@ -284,7 +284,7 @@ ul.form > li > button {
 }
 
 ul.form > li > button:active {
-    background-color: rgba(64, 64, 150, .75);
+    background-color: rgba(72, 142, 178, .75);
 }
 
 div.footer {
@@ -295,7 +295,7 @@ div.footer {
 
 div.footer > a {
     text-decoration: none;
-    color: #404096;
+    color: #488eb2;
 }
 
 div.footer > a:hover {
@@ -356,7 +356,7 @@ div.footer > a:hover {
 }
 
 .dropdown-content {
-    background: #404096;
+    background: #488eb2;
     position: absolute;
     z-index: 1000;
     right: 0;
