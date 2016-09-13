@@ -3,7 +3,7 @@ body {
 }
 
 div.navbar {
-    background-color: #404096;
+    background-color: #488eb2;
     position: fixed;
     left: 0;
     top: 0;
@@ -18,6 +18,21 @@ a.logo {
     color: #fff;
     margin-left: 10px;
     float: left;
+}
+
+div.search {
+    line-height: 40px;
+    position: absolute;
+    top: 0;
+    left: 240px;
+}
+
+div.search > input {
+    border: 1px solid #dbdbdb;
+    outline: none;
+    min-width: 300px;
+    padding: 5px;
+    border-radius: 2px;
 }
 
 ul.menu {
@@ -40,7 +55,7 @@ ul.menu > li .menu-link, .dropdown-link {
 }
 
 ul.menu > li .menu-link:hover, .dropdown-link:hover {
-    color: #404096;
+    color: #488eb2;
     background-color: #fff;
 }
 
@@ -68,7 +83,7 @@ div.stairs {
 div.stairs > span.title {
     display: block;
     font-size: 12pt;
-    color: #404096;
+    color: #488eb2;
     padding-left: 12px;
     margin: 20px 0px 8px 0px;
 }
@@ -254,13 +269,14 @@ ul.form > li > input {
     border: 1px solid #dbdbdb;
     padding: 5px;
     margin-bottom: 10px;
+    min-width: 200px;
 }
 
 ul.form > li > button {
     padding: 5px;
     color: #fff;
     min-width: 80px;
-    background-color: rgb(64, 64, 150);
+    background-color: rgb(72, 142, 178);
     border: none;
     cursor: pointer;
     border-radius: 3px;
@@ -268,11 +284,27 @@ ul.form > li > button {
 }
 
 ul.form > li > button:active {
-    background-color: rgba(64, 64, 150, .75);
+    background-color: rgba(72, 142, 178, .75);
+}
+
+div.footer {
+    display: block;
+    padding-top: 20px;
+    color: #444;
+}
+
+div.footer > a {
+    text-decoration: none;
+    color: #488eb2;
+}
+
+div.footer > a:hover {
+    text-decoration: underline;
 }
 
 .left-menu {
     visibility: hidden;
+    width: 0;
 }
 
 @media screen and (max-width: 320px) {
@@ -285,6 +317,7 @@ ul.form > li > button:active {
 @media screen and (max-width: 850px) {
     .left-menu {
         visibility: visible;
+        width: auto;
     }
 
     .left {
@@ -301,6 +334,16 @@ ul.form > li > button:active {
         padding: 0px;
         width: 100% !important;
     }
+
+    .search {
+        visibility: hidden;
+        display: none;
+    }
+
+    li.register-item {
+        visibility: hidden;
+        display: none;
+    }
 }
 
 .dropdown-menu:focus {
@@ -313,7 +356,7 @@ ul.form > li > button:active {
 }
 
 .dropdown-content {
-    background: #404096;
+    background: #488eb2;
     position: absolute;
     z-index: 1000;
     right: 0;

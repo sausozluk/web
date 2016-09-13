@@ -42,12 +42,12 @@ div.compose > ul.buttons > li > a:hover {
 }
 
 div.compose > ul.buttons > li > a.primary {
-    background-color: #404096;
+    background-color: #488eb2;
     color: #fff;
-    border: 1px solid #404096;
+    border: 1px solid #488eb2;
 }
 
 div.compose > ul.buttons > li > a.primary:hover {
-    background-color: rgba(64, 64, 150, .8);
+    background-color: rgba(72, 142, 178, .8);
     color: #fff;
 }

@@ -1,5 +1,5 @@
 .settings-tabs-menu {
-    border-bottom: 1px solid #404096;
+    border-bottom: 1px solid #488eb2;
 }
 
 .settings-tabs-menu li {
@@ -15,7 +15,7 @@
 }
 
 .settings-tabs-menu li.current {
-    border: 1px solid #404096;
+    border: 1px solid #488eb2;
     border-bottom-color: #fff;
     background-color: #fff;
 }
