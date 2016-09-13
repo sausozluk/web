@@ -64,6 +64,8 @@ define(function (require, exports, module) {
     handleOk: function (e) {
       e.preventDefault();
 
+      var now = new Date().getTime();
+
       var text = $('#new_entry').val();
 
       if (this.validate(text)) {
@@ -79,6 +81,8 @@ define(function (require, exports, module) {
               username: storage.username,
               slug: storage.slug
             },
+            created_at: now,
+            updated_at: now,
             upvotes_count: 0,
             downvotes_count: 0
           }));

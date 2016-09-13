@@ -1,7 +1,7 @@
 <span class="no">#<%- id %></span>
 
 <div class="text">
-    <%- text %>
+    <%= escape(text).replace(/(?:\r\n|\r|\n)/g, '<br/>') %>
 </div>
 <div class="info">
     <ul class="vote">
@@ -29,5 +29,20 @@
         </li>
         <% } %>
         <li><a href="/biri/<%- user.slug %>"><%- user.username %></a></li>
+        <li>
+            <a class="created">
+                <%- moment(created_at).fromNow() %>
+            </a>
+        </li>
+        <% if (created_at !== updated_at) {%>
+        <li>
+            ~
+        </li>
+        <li>
+            <a class="updated">
+                <%- moment(updated_at).fromNow() %>
+            </a>
+        </li>
+        <% } %>
     </ul>
 </div>

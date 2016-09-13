@@ -1,6 +1,7 @@
 define(function (require, exports, module) {
   var $ = require('jquery');
   var Backbone = require('backbone');
+  var _ = require('underscore');
   var TopicTemplate = require('template!../../templates/topic');
   var EntryItemTemplate = require('template!../../templates/components/entry-item');
   var topicController = require('../controllers/topic');
@@ -9,6 +10,7 @@ define(function (require, exports, module) {
   var storage = require('storage');
   var utils = require('utils');
   var cache = require('cache');
+  var moment = require('moment');
 
   var EntryItemView = Backbone.View.extend({
     template: EntryItemTemplate,
@@ -71,6 +73,8 @@ define(function (require, exports, module) {
     render: function () {
       var json = this.model.toJSON();
       json.system_id = storage.id;
+      json.escape = _.escape;
+      json.moment = moment;
       $(this.el).html(this.template(json));
       return this;
     }
