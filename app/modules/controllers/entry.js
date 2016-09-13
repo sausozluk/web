@@ -12,6 +12,15 @@ define(function (require, exports, module) {
         }
       });
     },
+    getEntryById: function (id, callback) {
+      var entryModel = new EntryModel({id: id});
+
+      entryModel.fetch({
+        success: function () {
+          callback(entryModel);
+        }
+      });
+    },
     'upVote': function (id, callback) {
       var ajaxModel = new AjaxModel();
 

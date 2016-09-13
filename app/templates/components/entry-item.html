@@ -21,13 +21,6 @@
                 <% } %>
             </a>
         </li>
-        <% if (user.id === system_id) { %>
-        <li>
-            <a class="remove">
-                <i class="fa fa-times"></i>
-            </a>
-        </li>
-        <% } %>
         <li><a href="/biri/<%- user.slug %>"><%- user.username %></a></li>
         <li>
             <a class="created">
@@ -41,6 +34,13 @@
         <li>
             <a class="updated">
                 <%- moment(updated_at).fromNow() %>
+            </a>
+        </li>
+        <% } %>
+        <% if (user.id === system_id) { %>
+        <li>
+            <a class="remove">
+                <i class="fa fa-times"></i>
             </a>
         </li>
         <% } %>

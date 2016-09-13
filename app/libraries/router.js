@@ -48,6 +48,10 @@ define(function (require, exports, module) {
         m: auth.isVoid,
         f: 'profile'
       },
+      'entry/:id(/)': {
+        m: auth.isVoid,
+        f: 'entry'
+      },
       '*path': {
         m: auth.isVoid,
         f: 'default'
@@ -74,6 +78,10 @@ define(function (require, exports, module) {
 
     topic: function (url, id) {
       cache.appView.renderPage(PageController.topic(), [url, id]);
+    },
+
+    entry: function (id) {
+      cache.appView.renderPage(PageController.entry(), [id]);
     },
 
     profile: function (nick) {
