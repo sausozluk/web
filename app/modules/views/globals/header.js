@@ -145,6 +145,12 @@ define(function (require, exports, module) {
         return;
       }
 
+      if (this.lastText === text) {
+        return;
+      }
+
+      this.lastText = text;
+
       if (!text.startsWith('#')) {
         searchController.suggest(text, (function (data) {
           this.initSuggestBox(data);
