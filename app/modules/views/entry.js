@@ -12,15 +12,18 @@ define(function (require, exports, module) {
   module.exports = Backbone.View.extend({
     events: {},
 
-    setTitleAndDescription: function (text) {
+    setTitleAndDescription: function (text, description) {
       document.title = text;
-      $('[name="description"]').attr('content', ('"' + text + '" hakkında gereksiz şeyler içerir'));
+      $('[name="description"]').attr('content', description);
     },
 
     render: function (id) {
       entryController.getEntryById(id, (function (entry) {
         $(this.el).html(TopicTemplate(entry.get('topic')));
-        this.setTitleAndDescription(entry.get('topic').title);
+        this.setTitleAndDescription(
+          entry.get('topic').title + '- #' + entry.get('id'),
+          entry.get('text')
+        );
 
         var item = new EntryItemComponent({model: entry});
         $(this.el).find('.entries').append(item.render().el);
