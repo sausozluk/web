@@ -68,9 +68,9 @@ define(function (require, exports, module) {
           } else {
             doNoty('error', msg);
           }
+        } else {
+          _s.apply(this, arguments);
         }
-
-        _s.apply(this, arguments);
       };
 
       return options;
@@ -109,9 +109,9 @@ define(function (require, exports, module) {
             } else {
               doNoty('error', msg);
             }
+          } else {
+            _s.apply(this, arguments);
           }
-
-          _s.apply(this, arguments);
         };
 
         return sync.call(Backbone, method, model, options);
