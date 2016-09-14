@@ -12,6 +12,21 @@ define(function (require, exports, module) {
   var SuggestListItem = Backbone.View.extend({
     template: SuggestListItemTemplate,
 
+    events: {
+      'click': 'handleClickOnMe'
+    },
+
+    handleClickOnMe: function (e) {
+      e.preventDefault();
+
+      this.routeForEnterData(this.o);
+    },
+
+    initialize: function (options) {
+      this.o = options.o;
+      this.routeForEnterData = options.routeForEnterData;
+    },
+
     tagName: 'li',
 
     render: function (text) {
@@ -23,9 +38,6 @@ define(function (require, exports, module) {
     events: {
       'keyup #search': 'startTimer',
       'keydown #search': 'stopTimer'
-    },
-
-    initialize: function () {
     },
 
     timer: -1,
@@ -49,6 +61,8 @@ define(function (require, exports, module) {
      * @param data.topics data
      */
     initSuggestBox: function (data) {
+      var self = this;
+
       var searchInput = $('#search');
       var suggestArea = $('.search-suggestion');
       var ul = suggestArea.find('ul');
@@ -56,13 +70,21 @@ define(function (require, exports, module) {
 
       if (data.topics.length || data.users.length) {
         _.forEach(data.topics, function (topic) {
-          var suggestListItem = new SuggestListItem();
+          var suggestListItem = new SuggestListItem({
+            o: topic,
+            routeForEnterData: self.routeForEnterData
+          });
+
           suggestListItem.render(topic.title);
           ul.append(suggestListItem.el);
         });
 
         _.forEach(data.users, function (user) {
-          var suggestListItem = new SuggestListItem();
+          var suggestListItem = new SuggestListItem({
+            o: user,
+            routeForEnterData: self.routeForEnterData
+          });
+
           suggestListItem.render('@' + user.username);
           ul.append(suggestListItem.el);
         });
@@ -76,6 +98,18 @@ define(function (require, exports, module) {
         suggestArea.show();
       } else {
         suggestArea.hide();
+      }
+    },
+
+    routeForEnterData: function (data) {
+      var router = getApp().router;
+
+      if (data) {
+        if (!data.hasOwnProperty('username')) {
+          router.navigate('/' + data.slug + '--' + data.id, true);
+        } else {
+          router.navigate('/biri/' + data.slug, true);
+        }
       }
     },
 
@@ -96,13 +130,7 @@ define(function (require, exports, module) {
       }
 
       if (suggestArea.is(':visible')) {
-        if (this.forEnter) {
-          if (!this.forEnter.hasOwnProperty('username')) {
-            router.navigate('/' + this.forEnter.slug + '--' + this.forEnter.id, true);
-          } else {
-            router.navigate('/biri/' + this.forEnter.slug, true);
-          }
-        }
+        this.routeForEnterData(this.forEnter);
       } else {
       }
     },
