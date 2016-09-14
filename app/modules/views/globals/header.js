@@ -46,11 +46,10 @@ define(function (require, exports, module) {
     startTimer: function (e) {
       if (e.keyCode === 13) {
         this.doMatch();
-        clearTimeout(this.timer);
-      } else {
-        clearTimeout(this.timer);
-        this.timer = setTimeout(this.doSuggest.bind(this), this.timeout);
       }
+
+      clearTimeout(this.timer);
+      this.timer = setTimeout(this.doSuggest.bind(this), this.timeout);
     },
 
     stopTimer: function (e) {
