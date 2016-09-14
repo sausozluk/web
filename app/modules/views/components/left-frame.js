@@ -4,6 +4,7 @@ define(function (require, exports, module) {
   var LeftFrameTemplate = require('template!../../../templates/components/left-frame');
   var LeftFrameTopicItemTemplate = require('template!../../../templates/components/left-frame-topic-item');
   var topicController = require('../../controllers/topic');
+  var cache = require('cache');
 
   var TopicItemView = Backbone.View.extend({
     template: LeftFrameTopicItemTemplate,
@@ -32,7 +33,8 @@ define(function (require, exports, module) {
     template: LeftFrameTemplate,
 
     events: {
-      'click .more': 'handleClickMore'
+      'click .more': 'handleClickMore',
+      'click .reload-left': 'handleClickReloadLeft'
     },
 
     tagName: 'div',
@@ -47,6 +49,12 @@ define(function (require, exports, module) {
       this.getMoreTopics((function (collection) {
         this.renderCollection(collection);
       }).bind(this));
+    },
+
+    handleClickReloadLeft: function (e) {
+      e.preventDefault();
+
+      cache.trigger('reload-left');
     },
 
     detectLastItem: function (collection) {
@@ -74,9 +82,10 @@ define(function (require, exports, module) {
     },
 
     renderCollection: function (collection) {
+      var ul = $(this.el).find('ul');
       collection.forEach((function (model) {
         var item = new TopicItemView({model: model});
-        $(this.el).find('ul').append(item.render().el);
+        ul.append(item.render().el);
       }).bind(this));
     },
 

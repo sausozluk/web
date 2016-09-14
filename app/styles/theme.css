@@ -394,3 +394,7 @@ div.footer > a:hover {
     font-size: 14px;
     color: #bdbdbd;
 }
+
+.reload-left {
+    margin-left: 8px;
+}

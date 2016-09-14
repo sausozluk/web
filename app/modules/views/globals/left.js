@@ -16,7 +16,6 @@ define(function (require, exports, module) {
 
     reload: function () {
       this.leftFrameComponent.render();
-      this.render();
     },
 
     render: function () {

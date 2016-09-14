@@ -53,7 +53,7 @@ require.config({
       mockUrl: '/fake-api'
     },
     'modules/controllers/topic': {
-      topicLimit: 25
+      topicLimit: 1
     },
     'utils': {
       defaultToken: '3LD4V41' // if u lucky, get your lucky!
