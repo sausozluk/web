@@ -31,7 +31,9 @@ define(function (require, exports, module) {
   module.exports = Backbone.View.extend({
     template: LeftFrameTemplate,
 
-    events: {},
+    events: {
+      'click .more': 'handleClickMore'
+    },
 
     tagName: 'div',
     className: 'stairs',
@@ -39,10 +41,43 @@ define(function (require, exports, module) {
     initialize: function () {
     },
 
+    handleClickMore: function (e) {
+      e.preventDefault();
+
+      this.getMoreTopics((function (collection) {
+        this.renderCollection(collection);
+      }).bind(this));
+    },
+
+    detectLastItem: function (collection) {
+      if (collection.length) {
+        this.lastModelUpdatedAt = collection.at(collection.length - 1).get('updated_at');
+      }
+    },
+
     getTopics: function (next) {
-      topicController.getTopics({}, function (collection) {
+      topicController.getTopics((function (collection) {
+        this.detectLastItem(collection);
         next(collection);
-      });
+      }).bind(this));
+    },
+
+    getMoreTopics: function (next) {
+      if (!this.lastModelUpdatedAt) {
+        return;
+      }
+
+      topicController.getMoreTopics(this.lastModelUpdatedAt, (function (collection) {
+        this.detectLastItem(collection);
+        next(collection);
+      }).bind(this));
+    },
+
+    renderCollection: function (collection) {
+      collection.forEach((function (model) {
+        var item = new TopicItemView({model: model});
+        $(this.el).find('ul').append(item.render().el);
+      }).bind(this));
     },
 
     render: function () {
@@ -52,10 +87,7 @@ define(function (require, exports, module) {
           subtitle: topics.topics_count + ' başlık, ' + topics.entries_count + ' entry'
         }));
 
-        topics.forEach((function (model) {
-          var item = new TopicItemView({model: model});
-          $(this.el).find('ul').append(item.render().el);
-        }).bind(this));
+        this.renderCollection(topics);
       }).bind(this));
     }
   });

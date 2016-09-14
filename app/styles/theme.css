@@ -74,6 +74,7 @@ div.left {
     border-right: 1px solid #dbdbdb;
     height: 100%;
     position: fixed;
+    overflow-y: auto;
 }
 
 div.stairs {
@@ -383,4 +384,13 @@ div.footer > a:hover {
 
 .dropdown-content li a:hover {
     background-color: rgba(255, 255, 255, .3);
+}
+
+.more {
+    float: right;
+    margin-bottom: 48px;
+    margin-top: 8px;
+    margin-right: 8px;
+    font-size: 14px;
+    color: #bdbdbd;
 }

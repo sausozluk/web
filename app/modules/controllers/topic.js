@@ -2,13 +2,14 @@ define(function (require, exports, module) {
   var $ = require('jquery');
   var TopicModel = require('../models/topic');
   var TopicCollection = require('../collections/topic');
+  var limit = module.config().topicLimit;
 
   module.exports = {
-    getTopics: function (data, callback) {
+    getTopics: function (callback) {
       var topicCollection = new TopicCollection();
 
       topicCollection.fetch({
-        data: $.param({limit: 25}),
+        data: $.param({count: limit}),
         success: function () {
           callback(topicCollection);
         }
@@ -20,6 +21,16 @@ define(function (require, exports, module) {
       topicModel.fetch({
         success: function () {
           callback(topicModel);
+        }
+      });
+    },
+    getMoreTopics: function (time, callback) {
+      var topicCollection = new TopicCollection();
+
+      topicCollection.fetch({
+        data: $.param({count: limit, timestamp: time}),
+        success: function () {
+          callback(topicCollection);
         }
       });
     }
