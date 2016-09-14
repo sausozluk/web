@@ -1,6 +1,10 @@
 <a class="logo" href="#">saüsözlük</a>
 <div class="search">
-    <input id="search" type="text" placeholder="açık ara bul kon" />
+    <input id="search" type="text" placeholder="başlık, #entry ya da @yazar"/>
+    <div class="search-suggestion">
+        <ul class="suggest-list">
+        </ul>
+    </div>
 </div>
 <ul class="menu left-menu" style="float: left; margin-left: 10px;">
     <li><a href="/bugun" class="menu-link"><i class="fa fa-flash"></i><span class="menu-link-text">bugün</span></a></li>
@@ -8,7 +12,8 @@
 </ul>
 <ul class="menu">
     <% if (auth === true) { %>
-    <li><a href="/biri/<%- data.slug %>" class="menu-link"><i class="fa fa-user"></i><span class="menu-link-text">ben</span></a>
+    <li><a href="/biri/<%- data.slug %>" class="menu-link"><i class="fa fa-user"></i><span
+            class="menu-link-text">ben</span></a>
     </li>
     <li><a href="/inbox" class="menu-link"><i class="fa fa-inbox"></i><span class="menu-link-text">mesaj</span></a>
     </li>

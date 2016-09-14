@@ -48,12 +48,14 @@ define(function (require, exports, module) {
         );
       };
 
+      var _s = options.success;
+      var _e = options.error;
+
       options.error = function (xhr, status, error) {
         NProgress.done();
         doNoty('error', xhr.status === 0 ? 'server gone :(' : 'fuck, we forgot something :(');
+        _e.apply(this, arguments);
       };
-
-      var _ = options.success;
 
       options.success = function (collection, response, xhr) {
         NProgress.done();
@@ -66,9 +68,9 @@ define(function (require, exports, module) {
           } else {
             doNoty('error', msg);
           }
-        } else {
-          _.apply(this, arguments);
         }
+
+        _s.apply(this, arguments);
       };
 
       return options;
@@ -87,12 +89,14 @@ define(function (require, exports, module) {
           );
         };
 
+        var _s = options.success;
+        var _e = options.error;
+
         options.error = function (xhr, status, error) {
           NProgress.done();
           doNoty('error', xhr.status === 0 ? 'server gone :(' : 'fuck, we forgot something :(');
+          _e.apply(this, arguments);
         };
-
-        var _ = options.success;
 
         options.success = function () {
           NProgress.done();
@@ -105,9 +109,9 @@ define(function (require, exports, module) {
             } else {
               doNoty('error', msg);
             }
-          } else {
-            _.apply(this, arguments);
           }
+
+          _s.apply(this, arguments);
         };
 
         return sync.call(Backbone, method, model, options);
@@ -172,6 +176,7 @@ define(function (require, exports, module) {
       }
 
       txtarea.scrollTop = scrollPos;
-    }
+    },
+    slugify: slugify
   };
 });
