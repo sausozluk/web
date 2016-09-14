@@ -22,18 +22,16 @@
             </a>
         </li>
         <li><a href="/biri/<%- user.slug %>"><%- user.username %></a></li>
+        <% if (created_at !== updated_at) {%>
+        <li>
+            <a class="updated">
+                <%- moment(updated_at).fromNow() %> (*)
+            </a>
+        </li>
+        <% } else { %>
         <li>
             <a class="created">
                 <%- moment(created_at).fromNow() %>
-            </a>
-        </li>
-        <% if (created_at !== updated_at) {%>
-        <li>
-            ~
-        </li>
-        <li>
-            <a class="updated">
-                <%- moment(updated_at).fromNow() %>
             </a>
         </li>
         <% } %>
