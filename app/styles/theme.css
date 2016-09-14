@@ -210,7 +210,7 @@ ul.entries > li > div.text {
     font-size: 10pt;
     padding: 14px 0 24px 0;
     line-height: 20px;
-    text-align: justify;
+    text-align: left;
     text-transform: lowercase;
 }
 

@@ -19,7 +19,8 @@ define(function (require, exports, module) {
       'click .no': 'handleClickNo',
       'click .up-vote': 'handleClickUpVote',
       'click .down-vote': 'handleClickDownVote',
-      'click .remove': 'handleClickRemove'
+      'click .remove': 'handleClickRemove',
+      'click .edit': 'handleClickEdit'
     },
 
     updateVotes: function (res) {
@@ -59,6 +60,12 @@ define(function (require, exports, module) {
         this.model.get('id'), (function (res) {
           this.updateVotes(res.data);
         }).bind(this));
+    },
+
+    handleClickEdit: function (e) {
+      e.preventDefault();
+
+      app.router.navigate('/entry/duzelt/' + this.model.get('id'), true);
     },
 
     selfDestroy: function () {

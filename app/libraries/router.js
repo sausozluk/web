@@ -52,6 +52,10 @@ define(function (require, exports, module) {
         m: auth.isVoid,
         f: 'entry'
       },
+      'entry/duzelt/:id(/)': {
+        m: auth.isSecure,
+        f: 'entry-edit'
+      },
       '*path': {
         m: auth.isVoid,
         f: 'default'
@@ -82,6 +86,10 @@ define(function (require, exports, module) {
 
     entry: function (id) {
       cache.appView.renderPage(PageController.entry(), [id]);
+    },
+
+    'entry-edit': function (id) {
+      cache.appView.renderPage(PageController['entry-edit'](), [id]);
     },
 
     profile: function (nick) {
