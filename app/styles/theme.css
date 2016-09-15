@@ -426,3 +426,7 @@ ul.suggest-list > li {
     font-size: 0.8em;
     color: #666;
 }
+
+.topic-wrapper {
+    margin-bottom: 36px;
+}
