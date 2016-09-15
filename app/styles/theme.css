@@ -198,12 +198,13 @@ ul.entries > li {
     padding: 10px 0;
 }
 
-ul.entries > li > span.no {
+ul.entries > li > a.no {
     display: block;
     border-bottom: 1px solid #dddddd;
     color: #999;
     font-size: 8pt;
     padding-bottom: 6px;
+    text-decoration: none;
 }
 
 ul.entries > li > div.text {

@@ -16,7 +16,6 @@ define(function (require, exports, module) {
     tagName: 'li',
 
     events: {
-      'click .no': 'handleClickNo',
       'click .up-vote': 'handleClickUpVote',
       'click .down-vote': 'handleClickDownVote',
       'click .remove': 'handleClickRemove',
@@ -28,12 +27,6 @@ define(function (require, exports, module) {
         'upvotes_count': res.upvotes_count,
         'downvotes_count': res.downvotes_count
       });
-    },
-
-    handleClickNo: function (e) {
-      e.preventDefault();
-
-      app.router.navigate('/entry/' + this.model.get('id'), true);
     },
 
     handleClickUpVote: function (e) {
