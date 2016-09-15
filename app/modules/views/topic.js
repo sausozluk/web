@@ -15,7 +15,7 @@ define(function (require, exports, module) {
 
     setTitleAndDescription: function (text) {
       document.title = text;
-      $('[name="description"]').attr('content', ('"' + text + '" hakkında gereksiz şeyler içerir'));
+      $('[name="Description"]').attr('content', ('"' + text + '" hakkında gereksiz şeyler içerir'));
     },
 
     renderCompose: function (model, entries) {

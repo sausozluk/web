@@ -9,7 +9,7 @@ define(function (require, exports, module) {
 
     setTitleAndDescription: function (text) {
       document.title = text;
-      $('[name="description"]').attr('content', ('"' + text + '" nickli kullanıcı işte'));
+      $('[name="Description"]').attr('content', ('"' + text + '" nickli kullanıcı işte'));
     },
 
     render: function (nick) {

@@ -13,7 +13,7 @@ define(function (require, exports, module) {
 
     setTitleAndDescription: function (text) {
       document.title = text;
-      $('[name="description"]').attr('content', ('"' + text + '" hakkında gereksiz şeylerle bilgilendir'));
+      $('[name="Description"]').attr('content', ('"' + text + '" hakkında gereksiz şeylerle bilgilendir'));
     },
 
     continueRender: function (title) {
