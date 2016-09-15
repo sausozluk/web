@@ -216,6 +216,11 @@ ul.entries > li > div.text {
     text-transform: lowercase;
 }
 
+div.text > a {
+    text-decoration: none;
+    color: #488eb2;
+}
+
 ul.entries > li > div.info {
     float: right;
     display: block;

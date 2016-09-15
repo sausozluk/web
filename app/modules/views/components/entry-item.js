@@ -75,12 +75,15 @@ define(function (require, exports, module) {
       this.model.on('change', this.render, this);
     },
 
+    strCleaner: function (str) {
+      return utils.br(utils.yildiz(utils.bkz(_.escape(str))));
+    },
+
     render: function () {
       var json = this.model.toJSON();
       json.system_id = storage.id;
-      json.escape = _.escape;
+      json.cleaner = this.strCleaner;
       json.moment = moment;
-      json.bkz = utils.bkz;
       $(this.el).html(this.template(json));
       return this;
     }

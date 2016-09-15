@@ -182,6 +182,14 @@ define(function (require, exports, module) {
       return str.replace(/\(bkz: *([^)]+)\)/g, function (a, t) {
         return '(bkz: <a href="/q/' + t + '">' + t + '</a>)';
       });
+    },
+    yildiz: function (str) {
+      return str.replace(/`:([^`]+)`/g, function (a, t) {
+        return '<a title="(bkz: ' + t + ')" href="/q/' + t + '">*</a>';
+      });
+    },
+    br: function (str) {
+      return str.replace(/(?:\r\n|\r|\n)/g, '<br/>');
     }
   };
 });
