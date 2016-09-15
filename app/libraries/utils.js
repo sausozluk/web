@@ -188,6 +188,11 @@ define(function (require, exports, module) {
         return '<a title="(bkz: ' + t + ')" href="/q/' + t + '">*</a>';
       });
     },
+    link: function (str) {
+      return str.replace(/\[([^ ]+) +([^\]]+)]/g, function (a, t1, t2) {
+        return '<a href="' + t1 + '">' + t2 + '</a>';
+      });
+    },
     br: function (str) {
       return str.replace(/(?:\r\n|\r|\n)/g, '<br/>');
     }
