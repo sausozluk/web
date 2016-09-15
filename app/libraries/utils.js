@@ -190,7 +190,7 @@ define(function (require, exports, module) {
     },
     link: function (str) {
       return str.replace(/\[([^ ]+) +([^\]]+)]/g, function (a, t1, t2) {
-        return '<a href="' + t1 + '">' + t2 + '</a>';
+        return '<a target="_blank" href="' + t1 + '">' + t2 + ' <i class="fa fa-external-link"></i></a>';
       });
     },
     br: function (str) {
