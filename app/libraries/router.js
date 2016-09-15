@@ -16,15 +16,15 @@ define(function (require, exports, module) {
         m: auth.isVoid,
         f: 'home'
       },
-      'register(/)': {
+      'kayit(/)': {
         m: auth.isNotSecure,
         f: 'register'
       },
-      'login(/)': {
+      'giris(/)': {
         m: auth.isNotSecure,
         f: 'login'
       },
-      'logout(/)': {
+      'cikis(/)': {
         m: auth.isSecure,
         f: 'logout'
       },
@@ -32,11 +32,11 @@ define(function (require, exports, module) {
         m: auth.isVoid,
         f: 'today'
       },
-      'settings(/)': {
+      'ayarlar(/)': {
         m: auth.isSecure,
         f: 'settings'
       },
-      'inbox(/)': {
+      'mesaj(/)': {
         m: auth.isSecure,
         f: 'inbox'
       },

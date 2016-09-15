@@ -23,7 +23,7 @@ define(function (require, exports, module) {
         } else {
           cache.trigger('auth-false');
           cache.lastTry = location.pathname;
-          app.router.navigate('/login', true);
+          app.router.navigate('/giris', true);
         }
       });
     },

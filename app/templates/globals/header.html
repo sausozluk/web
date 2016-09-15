@@ -15,21 +15,21 @@
     <li><a href="/biri/<%- data.slug %>" class="menu-link"><i class="fa fa-user"></i><span
             class="menu-link-text">ben</span></a>
     </li>
-    <li><a href="/inbox" class="menu-link"><i class="fa fa-inbox"></i><span class="menu-link-text">mesaj</span></a>
+    <li><a href="/mesaj" class="menu-link"><i class="fa fa-inbox"></i><span class="menu-link-text">mesaj</span></a>
     </li>
     <li class="dropdown-menu" tabindex="0" onclick="">
         <span class="dropdown-link">...</span>
         <ul class="dropdown-content">
             <li>
-                <a href="/settings" class="dropdown-sub-link">ayarlar</a>
+                <a href="/ayarlar" class="dropdown-sub-link">ayarlar</a>
             </li>
             <li>
-                <a href="/logout" class="dropdown-sub-link">çıkış</a>
+                <a href="/cikis" class="dropdown-sub-link">çıkış</a>
             </li>
         </ul>
     </li>
     <% } else { %>
     <li class="register-item"><a href="/register" class="menu-link">kaydol</a></li>
-    <li><a href="/login" class="menu-link">oturum aç</a></li>
+    <li><a href="/giris" class="menu-link">oturum aç</a></li>
     <% } %>
 </ul>

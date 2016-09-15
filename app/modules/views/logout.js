@@ -26,7 +26,7 @@ define(function (require, exports, module) {
         storage.remove('slug');
         cache.trigger('auth-false');
         utils.doNoty('success', 'sad but true :<');
-        app.router.navigate('/login', true);
+        app.router.navigate('/giris', true);
       });
     }
   });
