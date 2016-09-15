@@ -52,6 +52,10 @@ define(function (require, exports, module) {
         m: auth.isVoid,
         f: 'entry'
       },
+      'q/:text(/)': {
+        m: auth.isVoid,
+        f: 'q'
+      },
       'entry/duzelt/:id(/)': {
         m: auth.isSecure,
         f: 'entry-edit'
@@ -106,6 +110,10 @@ define(function (require, exports, module) {
 
     inbox: function () {
       cache.appView.renderPage(PageController.inbox());
+    },
+
+    q: function (text) {
+      cache.appView.renderPage(PageController.q(), [text]);
     },
 
     default: function () {

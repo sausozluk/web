@@ -131,6 +131,16 @@ define(function (require, exports, module) {
       if (suggestArea.is(':visible')) {
         this.routeForEnterData(this.forEnter);
       } else {
+        if (!text.startsWith('@')) {
+          searchController.suggest(text, (function (data) {
+            if (!data.topics.length) {
+              router.navigate('/q/' + text, true);
+            } else {
+              var first = data.topics[0];
+              router.navigate('/' + first.slug + '--' + first.id, true);
+            }
+          }).bind(this));
+        }
       }
     },
 

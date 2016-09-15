@@ -9,6 +9,7 @@ define(function (require, exports, module) {
   var ProfileView = require('../views/profile');
   var SettingsView = require('../views/settings');
   var InboxView = require('../views/inbox');
+  var QView = require('../views/q');
   var EntryView = require('../views/entry');
   var EntryEditView = require('../views/entry-edit');
 
@@ -45,6 +46,9 @@ define(function (require, exports, module) {
     },
     'entry': function () {
       return new EntryView();
+    },
+    'q': function () {
+      return new QView();
     },
     'entry-edit': function () {
       return new EntryEditView();

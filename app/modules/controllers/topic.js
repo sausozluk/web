@@ -1,6 +1,7 @@
 define(function (require, exports, module) {
   var $ = require('jquery');
   var TopicModel = require('../models/topic');
+  var AjaxModel = require('../models/ajax');
   var TopicCollection = require('../collections/topic');
   var RandomCollection = require('../collections/random');
   var limit = module.config().topicLimit;
@@ -41,6 +42,16 @@ define(function (require, exports, module) {
       randomCollection.fetch({
         success: function () {
           callback(randomCollection);
+        }
+      });
+    },
+    newTopic: function (title, text, callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/topics');
+
+      ajaxModel.save({topic: {title: title}, entry: {text: text}}, {
+        success: function (model, response) {
+          callback(response.entry_id);
         }
       });
     }
