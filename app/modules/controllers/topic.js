@@ -2,6 +2,7 @@ define(function (require, exports, module) {
   var $ = require('jquery');
   var TopicModel = require('../models/topic');
   var TopicCollection = require('../collections/topic');
+  var RandomCollection = require('../collections/random');
   var limit = module.config().topicLimit;
 
   module.exports = {
@@ -31,6 +32,15 @@ define(function (require, exports, module) {
         data: $.param({count: limit, timestamp: time}),
         success: function () {
           callback(topicCollection);
+        }
+      });
+    },
+    random: function (callback) {
+      var randomCollection = new RandomCollection();
+
+      randomCollection.fetch({
+        success: function () {
+          callback(randomCollection);
         }
       });
     }

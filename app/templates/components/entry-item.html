@@ -5,16 +5,16 @@
 </div>
 <div class="info">
     <ul class="vote">
-        <li>
-            <a class="up-vote">
+        <li<% if (system_id) { %> class="up-vote" <% } %>>
+            <a>
                 <i class="fa fa-thumbs-o-up"></i>
                 <% if (upvotes_count > 0) { %>
                 <span class="vote_text"><%- upvotes_count %></span>
                 <% } %>
             </a>
         </li>
-        <li>
-            <a class="down-vote">
+        <li<% if (system_id) { %> class="down-vote" <% } %>>
+            <a>
                 <i class="fa fa-thumbs-o-down"></i>
                 <% if (downvotes_count > 0) { %>
                 <span class="vote_text"><%- downvotes_count %></span>
@@ -36,13 +36,13 @@
         </li>
         <% } %>
         <% if (user.id === system_id) { %>
-        <li>
-            <a class="remove">
+        <li class="remove">
+            <a>
                 <i class="fa fa-times"></i>
             </a>
         </li>
-        <li>
-            <a class="edit">
+        <li class="edit">
+            <a>
                 <i class="fa fa-pencil-square-o"></i>
             </a>
         </li>
