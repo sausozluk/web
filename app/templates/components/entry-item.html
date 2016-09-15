@@ -1,7 +1,7 @@
 <a href="/entry/<%- id %>" class="no">#<%- id %></a>
 
 <div class="text">
-    <%= escape(text).replace(/(?:\r\n|\r|\n)/g, '<br/>') %>
+    <%= bkz(escape(text)).replace(/(?:\r\n|\r|\n)/g, '<br/>') %>
 </div>
 <div class="info">
     <ul class="vote">

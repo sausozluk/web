@@ -80,6 +80,7 @@ define(function (require, exports, module) {
       json.system_id = storage.id;
       json.escape = _.escape;
       json.moment = moment;
+      json.bkz = utils.bkz;
       $(this.el).html(this.template(json));
       return this;
     }
