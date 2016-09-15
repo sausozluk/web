@@ -19,8 +19,6 @@ define(function (require, exports, module) {
       topicController.random((function (collection) {
         collection.forEach((function (random) {
           var el = $(RandomTemplate(random.topic.toJSON()));
-          random.entry.set('upvotes_count', 0);
-          random.entry.set('downvotes_count', 0);
           var item = new EntryItemComponent({model: random.entry});
           $(el.get(2)).append(item.render().el);
           $(this.el).append(el);
