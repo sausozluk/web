@@ -3,6 +3,7 @@ define(function (require, exports, module) {
   var Backbone = require('backbone');
   var QTemplate = require('template!../../templates/q');
   var ComposeNewComponent = require('./components/compose-new');
+  var storage = require('storage');
 
   module.exports = Backbone.View.extend({
     events: {},
@@ -16,8 +17,10 @@ define(function (require, exports, module) {
       $(this.el).html(QTemplate({title: title}));
       this.setTitleAndDescription(title);
 
-      var item = new ComposeNewComponent();
-      $(this.el).append(item.render(title).el);
+      if (storage.id) {
+        var item = new ComposeNewComponent();
+        $(this.el).append(item.render(title).el);
+      }
     }
   });
 });

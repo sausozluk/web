@@ -1,4 +1,5 @@
 define(function (require, exports, module) {
+  var cache = require('cache');
   var Favico = require('favicon');
   var counterScript = require('text!libraries/workers/counter.js');
 
@@ -9,6 +10,7 @@ define(function (require, exports, module) {
 
   counter.onmessage = function (e) {
     icon.badge(parseInt(e.data));
+    cache.trigger('reload-left');
   };
 
   module.exports = {
