@@ -179,13 +179,9 @@ define(function (require, exports, module) {
     },
     slugify: slugify,
     bkz: function (str) {
-      var out = str.replace(/\(bkz: *([^)]+)\)/g, function (a, t) {
+      return str.replace(/\(bkz: *([^)]+)\)/g, function (a, t) {
         return '(bkz: <a href="/q/' + t + '">' + t + '</a>)';
       });
-
-      console.log(out);
-
-      return out;
     }
   };
 });
