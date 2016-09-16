@@ -1,6 +1,7 @@
 define(function (require, exports, module) {
   var $ = require('jquery');
   var Backbone = require('backbone');
+  var _ = require('underscore');
   var HeaderTemplate = require('template!../../../templates/globals/header');
   var SuggestListItemTemplate = require('template!../../../templates/components/suggest-list-item');
   var searchController = require('../../controllers/search');
@@ -136,8 +137,12 @@ define(function (require, exports, module) {
             if (!data.topics.length) {
               router.navigate('/q/' + text, true);
             } else {
-              var first = data.topics[0];
-              router.navigate('/' + first.slug + '--' + first.id, true);
+              var result = _.find(data.topics, {title: text});
+              if (result) {
+                router.navigate('/' + result.slug + '--' + result.id, true);
+              } else {
+                router.navigate('/q/' + text, true);
+              }
             }
           }).bind(this));
         }
