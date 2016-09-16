@@ -12,6 +12,7 @@ define(function (require, exports, module) {
   var QView = require('../views/q');
   var EntryView = require('../views/entry');
   var EntryEditView = require('../views/entry-edit');
+  var SearchView = require('../views/search');
 
   module.exports = {
     'register': function () {
@@ -49,6 +50,9 @@ define(function (require, exports, module) {
     },
     'q': function () {
       return new QView();
+    },
+    'search': function () {
+      return new SearchView();
     },
     'entry-edit': function () {
       return new EntryEditView();

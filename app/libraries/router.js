@@ -56,6 +56,10 @@ define(function (require, exports, module) {
         m: auth.isVoid,
         f: 'q'
       },
+      'ara': {
+        m: auth.isVoid,
+        f: 'search'
+      },
       'entry/duzelt/:id(/)': {
         m: auth.isSecure,
         f: 'entry-edit'
@@ -114,6 +118,10 @@ define(function (require, exports, module) {
 
     q: function (text) {
       cache.appView.renderPage(PageController.q(), [text]);
+    },
+
+    search: function () {
+      cache.appView.renderPage(PageController.search());
     },
 
     default: function () {
