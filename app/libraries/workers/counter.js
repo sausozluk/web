@@ -2,8 +2,8 @@ var interval = -1;
 var counter = 0;
 
 onmessage = function (e) {
-  postMessage(counter);
-  if (e.data === "start") {
+  if (e.data.action === 'start') {
+    counter = e.data.data;
     interval = setInterval(function () {
       postMessage(++counter);
     }, 60000);

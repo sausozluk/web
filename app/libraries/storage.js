@@ -44,6 +44,9 @@ define(function (require, exports, module) {
     get slug() {
       return dillikasarli.get('slug');
     },
+    get badge() {
+      return dillikasarli.get('badge');
+    },
     set id(id) {
       dillikasarli.set('id', id);
     },
@@ -61,6 +64,9 @@ define(function (require, exports, module) {
     },
     set slug(slug) {
       dillikasarli.set('slug', slug);
+    },
+    set badge(badge) {
+      dillikasarli.set('badge', badge);
     },
     remove: dillikasarli.remove
   };
