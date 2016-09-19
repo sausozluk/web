@@ -19,7 +19,7 @@ define(function (require, exports, module) {
   module.exports = Backbone.View.extend({
     events: {},
 
-    title: 'gelistirici',
+    title: 'geliştirici',
 
     description: 'oo kod, alırım bi dal',
 
