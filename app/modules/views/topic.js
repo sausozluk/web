@@ -30,7 +30,9 @@ define(function (require, exports, module) {
 
     render: function (url, id) {
       topicController.getTopicById(id, (function (topic) {
-        $(this.el).html(TopicTemplate(topic.toJSON()));
+        var json = topic.toJSON();
+        json.site = module.config().site;
+        $(this.el).html(TopicTemplate(json));
         this.setTitleAndDescription(topic.get('title'));
 
         topic.entries.on('add', this.renderItem, this);

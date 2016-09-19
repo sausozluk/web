@@ -74,7 +74,6 @@ div.left {
     border-right: 1px solid #dbdbdb;
     height: 100%;
     position: fixed;
-    overflow-y: auto;
 }
 
 div.stairs {

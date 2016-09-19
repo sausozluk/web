@@ -19,7 +19,9 @@ define(function (require, exports, module) {
 
     render: function (id) {
       entryController.getEntryById(id, (function (entry) {
-        $(this.el).html(TopicTemplate(entry.get('topic')));
+        var json = entry.get('topic');
+        json.site = module.config().site;
+        $(this.el).html(TopicTemplate(json));
         this.setTitleAndDescription(
           entry.get('topic').title + '- #' + entry.get('id'),
           entry.get('text')

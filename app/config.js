@@ -56,6 +56,12 @@ require.config({
     'modules/controllers/topic': {
       topicLimit: 20
     },
+    'modules/views/topic': {
+      site: 'http://beta.sausozluk.org'
+    },
+    'modules/views/entry': {
+      site: 'http://beta.sausozluk.org'
+    },
     'utils': {
       defaultToken: '3LD4V41' // if u lucky, get your lucky!
     },
