@@ -146,8 +146,17 @@ div.content {
 }
 
 h1.topic_title {
-    font-size: 20pt;
+    font-size: 18pt;
     text-transform: lowercase;
+}
+
+h1.topic_title > a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1.topic_title > a:hover {
+    text-decoration: underline;
 }
 
 ul.topic_actions {
