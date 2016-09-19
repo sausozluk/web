@@ -4,12 +4,26 @@ define(function (require, exports, module) {
   var GitHubCollection = Backbone.Collection.extend({});
 
   module.exports = {
-    'getCommits': function (a, b) {
+    'getWebCommits': function (a, b) {
       var callback = !b ? a : b;
       var page = !b ? 1 : a;
 
       $.ajax({
         url: 'https://api.github.com/repos/sausozluk/web/commits',
+        jsonp: 'callback',
+        dataType: 'jsonp',
+        data: $.param({page: page}),
+        success: function (response) {
+          callback(new GitHubCollection(response.data));
+        }
+      });
+    },
+    'getApiCommits': function (a, b) {
+      var callback = !b ? a : b;
+      var page = !b ? 1 : a;
+
+      $.ajax({
+        url: 'https://api.github.com/repos/sausozluk/api/commits',
         jsonp: 'callback',
         dataType: 'jsonp',
         data: $.param({page: page}),

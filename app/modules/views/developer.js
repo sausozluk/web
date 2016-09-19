@@ -17,17 +17,42 @@ define(function (require, exports, module) {
   });
 
   module.exports = Backbone.View.extend({
-    events: {},
+    events: {
+      'click .settings-tabs-menu span': 'handleClickTab'
+    },
+
+    tagName: 'div',
+    className: 'tabs-container',
 
     title: 'geliştirici',
 
     description: 'oo kod, alırım bi dal',
 
+    handleClickTab: function (e) {
+      e.preventDefault();
+
+      var target = $(e.target);
+      var parent = target.parent();
+      parent.addClass('current');
+      parent.siblings().removeClass('current');
+      var tab = target.data('id');
+      $('.settings-tab-content').not(tab).css('display', 'none');
+      $(tab).show();
+    },
+
     render: function () {
       $(this.el).html(DeveloperTemplate());
 
-      gitHubController.getCommits((function (collection) {
-        var list = $(this.el).find('ul');
+      gitHubController.getWebCommits((function (collection) {
+        var list = $(this.el).find('#web-tab').find('ul');
+
+        collection.forEach(function (model) {
+          list.append(new CommitItemView({model: model}).render().el);
+        });
+      }).bind(this));
+
+      gitHubController.getApiCommits((function (collection) {
+        var list = $(this.el).find('#api-tab').find('ul');
 
         collection.forEach(function (model) {
           list.append(new CommitItemView({model: model}).render().el);
