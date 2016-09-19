@@ -7,6 +7,7 @@ define(function (require, exports, module) {
   var storage = require('storage');
   var searchController = require('../controllers/search');
   var app = require('app');
+  var utils = require('utils');
 
   module.exports = Backbone.View.extend({
     events: {},
@@ -26,7 +27,19 @@ define(function (require, exports, module) {
       }
     },
 
+    prettyTitle: function (title) {
+      for (var i = 0; i < title.length; i++) {
+        var char = title[i];
+        if (!utils.title(char)) {
+          title = title.replaceAt(i, ' ');
+        }
+      }
+
+      return title;
+    },
+
     render: function (title) {
+      title = this.prettyTitle(title);
       searchController.suggest(title, (function (data) {
         if (data.topics.length) {
           var result = _.find(data.topics, {title: title});

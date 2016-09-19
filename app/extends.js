@@ -5,5 +5,9 @@ require(['moment'], function (moment) {
     return this.replace(new RegExp(search, 'g'), replacement);
   };
 
+  String.prototype.replaceAt = function (index, character) {
+    return this.substr(0, index) + character + this.substr(index + character.length);
+  };
+
   return true;
 });

@@ -152,7 +152,7 @@ define(function (require, exports, module) {
       if (br === 'ie') {
         txtarea.focus();
         var range = document.selection.createRange();
-        range.moveStart ('character', -txtarea.value.length);
+        range.moveStart('character', -txtarea.value.length);
         strPos = range.text.length;
       } else if (br === 'ff') {
         strPos = txtarea.selectionStart;
@@ -165,9 +165,9 @@ define(function (require, exports, module) {
       if (br === 'ie') {
         txtarea.focus();
         var ieRange = document.selection.createRange();
-        ieRange.moveStart ('character', -txtarea.value.length);
-        ieRange.moveStart ('character', strPos);
-        ieRange.moveEnd ('character', 0);
+        ieRange.moveStart('character', -txtarea.value.length);
+        ieRange.moveStart('character', strPos);
+        ieRange.moveEnd('character', 0);
         ieRange.select();
       } else if (br === 'ff') {
         txtarea.selectionStart = strPos;
@@ -195,6 +195,9 @@ define(function (require, exports, module) {
     },
     br: function (str) {
       return str.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+    },
+    title: function (str) {
+      return /^[a-zA-Z+-=_\\\/%& '.$0-9ğüşöçİĞÜŞÖÇ]+$/.test(str);
     }
   };
 });
