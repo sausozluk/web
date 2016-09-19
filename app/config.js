@@ -16,7 +16,8 @@ require.config({
     'moment': '../deps/moment/min/moment-with-locales.min',
     'boss': './libraries/boss',
     'favicon': '../deps/favico.js/favico-0.3.10.min',
-    'storage': './libraries/storage'
+    'storage': './libraries/storage',
+    'perfect-scrollbar': '../deps/perfect-scrollbar/js/perfect-scrollbar.jquery.min'
   },
 
   lodashLoader: {

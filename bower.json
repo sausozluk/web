@@ -12,6 +12,7 @@
     "backbone.middleware": "0.0.3",
     "moment": "2.13.0",
     "text": "2.0.15",
-    "favico.js": "0.3.10"
+    "favico.js": "0.3.10",
+    "perfect-scrollbar": "0.6.12"
   }
 }
