@@ -18,7 +18,7 @@ define(function (require, exports, module) {
 
   module.exports = Backbone.View.extend({
     events: {
-      'click .settings-tabs-menu span': 'handleClickTab'
+      'click .tabs-menu span': 'handleClickTab'
     },
 
     tagName: 'div',
@@ -36,7 +36,7 @@ define(function (require, exports, module) {
       parent.addClass('current');
       parent.siblings().removeClass('current');
       var tab = target.data('id');
-      $('.settings-tab-content').not(tab).css('display', 'none');
+      $('.tab-content').not(tab).css('display', 'none');
       $(tab).show();
     },
 

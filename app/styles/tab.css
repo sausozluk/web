@@ -1,40 +1,40 @@
-.settings-tabs-menu {
+.tabs-menu {
     border-bottom: 1px solid #488eb2;
 }
 
-.settings-tabs-menu li {
+.tabs-menu li {
     display: inline-block;
     border-radius: 4px 4px 0 0;
     padding: 4px 8px;
     margin-bottom: -1px;
 }
 
-.settings-tabs-menu li:hover {
+.tabs-menu li:hover {
     background-color: #f5f5f5;
     cursor: pointer;
 }
 
-.settings-tabs-menu li.current {
+.tabs-menu li.current {
     border: 1px solid #488eb2;
     border-bottom-color: #fff;
     background-color: #fff;
 }
 
-.settings-tabs-menu li.current:hover {
+.tabs-menu li.current:hover {
     background-color: #fff;
 }
 
-.settings-tabs-menu li > span {
+.tabs-menu li > span {
     cursor: pointer;
 }
 
-.settings-tab {
+.tab {
     float: left;
     margin-bottom: 20px;
     width: auto;
 }
 
-.settings-tab-content {
+.tab-content {
     padding: 20px;
     display: none;
 }
