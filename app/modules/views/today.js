@@ -16,6 +16,10 @@ define(function (require, exports, module) {
       this.leftFrameComponent.render();
     },
 
+    reload: function () {
+      this.leftFrameComponent.render();
+    },
+
     render: function () {
       $(this.el).html(this.leftFrameComponent.el);
       $('.content').addClass('today');
