@@ -443,3 +443,14 @@ ul.suggest-list > li {
 .topic-wrapper {
     margin-bottom: 36px;
 }
+
+ul.commits > li a {
+    display: block;
+    text-decoration: none;
+    padding: 5px 0px 5px 12px;
+    color: #666;
+}
+
+ul.commits > li a:hover {
+    background-color: #fafafa;
+}

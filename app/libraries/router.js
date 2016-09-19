@@ -48,6 +48,10 @@ define(function (require, exports, module) {
         m: auth.isVoid,
         f: 'profile'
       },
+      'gelistirici(/)': {
+        m: auth.isSecure,
+        f: 'developer'
+      },
       'entry/:id(/)': {
         m: auth.isVoid,
         f: 'entry'
@@ -102,6 +106,10 @@ define(function (require, exports, module) {
 
     profile: function (nick) {
       cache.appView.renderPage(PageController.profile(), [nick]);
+    },
+
+    developer: function () {
+      cache.appView.renderPage(PageController.developer());
     },
 
     today: function () {

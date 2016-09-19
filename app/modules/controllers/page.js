@@ -13,6 +13,7 @@ define(function (require, exports, module) {
   var EntryView = require('../views/entry');
   var EntryEditView = require('../views/entry-edit');
   var SearchView = require('../views/search');
+  var DeveloperView = require('../views/developer');
 
   module.exports = {
     'register': function () {
@@ -56,6 +57,9 @@ define(function (require, exports, module) {
     },
     'entry-edit': function () {
       return new EntryEditView();
+    },
+    'developer': function () {
+      return new DeveloperView();
     }
   };
 });
