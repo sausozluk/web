@@ -20,7 +20,7 @@ define(function (require, exports, module) {
         dataType: 'jsonp',
         data: $.param({page: page}),
         success: function (response) {
-          if (!parseInt(response.meta['X-RateLimit-Reset'])) {
+          if (!parseInt(response.meta['X-RateLimit-Remaining'])) {
             utils.doNoty('error', 'web # ' + doMomentForMeta(response.meta));
           } else {
             callback(new GitHubCollection(response.data));
@@ -38,7 +38,7 @@ define(function (require, exports, module) {
         dataType: 'jsonp',
         data: $.param({page: page}),
         success: function (response) {
-          if (!parseInt(response.meta['X-RateLimit-Reset'])) {
+          if (!parseInt(response.meta['X-RateLimit-Remaining'])) {
             utils.doNoty('error', 'api # ' + doMomentForMeta(response.meta));
           } else {
             callback(new GitHubCollection(response.data));
