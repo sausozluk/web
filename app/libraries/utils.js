@@ -24,6 +24,26 @@ define(function (require, exports, module) {
       .replace(/-+$/, '');            // Trim - from end of text
   };
 
+  var colorize = function (color) {
+    color = typeof color !== 'undefined' ? color : '#488eb2';
+
+    $('div.navbar').css({
+      backgroundColor: color
+    });
+
+    $('div.stairs > span.title').css({
+      color: color
+    });
+
+    $('ul.dropdown-content').css({
+      backgroundColor: color
+    });
+
+    $('li.current').css({
+      'border': '1px solid ' + color
+    });
+  };
+
   module.exports = {
     historyTrick: function () {
       $(document).on('click', 'a:not([data-bypass])', function (evt) {
@@ -178,6 +198,7 @@ define(function (require, exports, module) {
       txtarea.scrollTop = scrollPos;
     },
     slugify: slugify,
+    colorize: colorize,
     bkz: function (str) {
       return str.replace(/\(bkz: *([^)]+)\)/g, function (a, t) {
         return '(bkz: <a href="/q/' + t + '">' + t + '</a>)';

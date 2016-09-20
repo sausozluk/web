@@ -9,6 +9,11 @@ div.navbar {
     top: 0;
     height: 40px;
     width: 100%;
+    -webkit-transition: background-color 1000ms ease;
+    -moz-transition: background-color 1000ms ease;
+    -o-transition: background-color 1000ms ease;
+    -ms-transition: background-color 1000ms ease;
+    transition: background-color 1000ms ease;
 }
 
 a.logo {
@@ -444,15 +449,27 @@ ul.suggest-list > li {
     margin-bottom: 36px;
 }
 
-ul.commits > li a {
+ul.commits > li {
     display: block;
     text-decoration: none;
-    padding: 5px 0px 5px 12px;
+    color: #666;
+    padding: 8px 0;
+    font-size: 10pt;
+    border-bottom: 1px dashed #dbdbdb;
+}
+
+ul.commits > li > div.commit-message {
     color: #666;
 }
 
-ul.commits > li a:hover {
-    background-color: #fafafa;
+ul.commits > li > div.commit-info {
+    display: block;
+    font-size: 9pt;
+    margin-top: 5px;
+}
+
+ul.commits > li > div.commit-info > span.time {
+    color: #999;
 }
 
 .about {
