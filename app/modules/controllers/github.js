@@ -2,6 +2,12 @@ define(function (require, exports, module) {
   var $ = require('jquery');
   var Backbone = require('backbone');
   var GitHubCollection = Backbone.Collection.extend({});
+  var utils = require('utils');
+  var moment = require('moment');
+
+  var doMomentForMeta = function (meta) {
+    return moment(parseInt(meta['X-RateLimit-Reset']) * 1000).fromNow();
+  };
 
   module.exports = {
     'getWebCommits': function (a, b) {
@@ -14,7 +20,11 @@ define(function (require, exports, module) {
         dataType: 'jsonp',
         data: $.param({page: page}),
         success: function (response) {
-          callback(new GitHubCollection(response.data));
+          if (!parseInt(response.meta['X-RateLimit-Reset'])) {
+            utils.doNoty('error', 'web # ' + doMomentForMeta(response.meta));
+          } else {
+            callback(new GitHubCollection(response.data));
+          }
         }
       });
     },
@@ -28,7 +38,11 @@ define(function (require, exports, module) {
         dataType: 'jsonp',
         data: $.param({page: page}),
         success: function (response) {
-          callback(new GitHubCollection(response.data));
+          if (!parseInt(response.meta['X-RateLimit-Reset'])) {
+            utils.doNoty('error', 'api # ' + doMomentForMeta(response.meta));
+          } else {
+            callback(new GitHubCollection(response.data));
+          }
         }
       });
     }
