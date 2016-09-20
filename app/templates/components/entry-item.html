@@ -5,7 +5,7 @@
 </div>
 <div class="info">
     <ul class="vote">
-        <li<% if (system_id) { %> class="up-vote" <% } %>>
+        <li<% if (canivote) { %> class="up-vote" <% } %>>
             <a>
                 <i class="fa fa-thumbs-o-up"></i>
                 <% if (upvotes_count > 0) { %>
@@ -13,7 +13,7 @@
                 <% } %>
             </a>
         </li>
-        <li<% if (system_id) { %> class="down-vote" <% } %>>
+        <li<% if (canivote) { %> class="down-vote" <% } %>>
             <a>
                 <i class="fa fa-thumbs-o-down"></i>
                 <% if (downvotes_count > 0) { %>

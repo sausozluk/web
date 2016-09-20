@@ -82,6 +82,7 @@ define(function (require, exports, module) {
     render: function () {
       var json = this.model.toJSON();
       json.system_id = storage.id;
+      json.canivote = storage.id ? storage.id !== json.user.id : false;
       json.cleaner = this.strCleaner;
       json.moment = moment;
       $(this.el).html(this.template(json));

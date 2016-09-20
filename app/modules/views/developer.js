@@ -4,6 +4,7 @@ define(function (require, exports, module) {
   var DeveloperTemplate = require('template!../../templates/developer');
   var DeveloperCommitItemTemplate = require('template!../../templates/components/developer-commit-item');
   var gitHubController = require('../controllers/github');
+  var moment = require('moment');
 
   var CommitItemView = Backbone.View.extend({
     template: DeveloperCommitItemTemplate,
@@ -11,7 +12,9 @@ define(function (require, exports, module) {
     tagName: 'li',
 
     render: function () {
-      $(this.el).html(this.template(this.model.toJSON()));
+      var json = this.model.toJSON();
+      json.moment = moment;
+      $(this.el).html(this.template(json));
       return this;
     }
   });
