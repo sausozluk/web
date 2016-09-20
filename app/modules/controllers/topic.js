@@ -17,10 +17,11 @@ define(function (require, exports, module) {
         }
       });
     },
-    getTopicById: function (id, callback) {
+    getTopicByIdAndPage: function (id, page, callback) {
       var topicModel = new TopicModel({id: id});
 
       topicModel.fetch({
+        data: $.param({page: page}),
         success: function () {
           callback(topicModel);
         }

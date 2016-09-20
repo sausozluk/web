@@ -44,6 +44,10 @@ define(function (require, exports, module) {
         m: auth.isVoid,
         f: 'topic'
       },
+      ':url--:id(/):page(/)': {
+        m: auth.isVoid,
+        f: 'topicWithPage'
+      },
       'biri/:nick(/)': {
         m: auth.isVoid,
         f: 'profile'
@@ -94,6 +98,10 @@ define(function (require, exports, module) {
 
     topic: function (url, id) {
       cache.appView.renderPage(PageController.topic(), [url, id]);
+    },
+
+    topicWithPage: function (url, id, page) {
+      cache.appView.renderPage(PageController.topic(), [url, id, page]);
     },
 
     entry: function (id) {
