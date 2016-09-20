@@ -1,9 +1,0 @@
-{
-  "success": true,
-  "data": {
-    "id": "4",
-    "title": "entry sayısı olmayan çok uzun bir başlık, satırlarca da sürebilmelidir",
-    "clean": "entry-sayisi-olmayan-cok-uzun-bir-baslik-satirlarca-da-surebilmelidir",
-    "count": 0
-  }
-}
