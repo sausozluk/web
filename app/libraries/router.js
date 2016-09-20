@@ -52,7 +52,7 @@ define(function (require, exports, module) {
         m: auth.isVoid,
         f: 'profile'
       },
-      'gelistirici(/)': {
+      'olan-biten(/)': {
         m: auth.isSecure,
         f: 'developer'
       },
@@ -78,7 +78,7 @@ define(function (require, exports, module) {
       }
     },
 
-    use: [utils.pageEventCleaner(cache.appView)],
+    use: [utils.pageEventCleaner(cache.appView), utils.colorize],
 
     home: function () {
       cache.appView.renderPage(PageController.home());

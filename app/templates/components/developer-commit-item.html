@@ -1,3 +1,8 @@
-<a href="<%- html_url %>" data-bypass>
-    <%- commit.message %> (<%- moment(commit.committer.date).fromNow() %>)
-</a>
+<div class="commit-message">
+    <%- commit.message %>
+</div>
+<div class="commit-info">
+    <span class="time">
+        <%- moment(commit.committer.date).fromNow() %>
+    </span>
+</div>

@@ -28,7 +28,7 @@ define(function (require, exports, module) {
     tagName: 'div',
     className: 'tabs-container',
 
-    title: 'geliştirici',
+    title: 'olan biten',
 
     description: 'oo kod, alırım bi dal',
 
@@ -50,6 +50,8 @@ define(function (require, exports, module) {
 
     render: function () {
       $(this.el).html(DeveloperTemplate());
+
+      utils.colorize('#f1592b');
 
       gitHubController.getWebCommits((function (collection) {
         var list = $(this.el).find('#web-tab').find('ul');
