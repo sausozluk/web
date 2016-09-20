@@ -454,3 +454,13 @@ ul.commits > li a {
 ul.commits > li a:hover {
     background-color: #fafafa;
 }
+
+.about {
+    line-height: 24px;
+    font-weight: bold;
+}
+
+.about > a {
+    color: #999;
+    text-decoration: none;
+}

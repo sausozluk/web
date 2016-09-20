@@ -5,6 +5,7 @@ define(function (require, exports, module) {
   var DeveloperCommitItemTemplate = require('template!../../templates/components/developer-commit-item');
   var gitHubController = require('../controllers/github');
   var moment = require('moment');
+  var utils = require('utils');
 
   var CommitItemView = Backbone.View.extend({
     template: DeveloperCommitItemTemplate,
@@ -43,6 +44,10 @@ define(function (require, exports, module) {
       $(tab).show();
     },
 
+    strCleaner: function (str) {
+      return utils.br(utils.link(utils.yildiz(utils.bkz(_.escape(str)))));
+    },
+
     render: function () {
       $(this.el).html(DeveloperTemplate());
 
@@ -61,6 +66,9 @@ define(function (require, exports, module) {
           list.append(new CommitItemView({model: model}).render().el);
         });
       }).bind(this));
+
+      var el = $(this.el).find('.about').get(0);
+      el.innerHTML = this.strCleaner(el.innerText);
     }
   });
 });
