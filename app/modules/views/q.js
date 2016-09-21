@@ -35,7 +35,7 @@ define(function (require, exports, module) {
         }
       }
 
-      return title;
+      return title.trim();
     },
 
     render: function (title) {

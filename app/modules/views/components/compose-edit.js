@@ -16,7 +16,7 @@ define(function (require, exports, module) {
       e.preventDefault();
 
       var id = this.model.get('id');
-      var text = $('#new_entry').val();
+      var text = $('#new_entry').val().trim();
 
       if (this.validate(text)) {
         this.model.clear({silent: true});

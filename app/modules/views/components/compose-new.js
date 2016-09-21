@@ -16,7 +16,7 @@ define(function (require, exports, module) {
     handleOk: function (e) {
       e.preventDefault();
 
-      var text = $('#new_entry').val();
+      var text = $('#new_entry').val().trim();
 
       if (this.validate(text)) {
         topicController.newTopic(this.title, text, function (id) {

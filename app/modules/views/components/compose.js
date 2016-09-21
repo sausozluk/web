@@ -66,7 +66,7 @@ define(function (require, exports, module) {
 
       var now = new Date().getTime();
 
-      var text = $('#new_entry').val();
+      var text = $('#new_entry').val().trim();
 
       if (this.validate(text)) {
         entryController.newEntry({
