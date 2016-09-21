@@ -23,7 +23,7 @@ define(function (require, exports, module) {
         json.site = module.config().site;
         $(this.el).html(TopicTemplate(json));
         this.setTitleAndDescription(
-          entry.get('topic').title + '- #' + entry.get('id'),
+          entry.get('topic').title + ' - #' + entry.get('id'),
           entry.get('text')
         );
 
