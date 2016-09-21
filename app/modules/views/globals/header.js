@@ -101,12 +101,16 @@ define(function (require, exports, module) {
       }
     },
 
-    routeForEnterData: function (data) {
+    routeForEnterData: function (data, text) {
       var router = getApp().router;
 
       if (data) {
         if (!data.hasOwnProperty('username')) {
-          router.navigate('/' + data.slug + '--' + data.id, true);
+          if (text) {
+            router.navigate('/q/' + text, true);
+          } else {
+            router.navigate('/' + data.slug + '--' + data.id, true);
+          }
         } else {
           router.navigate('/biri/' + data.slug, true);
         }
@@ -130,7 +134,7 @@ define(function (require, exports, module) {
       }
 
       if (suggestArea.is(':visible')) {
-        this.routeForEnterData(this.forEnter);
+        this.routeForEnterData(this.forEnter, text);
       } else {
         if (!text.startsWith('@')) {
           searchController.suggest(text, (function (data) {
