@@ -56,7 +56,7 @@ define(function (require, exports, module) {
         $(this.el).html(TopicTemplate(json));
 
         this.setTitleAndDescription(topic.get('title'));
-        this.totalPage = topic.get('total_page') || 10;
+        this.totalPage = topic.get('total_page');
 
         this.entriesEl = $(this.el).find('.entries');
 
