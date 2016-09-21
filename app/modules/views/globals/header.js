@@ -101,16 +101,12 @@ define(function (require, exports, module) {
       }
     },
 
-    routeForEnterData: function (data, text) {
+    routeForEnterData: function (data) {
       var router = getApp().router;
 
       if (data) {
         if (!data.hasOwnProperty('username')) {
-          if (text) {
-            router.navigate('/q/' + text, true);
-          } else {
-            router.navigate('/' + data.slug + '--' + data.id, true);
-          }
+          router.navigate('/' + data.slug + '--' + data.id, true);
         } else {
           router.navigate('/biri/' + data.slug, true);
         }
@@ -134,7 +130,7 @@ define(function (require, exports, module) {
       }
 
       if (suggestArea.is(':visible')) {
-        this.routeForEnterData(this.forEnter, text);
+        router.navigate('/q/' + text, true);
       } else {
         if (!text.startsWith('@')) {
           searchController.suggest(text, (function (data) {
@@ -172,7 +168,6 @@ define(function (require, exports, module) {
       if (!text.startsWith('#')) {
         searchController.suggest(text, (function (data) {
           this.initSuggestBox(data);
-          this.forEnter = data.topics.concat(data.users).slice(0, 1)[0];
         }).bind(this));
       } else {
         suggestArea.hide();
