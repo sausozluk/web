@@ -29,7 +29,6 @@ define(function (require, exports, module) {
 
         var item = new EntryItemComponent({model: entry});
         $(this.el).find('.entries').append(item.render().el);
-        $('head').append('<link rel="amphtml" href="https://mercury.postlight.com/amp?url=http://thisistest.site/entry/' + id + '">');
       }).bind(this));
     }
   });
