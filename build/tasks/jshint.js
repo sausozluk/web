@@ -4,7 +4,8 @@ module.exports = function () {
     all: ["app/**/*.js"],
     options: {
       jshintrc: ".jshintrc",
-      reporterOutput: ""
+      reporterOutput: "",
+      ignores: "app/libraries/3th/**/*.js"
     }
   });
 };

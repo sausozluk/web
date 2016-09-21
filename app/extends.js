@@ -1,4 +1,4 @@
-require(['moment'], function (moment) {
+require(['moment', 'libraries/3th/emoji-strip'], function (moment, emojiStrip) {
   moment.locale('tr');
 
   String.prototype.replaceAll = function (search, replacement) {
