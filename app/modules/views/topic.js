@@ -32,9 +32,8 @@ define(function (require, exports, module) {
       $(this.el).find('.pager').after(this.composeComponent.render().el);
     },
 
-    renderItem: function (model) {
-      var item = new EntryItemComponent({model: model});
-      $(this.el).find('.entries').append(item.render().el);
+    goEntry: function (model) {
+      app.router.navigate('/entry/' + model.get('id'), true);
     },
 
     generatePager: function () {
@@ -60,7 +59,7 @@ define(function (require, exports, module) {
 
         this.entriesEl = $(this.el).find('.entries');
 
-        topic.entries.on('add', this.renderItem, this);
+        topic.entries.on('add', this.goEntry, this);
 
         topic.entries.forEach((function (model) {
           var item = new EntryItemComponent({model: model});
