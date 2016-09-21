@@ -8,7 +8,7 @@ define(function (require, exports, module) {
     events: {},
 
     tagName: 'div',
-    className: 'left',
+    className: 'left robots-nocontent',
 
     initialize: function () {
       this.leftFrameComponent = new LeftFrameComponent();

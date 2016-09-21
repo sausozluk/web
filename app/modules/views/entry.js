@@ -14,7 +14,7 @@ define(function (require, exports, module) {
 
     setTitleAndDescription: function (text, description) {
       document.title = text;
-      $('[name="Description"]').attr('content', description);
+      $('[name="description"]').attr('content', description);
     },
 
     render: function (id) {
