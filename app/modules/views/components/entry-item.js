@@ -66,6 +66,7 @@ define(function (require, exports, module) {
         success: function () {
           utils.doNoty('success', 'ne kadar güzeldi o günler');
           cache.trigger('reload-left');
+          app.router.navigate('/', true);
         }
       });
     },
