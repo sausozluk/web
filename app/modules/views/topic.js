@@ -45,6 +45,12 @@ define(function (require, exports, module) {
       }));
     },
 
+    handleDestroyEntry: function (model, collection) {
+      if (!collection.length) {
+        app.router.navigate('/', true);
+      }
+    },
+
     render: function (url, id, page) {
       this.topicUrl = url;
       this.topicId = id;
@@ -60,6 +66,7 @@ define(function (require, exports, module) {
         this.entriesEl = $(this.el).find('.entries');
 
         topic.entries.on('add', this.goEntry, this);
+        topic.entries.on('destroy', this.handleDestroyEntry, this);
 
         topic.entries.forEach((function (model) {
           var item = new EntryItemComponent({model: model});
