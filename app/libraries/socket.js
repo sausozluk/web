@@ -33,7 +33,7 @@ define(function (require, exports, module) {
       }
     },
     send: function (data) {
-      if (socket) {
+      if (socket && isRunning) {
         socket.send(data);
       }
     },
