@@ -6,7 +6,7 @@ onmessage = function (e) {
     counter = e.data.data;
     interval = setInterval(function () {
       postMessage(++counter);
-    }, 1000);
+    }, 10000);
   } else {
     clearInterval(interval);
   }

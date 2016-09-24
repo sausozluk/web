@@ -3,14 +3,24 @@ define(function (require, exports, module) {
   var app = require('app');
   var cache = require('cache');
 
+  var login = function () {
+    cache.trigger('auth-true');
+    app.socket.start();
+  };
+
+  var logout = function () {
+    cache.trigger('auth-false');
+    app.socket.stop();
+  };
+
   module.exports = {
     isNotSecure: function (route, args, next) {
       UserController['check-token']({}, function (message) {
         if (message) {
-          cache.trigger('auth-true');
+          login();
           app.router.navigate('/', true);
         } else {
-          cache.trigger('auth-false');
+          logout();
           next();
         }
       });
@@ -18,10 +28,10 @@ define(function (require, exports, module) {
     isSecure: function (route, args, next) {
       UserController['check-token']({}, function (message) {
         if (message) {
-          cache.trigger('auth-true');
+          login();
           next();
         } else {
-          cache.trigger('auth-false');
+          logout();
           cache.lastTry = location.pathname;
           app.router.navigate('/giris', true);
         }
@@ -30,9 +40,9 @@ define(function (require, exports, module) {
     isVoid: function (route, args, next) {
       UserController['check-token']({}, function (message) {
         if (message) {
-          cache.trigger('auth-true');
+          login();
         } else {
-          cache.trigger('auth-false');
+          logout();
         }
 
         next();

@@ -58,10 +58,16 @@ define(function (require, exports, module) {
 
       return {
         send: function (data) {
-          socket.postMessage({
-            action: 'message',
-            data: data
-          });
+          if (!data) {
+            socket.postMessage({
+              action: 'close'
+            });
+          } else {
+            socket.postMessage({
+              action: 'message',
+              data: data
+            });
+          }
         }
       };
     }

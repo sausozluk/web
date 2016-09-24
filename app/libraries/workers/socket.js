@@ -14,6 +14,7 @@ var open = function () {
 };
 
 var close = function () {
+  console.log('[SOCKET]', 'closed');
   kill();
 };
 
@@ -43,5 +44,7 @@ onmessage = function (e) {
     initSocket(e.data.data);
   } else if (e.data.action === 'message') {
     sendMessage(e.data.data);
+  } else if (e.data.action === 'close') {
+    kill();
   }
 };
