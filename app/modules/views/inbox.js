@@ -4,6 +4,8 @@ define(function (require, exports, module) {
   var InboxTemplate = require('template!../../templates/inbox');
   var cache = require('cache');
   var app = require('app');
+  var socket = require('libraries/socket');
+  var utils = require('utils');
 
   module.exports = Backbone.View.extend({
     title: 'mesaj',
@@ -24,7 +26,12 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      $(this.el).html(InboxTemplate());
+      if (socket.status) {
+        $(this.el).html(InboxTemplate());
+      } else {
+        utils.doNoty('error', 'mesajlaşma servisi çıktı, not alıyım istersen?');
+        app.router.navigate('/', true);
+      }
     }
   });
 });

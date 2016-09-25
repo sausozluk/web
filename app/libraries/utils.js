@@ -5,14 +5,14 @@ define(function (require, exports, module) {
   var Backbone = require('backbone');
   var NProgress = require('nprogress');
   var storage = require('storage');
+  var swal = require('swal');
+
+  swal.setDefaults({
+    showConfirmButton: false
+  });
 
   var doNoty = function (type, message) {
-    noty({
-      type: type,
-      text: message,
-      timeout: 5000,
-      layout: 'bottomRight'
-    });
+    swal(type === 'error' ? 'lan' : 'hihi', message, type);
   };
 
   var slugify = function (text) {
