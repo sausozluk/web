@@ -2,6 +2,7 @@ define(function (require, exports, module) {
   var utils = require('utils');
   var cache = require('cache');
   var boss = require('boss');
+  var socket = require('libraries/socket');
   var AppView = require('modules/views/globals/app');
   var appView = new AppView();
 
@@ -15,6 +16,7 @@ define(function (require, exports, module) {
   cache.appView = appView;
 
   module.exports = {
-    root: module.config().root
+    root: module.config().root,
+    socket: socket
   };
 });

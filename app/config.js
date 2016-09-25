@@ -17,7 +17,9 @@ require.config({
     'boss': './libraries/boss',
     'favicon': '../deps/favico.js/favico-0.3.10.min',
     'storage': './libraries/storage',
-    'perfect-scrollbar': '../deps/perfect-scrollbar/js/perfect-scrollbar.jquery.min'
+    'perfect-scrollbar': '../deps/perfect-scrollbar/js/perfect-scrollbar.jquery.min',
+    'es6-promise': '../deps/es6-promise/es6-promise.min',
+    'swal': '../deps/sweetalert2/dist/sweetalert2.min'
   },
 
   lodashLoader: {
@@ -41,6 +43,9 @@ require.config({
     },
     'backbone.middleware': {
       deps: ['backbone']
+    },
+    'swap': {
+      deps: ['es6-promise']
     }
   },
 

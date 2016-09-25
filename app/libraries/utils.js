@@ -5,14 +5,14 @@ define(function (require, exports, module) {
   var Backbone = require('backbone');
   var NProgress = require('nprogress');
   var storage = require('storage');
+  var swal = require('swal');
+
+  swal.setDefaults({
+    showConfirmButton: false
+  });
 
   var doNoty = function (type, message) {
-    noty({
-      type: type,
-      text: message,
-      timeout: 5000,
-      layout: 'bottomRight'
-    });
+    swal(type === 'error' ? 'lan' : 'hihi', message, type);
   };
 
   var slugify = function (text) {
@@ -74,7 +74,6 @@ define(function (require, exports, module) {
       options.error = function (xhr, status, error) {
         NProgress.done();
         doNoty('error', xhr.status === 0 ? 'server gone :(' : 'fuck, we forgot something :(');
-        _e.apply(this, arguments);
       };
 
       options.success = function (collection, response, xhr) {
@@ -115,7 +114,6 @@ define(function (require, exports, module) {
         options.error = function (xhr, status, error) {
           NProgress.done();
           doNoty('error', xhr.status === 0 ? 'server gone :(' : 'fuck, we forgot something :(');
-          _e.apply(this, arguments);
         };
 
         options.success = function () {
@@ -155,7 +153,7 @@ define(function (require, exports, module) {
           line: line
         });
 
-        return true;
+        return false;
       };
     },
     doNoty: doNoty,
@@ -219,6 +217,16 @@ define(function (require, exports, module) {
     },
     title: function (str) {
       return /^[a-zA-Z+-=_\\\/%& '.$0-9ığüşöçİĞÜŞÖÇ]+$/.test(str);
+    },
+    get ws_uri() {
+      var loc = window.location, new_uri;
+      if (loc.protocol === 'https:') {
+        new_uri = 'wss:';
+      } else {
+        new_uri = 'ws:';
+      }
+      new_uri += '//' + loc.host;
+      return new_uri;
     }
   };
 });
