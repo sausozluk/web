@@ -1,5 +1,5 @@
 body {
-    font-family: 'Source Code Pro', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 div.navbar {
@@ -17,6 +17,7 @@ div.navbar {
 }
 
 a.logo {
+    font-family: 'Baloo Paaji', cursive;
     line-height: 40px;
     font-size: 14pt;
     text-decoration: none;
