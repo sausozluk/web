@@ -7,13 +7,12 @@
     "jquery": "2.1.1",
     "requirejs": "2.1.14",
     "almond": "~0.2.9",
-    "noty": "2.3.6",
     "nprogress": "0.2.0",
     "backbone.middleware": "0.0.3",
     "moment": "2.13.0",
     "text": "2.0.15",
     "favico.js": "0.3.10",
     "perfect-scrollbar": "0.6.12",
-    "sweetalert2": "5.0.7"
+    "alertifyjs": "1.0.11"
   }
 }

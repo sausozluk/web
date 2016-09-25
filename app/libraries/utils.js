@@ -1,18 +1,13 @@
 define(function (require, exports, module) {
   var $ = require('jquery');
-  require('jquery.noty');
-  var _ = require('underscore');
   var Backbone = require('backbone');
   var NProgress = require('nprogress');
   var storage = require('storage');
-  var swal = require('swal');
-
-  swal.setDefaults({
-    showConfirmButton: false
-  });
+  var alertify = require('alertify');
 
   var doNoty = function (type, message) {
-    swal(type === 'error' ? 'lan' : 'hihi', message, type);
+    alertify.logPosition('bottom right');
+    alertify[type](message);
   };
 
   var slugify = function (text) {

@@ -6,8 +6,6 @@ require.config({
     'text': '../deps/text/text',
     'jquery': '../deps/jquery/dist/jquery',
     'backbone': '../deps/backbone/backbone',
-    'jquery.cookie': '../deps/jquery.cookie/jquery.cookie',
-    'jquery.noty': '../deps/noty/js/noty/packaged/jquery.noty.packaged',
     'nprogress': '../deps/nprogress/nprogress',
     'backbone.middleware': '../deps/backbone.middleware/backbone.middleware',
     'app': './app',
@@ -18,8 +16,7 @@ require.config({
     'favicon': '../deps/favico.js/favico-0.3.10.min',
     'storage': './libraries/storage',
     'perfect-scrollbar': '../deps/perfect-scrollbar/js/perfect-scrollbar.jquery.min',
-    'es6-promise': '../deps/es6-promise/es6-promise.min',
-    'swal': '../deps/sweetalert2/dist/sweetalert2.min'
+    'alertify': '../deps/alertifyjs/dist/js/alertify'
   },
 
   lodashLoader: {
