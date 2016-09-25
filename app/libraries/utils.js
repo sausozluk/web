@@ -194,7 +194,12 @@ define(function (require, exports, module) {
     colorize: colorize,
     bkz: function (str) {
       return str.replace(/\(bkz: *([^)]+)\)/g, function (a, t) {
-        return '(bkz: <a href="/q/' + t + '">' + t + '</a>)';
+        if (t.startsWith('#')) {
+          var entry_id = t.slice(1);
+          return '(bkz: <a href="/entry/' + entry_id + '">' + t + '</a>)';
+        } else {
+          return '(bkz: <a href="/q/' + t + '">' + t + '</a>)';
+        }
       });
     },
     yildiz: function (str) {
