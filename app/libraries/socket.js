@@ -5,8 +5,11 @@ define(function (require, exports, module) {
   var isRunning = false;
   var socket = null;
 
-  var handler = function (data) {
-    utils.doNoty('success', data.message);
+  var handler = function (res) {
+    if (res.action === 'send_message') {
+      var data = res.data;
+      utils.doNoty('success', data.message);
+    }
   };
 
   var start = function () {

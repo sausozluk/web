@@ -20,18 +20,27 @@ define(function (require, exports, module) {
       e.preventDefault();
       var message = $('#message').val().trim();
       app.socket.send({
-        to: 'ov',
-        message: message
+        action: 'send_message',
+        data: {
+          to: 'ov',
+          message: message
+        }
       });
     },
 
     render: function () {
-      if (socket.status) {
-        $(this.el).html(InboxTemplate());
-      } else {
-        utils.doNoty('error', 'mesajlaşma servisi çıktı, not alıyım istersen?');
-        app.router.navigate('/', true);
-      }
+      $(this.el).html(InboxTemplate());
+      utils.doNoty('success', 'bağlanıyor ...');
+
+      setTimeout(function () {
+        if (!socket.status) {
+          utils.doNoty('error', 'mesajlaşma servisi çıktı, not alıyım istersen?');
+        } else {
+          $('#message').prop('disabled', false);
+          $('#ok').prop('disabled', false);
+          utils.doNoty('success', 'bağlandı :)');
+        }
+      }, 3000);
     }
   });
 });
