@@ -27,7 +27,7 @@ define(function (require, exports, module) {
           entry.get('text')
         );
 
-        var item = new EntryItemComponent({model: entry});
+        var item = new EntryItemComponent({model: entry, single: true});
         $(this.el).find('.entries').append(item.render().el);
       }).bind(this));
     }

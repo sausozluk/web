@@ -63,17 +63,21 @@ define(function (require, exports, module) {
 
     selfDestroy: function () {
       this.model.destroy({
-        success: function () {
+        success: (function () {
           utils.doNoty('success', 'ne kadar güzeldi o günler');
           cache.trigger('reload-left');
-          app.router.navigate('/', true);
-        }
+          if (this.single) {
+            var topic = this.model.get('topic');
+            app.router.navigate('/' + topic.slug + '--' + topic.id, true);
+          }
+        }).bind(this)
       });
     },
 
-    initialize: function () {
+    initialize: function (o) {
       this.model.on('destroy', this.remove, this);
       this.model.on('change', this.render, this);
+      this.single = o.single ? o.single : false;
     },
 
     strCleaner: function (str) {
