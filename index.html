@@ -9,15 +9,24 @@
     <link rel="icon" type="image/png" href="favicon.ico">
     <meta name="description" content="sakarya üniversitesi'nin interaktif sözlüğü gibi">
     <meta name="robots" content="index, follow">
-    <meta name="google-site-verification" content="02-KL8JV8h1wo23Rc77kjtovgSMERJ8qiBCbOWJ5RvU" />
+    <meta name="google-site-verification" content="02-KL8JV8h1wo23Rc77kjtovgSMERJ8qiBCbOWJ5RvU"/>
     <!-- build:[value] true -->
-    <meta name="production" value="false">
+    <meta name="production" value="true">
     <!-- /build -->
     <!-- build:[href] /styles.min.css -->
     <link rel="stylesheet" href="app/styles/index.css">
     <!-- /build -->
 </head>
 <body>
+<script>
+    (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != window.location.href) {
+            window.history.replaceState(null, null, redirect);
+        }
+    })();
+</script>
 <!-- build:[src] /source.min.js -->
 <script src="deps/requirejs/require.js" data-main="app/config" id="app-js"></script>
 <!-- /build -->
