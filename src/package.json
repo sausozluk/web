@@ -1,0 +1,24 @@
+{
+  "name": "sausozluk-web",
+  "version": "0.0.1",
+  "devDependencies": {
+    "compression": "1.6.2",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-connect": "^5.0.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-jshint": "^2.0.4",
+    "gulp-processhtml": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-requirejs": "^1.0.0-rc2",
+    "gulp-rjs2": "^0.2.1",
+    "gulp-util": "^3.0.8",
+    "jshint": "^2.9.4",
+    "merge-stream": "^1.0.1"
+  },
+  "scripts": {
+    "start": "gulp",
+    "test": "cd .. && npm test"
+  }
+}

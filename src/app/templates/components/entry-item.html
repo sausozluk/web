@@ -1,0 +1,51 @@
+<a href="/entry/<%- id %>" class="no">#<%- id %></a>
+
+<div class="text">
+    <%= cleaner(text) %>
+</div>
+<div class="info">
+    <ul class="vote">
+        <li<% if (canivote) { %> class="up-vote" <% } %>>
+            <a>
+                <i class="fa fa-thumbs-o-up"></i>
+                <% if (upvotes_count > 0) { %>
+                <span class="vote_text"><%- upvotes_count %></span>
+                <% } %>
+            </a>
+        </li>
+        <li<% if (canivote) { %> class="down-vote" <% } %>>
+            <a>
+                <i class="fa fa-thumbs-o-down"></i>
+                <% if (downvotes_count > 0) { %>
+                <span class="vote_text"><%- downvotes_count %></span>
+                <% } %>
+            </a>
+        </li>
+        <li><a href="/biri/<%- user.slug %>"><%- user.username %></a></li>
+        <% if (created_at !== updated_at) {%>
+        <li>
+            <a class="updated">
+                <%- moment(updated_at).fromNow() %> (*)
+            </a>
+        </li>
+        <% } else { %>
+        <li>
+            <a class="created">
+                <%- moment(created_at).fromNow() %>
+            </a>
+        </li>
+        <% } %>
+        <% if (user.id === system_id) { %>
+        <li class="remove">
+            <a>
+                <i class="fa fa-times"></i>
+            </a>
+        </li>
+        <li class="edit">
+            <a>
+                <i class="fa fa-pencil-square-o"></i>
+            </a>
+        </li>
+        <% } %>
+    </ul>
+</div>

@@ -1,0 +1,38 @@
+<a class="logo" href="#"><%= name %></a>
+<div class="search">
+    <input id="search" type="text" placeholder="başlık, #entry ya da @yazar" tabindex="-1"/>
+    <div class="search-suggestion">
+        <ul class="suggest-list">
+        </ul>
+    </div>
+</div>
+<ul class="menu left-menu" style="float: left; margin-left: 10px;">
+    <li><a href="/bugun" class="menu-link"><i class="fa fa-flash"></i><span class="menu-link-text">bugün</span></a></li>
+    <li><a href="/ara" class="menu-link"><i class="fa fa-search"></i></a></li>
+</ul>
+<ul class="menu">
+    <% if (auth === true) { %>
+    <li><a href="/biri/<%- data.slug %>" class="menu-link"><i class="fa fa-user"></i><span
+            class="menu-link-text">ben</span></a>
+    </li>
+    <li><a href="/mesaj" class="menu-link"><i class="fa fa-inbox"></i><span class="menu-link-text">mesaj</span></a>
+    </li>
+    <li class="dropdown-menu" tabindex="0" onclick="">
+        <span class="dropdown-link">...</span>
+        <ul class="dropdown-content">
+            <li>
+                <a href="/ayarlar" class="dropdown-sub-link">ayarlar</a>
+            </li>
+            <li>
+                <a href="/olan-biten" class="dropdown-sub-link">olan biten</a>
+            </li>
+            <li>
+                <a href="/cikis" class="dropdown-sub-link">çıkış</a>
+            </li>
+        </ul>
+    </li>
+    <% } else { %>
+    <li class="register-item"><a href="/kayit" class="menu-link">kaydol</a></li>
+    <li><a href="/giris" class="menu-link">oturum aç</a></li>
+    <% } %>
+</ul>

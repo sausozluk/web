@@ -1,0 +1,31 @@
+<h1 class="page_title profile"><%- username %></h1>
+
+<ul id="profile-cards">
+    <li>
+        <h3>son entry'leri</h3>
+        <ul>
+            <% for (var i in last_entries) { %>
+            <li><a href="/entry/<%= last_entries[i].id %>" title="#<%= last_entries[i].id %>"><%= last_entries[i].title
+                %></a></li>
+            <% } %>
+        </ul>
+    </li>
+    <li>
+        <h3>en beğenilenleri</h3>
+        <ul>
+            <% for (var i in most_liked) { %>
+            <li><a href="/entry/<%= most_liked[i].id %>" title="#<%= most_liked[i].id %>"><%= most_liked[i].title %></a>
+            </li>
+            <% } %>
+        </ul>
+    </li>
+    <li>
+        <h3>favori entry'leri</h3>
+        <ul>
+            <% for (var i in liked) { %>
+            <li><a href="/entry/<%= liked[i].id %>" title="#<%= liked[i].id %>"><%= liked[i].title %></a>
+            </li>
+            <% } %>
+        </ul>
+    </li>
+</ul>

@@ -1,0 +1,53 @@
+div.compose {
+    display: block;
+    margin-top: 30px;
+}
+
+div.compose > textarea {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #dbdbdb;
+    resize: vertical;
+    outline: none;
+    font-size: 10pt;
+    min-height: 80px;
+}
+
+div.compose > ul.buttons {
+    display: block;
+    margin-top: 8px;
+}
+
+div.compose > ul.buttons > li {
+    float: left;
+    margin-right: 6px;
+}
+
+div.compose > ul.buttons > li > a {
+    padding: 5px;
+    background-color: #eaeaea;
+    font-size: 9pt;
+    text-decoration: none;
+    color: #666666;
+    cursor: pointer;
+    border: 1px solid #dbdbdb;
+}
+
+div.compose > ul.buttons > li > a:hover {
+    padding: 5px;
+    background-color: #666;
+    font-size: 9pt;
+    text-decoration: none;
+    color: #fff;
+}
+
+div.compose > ul.buttons > li > a.primary {
+    background-color: #488eb2;
+    color: #fff;
+    border: 1px solid #488eb2;
+}
+
+div.compose > ul.buttons > li > a.primary:hover {
+    background-color: rgba(72, 142, 178, .8);
+    color: #fff;
+}

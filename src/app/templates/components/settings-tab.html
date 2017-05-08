@@ -1,0 +1,46 @@
+<ul class="tabs-menu">
+    <li class="current"><span data-id="#pref-tab">tercihler</span></li>
+    <li><span data-id="#password-tab">şifre</span></li>
+    <li><span data-id="#email-tab">e-posta</span></li>
+</ul>
+<div class="tab">
+    <div id="pref-tab" class="tab-content">
+        <h1 class="mini_form_title">genel</h1>
+        <ul class="form">
+            <li><input type="checkbox" id="allow_messages"/> mesaj istiyor musun?</li>
+            <li>
+                <button id="pref-ok">güncelle</button>
+            </li>
+        </ul>
+    </div>
+    <div id="password-tab" class="tab-content">
+        <h1 class="mini_form_title">şifre değiştir</h1>
+        <ul class="form">
+            <li>şimdiki şifre:</li>
+            <li><input type="password" id="old_password" placeholder="eski parola"/></li>
+            <li>şifre:</li>
+            <li><input type="password" id="new_password_a" placeholder="yeni parola"/></li>
+            <li>şifre (tekrar):</li>
+            <li><input type="password" id="new_password_b" placeholder="yeni parola tekrarı"/></li>
+            <li>
+                <button id="password-ok">güncelle</button>
+            </li>
+        </ul>
+    </div>
+    <div id="email-tab" class="tab-content">
+        <h1 class="mini_form_title">e-posta adresini değiştir</h1>
+        <ul class="form">
+            <li>şu anki e-mail adresiniz:</li>
+            <li><input type="text" id="old_email" placeholder="eski mail"/></li>
+            <li>şifreniz:</li>
+            <li><input type="password" id="password" placeholder="parola"/></li>
+            <li>yeni e-mail adresi:</li>
+            <li><input type="text" id="new_email_a" placeholder="yeni mail"/></li>
+            <li>yeni e-mail adresi (tekrar):</li>
+            <li><input type="text" id="new_email_b" placeholder="yeni mail tekrarı"/></li>
+            <li>
+                <button id="email-ok">e-mail adresimi değiştir</button>
+            </li>
+        </ul>
+    </div>
+</div>

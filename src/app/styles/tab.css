@@ -1,0 +1,80 @@
+.tabs-menu {
+    border-bottom: 1px solid #488eb2;
+}
+
+.tabs-menu li {
+    display: inline-block;
+    border-radius: 4px 4px 0 0;
+    padding: 4px 8px;
+    margin-bottom: -1px;
+}
+
+.tabs-menu.colored {
+    border-bottom: 1px solid #f1592b;
+}
+
+.tabs-menu li:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.tabs-menu li.current {
+    border: 1px solid #488eb2;
+    border-bottom-color: #fff;
+    background-color: #fff;
+}
+
+.tabs-menu.colored li.current {
+    border: 1px solid #f1592b;
+    border-bottom-color: #fff;
+    background-color: #fff;
+}
+
+.tabs-menu li.current:hover {
+    background-color: #fff;
+}
+
+.tabs-menu li > span {
+    cursor: pointer;
+}
+
+.tab {
+    float: left;
+    margin-bottom: 20px;
+    width: auto;
+}
+
+.tab.developers {
+    float: none;
+    margin-bottom: 20px;
+    width: auto;
+}
+
+.tab.chats {
+    float: none;
+    margin-bottom: 20px;
+    width: auto;
+}
+
+.tab-content {
+    padding: 20px;
+    display: none;
+}
+
+#pref-tab {
+    display: block;
+}
+
+#web-tab {
+    display: block;
+}
+
+#inbox-tab {
+    display: block;
+}
+
+.tab-content.developers, .tab-content.chats {
+    padding: 0px;
+    display: none;
+    text-transform: lowercase;
+}
