@@ -22,7 +22,6 @@ before_install:
 - docker login --email=$DOCKER_HUB_EMAIL --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD
 - openssl aes-256-cbc -K $encrypted_aa5f2cc2971c_key -iv $encrypted_aa5f2cc2971c_iv
  -in deploy_key.enc -out ./deploy_key -d
-- ls -la
 - docker build -t webtest .
 - docker images
 after_script:
@@ -30,6 +29,6 @@ after_script:
 deploy:
  provider: script
  skip_cleanup: true
- script: cd .. && chmod 600 deploy_key && ssh -o StrictHostKeyChecking=no -i deploy_key ubuntu@ec2-35-157-80-0.eu-central-1.compute.amazonaws.com ./deploy.sh
+ script: cd .. && chmod 600 deploy_key && ssh -o StrictHostKeyChecking=no -i deploy_key ubuntu@ec2-35-157-80-0.eu-central-1.compute.amazonaws.com "cd web && ./deploy.sh"
  on:
    branch: master
