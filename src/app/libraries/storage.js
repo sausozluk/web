@@ -47,9 +47,6 @@ define(function (require, exports, module) {
     set token(token) {
       storage.set('token', token);
     },
-    set email(email) {
-      storage.set('email', email);
-    },
     set username(username) {
       storage.set('username', username);
     },
