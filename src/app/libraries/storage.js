@@ -32,9 +32,6 @@ define(function (require, exports, module) {
     get token() {
       return storage.get('token');
     },
-    get email() {
-      return storage.get('email');
-    },
     get username() {
       return storage.get('username');
     },
