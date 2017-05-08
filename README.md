@@ -2,17 +2,6 @@
 
 > web client implementation for sausozluk which is developed with Backbone.
 
-## env config
-
-```bash
-#
-# example for thisistest.site
-#
-SOZLUK_NAME=saüsözlük
-SOZLUK_ENV=prod
-SOZLUK_API_URL=http://thisistest.site/service/proxy/api/v1
-```
-
 ## todo
 ```text
 - rework for views
