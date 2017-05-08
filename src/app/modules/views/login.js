@@ -43,7 +43,6 @@ define(function (require, exports, module) {
         storage.id = data.user_id;
         storage.token = data.token;
         storage.permission = data.authority;
-        storage.email = data.email;
         storage.username = data.username;
         storage.slug = data.slug;
         eventBus.emit('auth-true');
