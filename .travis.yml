@@ -7,6 +7,7 @@ notifications:
   email:
   - relfishere@gmail.com
   - okanvurdu@gmail.com
+  - frknbasaran@gmail.com
 script:
 - docker run -d --name app -p 1337:1337 webtest
 - cd src
