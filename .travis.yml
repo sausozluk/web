@@ -6,9 +6,9 @@ services:
 notifications:
   email:
   - relfishere@gmail.com
+  - okanvurdu@gmail.com
 script:
 - docker run -d --name app -p 1337:1337 webtest
-- docker ps -a
 - cd src
 - docker build -t web .
 - docker tag web:latest $DOCKER_HUB_USERNAME/web:prod
@@ -23,7 +23,6 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_aa5f2cc2971c_key -iv $encrypted_aa5f2cc2971c_iv
  -in deploy_key.enc -out ./deploy_key -d
 - docker build -t webtest .
-- docker images
 after_script:
 - docker rm -f app
 deploy:
