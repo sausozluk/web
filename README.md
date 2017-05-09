@@ -5,7 +5,6 @@
 ## todo
 ```text
 - rework for views
-- multi login chat broadcast bug
 - mobile chat ui looks like shitty
 - admin and moderation panel
 - settings page
