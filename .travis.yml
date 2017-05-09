@@ -9,7 +9,6 @@ notifications:
   - okanvurdu@gmail.com
   - frknbasaran@gmail.com
 script:
-- docker run -d --name app -p 1337:1337 webtest
 - cd src
 - docker build -t web .
 - docker tag web:latest $DOCKER_HUB_USERNAME/web:prod
