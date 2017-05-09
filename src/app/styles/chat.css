@@ -34,11 +34,13 @@
 .chat-thread > .text-from-me {
     float: right;
     background-color: #488eb2;
+    z-index: -1;
 }
 
 .chat-thread > .text-from-others {
     float: left;
     background-color: #f1592b;
+    z-index: -1;
 }
 
 @media all and (max-width: 767px) {
