@@ -1,16 +1,22 @@
-div.compose {
+sdiv.compose {
     display: block;
     margin-top: 30px;
 }
 
 div.compose > textarea {
-    width: 90%;
+    width: 75%;
     padding: 8px;
-    border: 1px solid #dbdbdb;
     resize: vertical;
     outline: none;
     font-size: 10pt;
     min-height: 80px;
+    margin-top: 20px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    border-top: none;
+    border-bottom: 1px solid #DDD;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+    outline: 0;
 }
 
 div.compose > ul.buttons {
@@ -36,18 +42,20 @@ div.compose > ul.buttons > li > a {
 div.compose > ul.buttons > li > a:hover {
     padding: 5px;
     background-color: #666;
+    border-color: #666;
     font-size: 9pt;
     text-decoration: none;
     color: #fff;
 }
 
 div.compose > ul.buttons > li > a.primary {
-    background-color: #488eb2;
+    background-color: #404096;
     color: #fff;
-    border: 1px solid #488eb2;
+    border: 1px solid #404096;
 }
 
 div.compose > ul.buttons > li > a.primary:hover {
-    background-color: rgba(72, 142, 178, .8);
+    background-color: rgba(64, 64, 150, .8);
+    border-color: rgba(64, 64, 150, .8) !important;
     color: #fff;
 }

@@ -1,9 +1,9 @@
 body {
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Verdana', sans-serif;
 }
 
 div.navbar {
-    background-color: #488eb2;
+    background-color: #404096;
     position: fixed;
     left: 0;
     top: 0;
@@ -33,11 +33,12 @@ div.search {
 }
 
 div.search > input {
-    border: 1px solid #dbdbdb;
     outline: none;
-    min-width: 300px;
-    padding: 5px;
+    min-width: 320px;
+    padding: 6px;
     border-radius: 2px;
+    border: 1px solid #404096;
+    font-size: 12px;
 }
 
 ul.menu {
@@ -55,12 +56,12 @@ ul.menu > li .menu-link, .dropdown-link {
     font-size: 10pt;
     text-decoration: none;
     padding: 5px 8px;
-    border-radius: 8px;
+    border-radius: 3px;
     cursor: pointer;
 }
 
 ul.menu > li .menu-link:hover, .dropdown-link:hover {
-    color: #488eb2;
+    color: #404096;
     background-color: #fff;
 }
 
@@ -88,7 +89,7 @@ div.stairs {
 div.stairs > span.title {
     display: block;
     font-size: 12pt;
-    color: #488eb2;
+    color: #404096;
     padding-left: 12px;
     margin: 20px 0px 8px 0px;
 }
@@ -231,7 +232,7 @@ ul.entries > li > div.text {
 
 div.text > a {
     text-decoration: none;
-    color: #488eb2;
+    color: #404096;
 }
 
 ul.entries > li > div.info {
@@ -295,7 +296,7 @@ ul.form > li > button {
     padding: 5px;
     color: #fff;
     min-width: 80px;
-    background-color: rgb(72, 142, 178);
+    background-color: rgb(64, 64, 150);
     border: none;
     cursor: pointer;
     border-radius: 3px;
@@ -303,7 +304,7 @@ ul.form > li > button {
 }
 
 ul.form > li > button:active {
-    background-color: rgba(72, 142, 178, .75);
+    background-color: rgba(64, 64, 150, .75);
 }
 
 div.footer {
@@ -314,7 +315,7 @@ div.footer {
 
 div.footer > a {
     text-decoration: none;
-    color: #488eb2;
+    color: #404096;
 }
 
 div.footer > a:hover {
@@ -375,7 +376,7 @@ div.footer > a:hover {
 }
 
 .dropdown-content {
-    background: #488eb2;
+    background: #404096;
     position: absolute;
     z-index: 1000;
     right: 0;
@@ -406,31 +407,40 @@ div.footer > a:hover {
 }
 
 .more {
-    float: right;
-    margin-bottom: 48px;
-    margin-top: 8px;
-    margin-right: 8px;
-    font-size: 14px;
-    color: #bdbdbd;
+    cursor: pointer;
+    font-size: 13px;
+    text-align: center;
+    display: block;
+    margin: 20px 50px;
+    padding: 5px;
+    color: #404096;
+    border-radius: 2px;
+    transition: background-color 0.3s ease;
+}
+
+.more > i {
+    padding-right: 6px;
+}
+
+.more:hover {
+    text-decoration: underline;
 }
 
 .reload-left {
     margin-left: 8px;
+    cursor: pointer;
 }
 
 .search-suggestion {
-    z-index: 1000;
+    z-index: 999;
     background: #fff;
     width: 100%;
-    border-radius: 3px;
-    margin-top: -5px;
+    border-radius: 2px;
+    margin-top: -4px;
+    margin-left: 5px;
     line-height: 12px;
-    border: 1px solid #488eb2;
+    border: 1px solid #404096;
     display: none;
-}
-
-.search-suggestion .suggest-list {
-    padding: 8px;
 }
 
 ul.suggest-list {
@@ -440,9 +450,15 @@ ul.suggest-list {
 ul.suggest-list > li {
     display: block;
     text-decoration: none;
-    padding: 5px 0px 5px 12px;
+    padding: 8px 5px;
     font-size: 0.8em;
     color: #666;
+    border-bottom: 1px solid #eee;
+}
+
+ul.suggest-list > li:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
 }
 
 .topic-wrapper {
@@ -513,7 +529,7 @@ ul.list-row > li > div.list-row-info > span.time {
     height: 25px;
     margin-left: 5px;
     margin-right: 5px;
-    background-color: #ddd;
+    background-color: #fafafa;
     min-width: 50px;
     width: auto;
     max-width: 65px;
@@ -522,4 +538,5 @@ ul.list-row > li > div.list-row-info > span.time {
     vertical-align: top;
     color: #000;
     border-radius: 4px;
+    outline: none;
 }

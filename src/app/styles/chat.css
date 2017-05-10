@@ -1,15 +1,14 @@
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-track {
     border-radius: 10px;
-    background-color: rgba(25, 147, 147, 0.1);
+    background-color: rgba(64, 64, 150, 0.2);
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: rgba(25, 147, 147, 0.2);
+    background-color: rgba(64, 64, 150, 0.9);
 }
 
 .chat-thread {
@@ -33,7 +32,7 @@
 
 .chat-thread > .text-from-me {
     float: right;
-    background-color: #488eb2;
+    background-color: #404096;
     z-index: -1;
 }
 
