@@ -1,12 +1,7 @@
 <div class="entry_info">
     <a href="/entry/<%- id %>" class="no">#<%- id %></a>
-    <% if (created_at !== updated_at) {%>
-        <span class="time"><%- moment(updated_at).fromNow() %> (*)</span>
-        <% } else { %>
-        <span class="time"><%- moment(created_at).fromNow() %></span>
-        <% } %>
+    <span class="time"><%- moment(created_at).fromNow() %></span>
 </div>
-
 <div class="text">
     <%= cleaner(text) %>
 </div>

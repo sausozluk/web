@@ -4,9 +4,12 @@
 
 .tabs-menu li {
     display: inline-block;
-    border-radius: 4px 4px 0 0;
-    padding: 4px 8px;
+    border-radius: 2px 2px 0 0;
     margin-bottom: -1px;
+}
+
+.tabs-menu li:first-child {
+    margin-left: 8px;
 }
 
 .tabs-menu.colored {
@@ -36,6 +39,9 @@
 
 .tabs-menu li > span {
     cursor: pointer;
+    display: block;
+    padding: 6px;
+    font-size: 12px;
 }
 
 .tab {
