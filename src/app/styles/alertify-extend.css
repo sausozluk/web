@@ -1,0 +1,15 @@
+.alertify-logs > * {
+    box-shadow: none;
+}
+
+.alertify-logs > div {
+    font-size: 12px;
+}
+
+.alertify-logs > div.success {
+    background-color: #00b2a0;
+}
+
+.alertify-logs > div.error {
+    background-color: #d63f3f;
+}

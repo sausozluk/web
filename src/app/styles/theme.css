@@ -17,6 +17,7 @@ div.navbar {
 }
 
 a.logo {
+    font-family: 'Baloo';
     line-height: 40px;
     font-size: 14pt;
     text-decoration: none;
@@ -30,6 +31,7 @@ div.search {
     position: absolute;
     top: 0;
     left: 240px;
+    margin-top: -2px;
 }
 
 div.search > input {
@@ -56,7 +58,7 @@ ul.menu > li .menu-link, .dropdown-link {
     font-size: 10pt;
     text-decoration: none;
     padding: 5px 8px;
-    border-radius: 3px;
+    border-radius: 2px;
     cursor: pointer;
 }
 
@@ -124,19 +126,18 @@ ul.topics > li a:hover {
 }
 
 ul.topics > li a > span.subject {
-    font-size: 0.8em;
-    padding-right: 4px;
     display: block;
     line-height: 18px;
     text-transform: lowercase;
+    font-size: .7em;
+    padding-right: 5px;
 }
 
 ul.topics > li a > span.count {
     padding: 2px 4px;
-    background: #999;
-    color: #fff;
+    color: #999;
     border-radius: 4px;
-    font-size: 9pt;
+    font-size: 8pt;
     float: right;
     margin-right: 6px;
 }
@@ -408,7 +409,7 @@ div.footer > a:hover {
 
 .more {
     cursor: pointer;
-    font-size: 13px;
+    font-size: 11.5px;
     text-align: center;
     display: block;
     margin: 20px 50px;
