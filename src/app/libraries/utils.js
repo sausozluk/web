@@ -132,7 +132,7 @@ define(function (require, exports, module) {
     },
     colorize: function (clr) {
       return function (req, next) {
-        var color = clr ? clr : '#488eb2';
+        var color = clr ? clr : '#404096';
 
         $('div.navbar').css({
           backgroundColor: color
