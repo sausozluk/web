@@ -4,6 +4,7 @@
 
 .alertify-logs > div {
     font-size: 12px;
+    border-radius: 2px;
 }
 
 .alertify-logs > div.success {
