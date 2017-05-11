@@ -83,6 +83,7 @@ div.left {
     border-right: 1px solid #dbdbdb;
     height: 100%;
     position: fixed;
+    z-index: 2;
 }
 
 div.stairs {
