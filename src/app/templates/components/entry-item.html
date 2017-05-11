@@ -3,7 +3,12 @@
     <span class="time"><%- moment(created_at).fromNow() %></span>
 </div>
 <div class="text">
-    <%= cleaner(text) %>
+    <%= expanded ? text : text.substr(0, 500) %>
+    <% if (!expanded) { %>
+    <div class="read-more">
+        devamını oku
+    </div>
+    <% } %>
 </div>
 <div class="info">
     <ul class="vote">

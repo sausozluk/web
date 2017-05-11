@@ -250,7 +250,14 @@ ul.entries > li > div.text {
     padding: 14px 0 24px 0;
     line-height: 20px;
     text-align: left;
+    word-wrap: break-word;
     text-transform: lowercase;
+}
+
+ul.entries > li > div.text > div.read-more {
+    margin-top: 8px;
+    display: block;
+    color: #888888;
 }
 
 div.text > a {

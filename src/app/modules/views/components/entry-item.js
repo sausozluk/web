@@ -17,11 +17,14 @@ define(function (require, exports, module) {
 
     tagName: 'li',
 
+    text: '',
+
     events: {
       'click .up-vote': 'handleClickUpVote',
       'click .down-vote': 'handleClickDownVote',
       'click .remove': 'handleClickRemove',
-      'click .edit': 'handleClickEdit'
+      'click .edit': 'handleClickEdit',
+      'click .read-more': 'handleClickReadMore'
     },
 
     updateVotes: function (res) {
@@ -29,6 +32,12 @@ define(function (require, exports, module) {
         'upvotes_count': res.upvotes_count,
         'downvotes_count': res.downvotes_count
       });
+    },
+
+    handleClickReadMore: function (e) {
+      e.preventDefault();
+
+      $(this.el).find('.text').text(this.text);
     },
 
     handleClickUpVote: function (e) {
@@ -90,8 +99,10 @@ define(function (require, exports, module) {
       var json = this.model.toJSON();
       json.system_id = storage.id;
       json.canivote = storage.id ? storage.id !== json.user.id : false;
-      json.cleaner = this.strCleaner;
+      json.text = this.strCleaner(json.text);
+      this.text = json.text;
       json.moment = moment;
+      json.expanded = json.text.length < 501;
       $(this.el).html(this.template(json));
       return this;
     }
