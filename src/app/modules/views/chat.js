@@ -31,7 +31,16 @@ define(function (require, exports, module) {
     description: 'instant yürüme sistemi',
 
     events: {
-      'click #ok': 'handleClickOk'
+      'click #ok': 'handleClickOk',
+      'keyup #message': 'handlePressEnter'
+    },
+
+    handlePressEnter: function (e) {
+      e.preventDefault();
+
+      if (e.keyCode === 13) {
+        this.handleClickOk(e);
+      }
     },
 
     handleClickOk: function (e) {
@@ -61,7 +70,7 @@ define(function (require, exports, module) {
     },
 
     goBottomOfChat: function () {
-      this.chat.animate({scrollTop: this.chat.prop('scrollHeight')}, 1000);
+      $(document.body).animate({scrollTop: this.chat.prop('scrollHeight')}, 1000);
     },
 
     handleMessage: function (data) {
