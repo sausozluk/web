@@ -22,16 +22,24 @@ define(function (require, exports, module) {
     doRegister: function (e) {
       e.preventDefault();
 
+      var length = $('#username').val().trim().length;
+
+      if (length > 0 && length < 41) {
+        notification.error('bizde 40 karakter kısıtlaması var salih abi :(');
+        return;
+      }
+
       userController.register({
         email: $('#email').val(),
         username: $('#username').val(),
         password: $('#password').val()
       }, function (data) {
-        storage.id = data.user_id;
-        storage.token = data.token;
-        storage.permission = data.authority;
-        storage.username = data.username;
-        storage.slug = data.slug;
+        storage.id = data['user_id'];
+        storage.token = data['user_id'];
+        storage.permission = data['authority'];
+        storage.username = data['username'];
+        storage.slug = data['slug'];
+
         eventBus.emit('auth-true');
         notification.info('gel gel sen de gel');
         window.router.navigate('/', true);

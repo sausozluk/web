@@ -19,12 +19,17 @@ define(function (require, exports, module) {
       e.preventDefault();
 
       var text = $('#new_entry').val().trim();
+      var length = text.length;
 
       if (this.validate(text)) {
-        topicController.newTopic(this.title, text, function (id) {
-          eventBus.emit('reload-left');
-          window.router.navigate('/entry/' + id, true);
-        });
+        if (length > 0 && length < 51) {
+          topicController.newTopic(this.title, text, function (id) {
+            eventBus.emit('reload-left');
+            window.router.navigate('/entry/' + id, true);
+          });
+        } else {
+          notification.error('50 karakter uzun olamaz la');
+        }
       } else {
         notification.error('yakışmadı');
       }

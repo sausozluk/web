@@ -40,13 +40,15 @@ define(function (require, exports, module) {
         email: $('#email').val(),
         password: $('#password').val()
       }, function (data) {
-        storage.id = data.user_id;
-        storage.token = data.token;
-        storage.permission = data.authority;
-        storage.username = data.username;
-        storage.slug = data.slug;
+        storage.id = data['user_id'];
+        storage.token = data['token'];
+        storage.permission = data['authority'];
+        storage.username = data['username'];
+        storage.slug = data['slug'];
+
         eventBus.emit('auth-true');
         notification.info('yaaa şapşik ♥');
+
         if (!!cache.lastTry) {
           var target = cache.lastTry;
           delete cache.lastTry;

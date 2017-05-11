@@ -290,6 +290,9 @@ ul.entries > li > div.info > ul.vote > li > a.user {
     color: #404096;
     font-size: 12px;
     text-decoration: none;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 ul.entries > li > div.info > ul.vote > li > a > i {
