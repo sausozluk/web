@@ -9,7 +9,7 @@
     color: #333;
     width: 100%;
     padding: 20px;
-    z-index: 1;
+    z-index: -1;
     line-height: 20px;
     top: 40px;
     border-bottom: 1px solid #f1f1f1;
@@ -22,7 +22,6 @@
 
 .chat_messages {
     display: block;
-    z-index: -2;
     margin-top: 60px;
     margin-bottom: 40px;
     padding: 20px;
@@ -44,13 +43,13 @@
 .chat_messages > .text-from-me {
     float: right;
     background-color: #404096;
-    z-index: -1;
+    z-index: -2;
 }
 
 .chat_messages > .text-from-others {
     float: left;
     background-color: #f1592b;
-    z-index: -1;
+    z-index: -2;
 }
 
 .compose_message {
