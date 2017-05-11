@@ -1,12 +1,11 @@
-<h1 class="page_title"><%- nick %></h1>
-<div class="chat-thread" id="chat">
+<div class="chat_wrapper">
+    <div class="chat_user_info">
+        <a href="/mesajlar">mesajlar</a>
+        <i class="fa fa-caret-right"></i>
+        <span class="user_nick"><%- nick %></span>
+    </div>
+    <div id="chat" class="chat_messages"></div>
 </div>
-<div class="compose">
+<div class="compose_message">
     <textarea id="message" placeholder='"<%- nick %>" adlı yazara nası yürüyeceğini anlatsana :>' disabled></textarea>
-    <ul class="buttons">
-        <li><a id="bkz">(bkz: hede)</a></li>
-        <li><a id="yildiz">*</a></li>
-        <li><a id="link">http://</a></li>
-        <li><a id="ok" class="primary" disabled="">ateşle</a></li>
-    </ul>
 </div>
