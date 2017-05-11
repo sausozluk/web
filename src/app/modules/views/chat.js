@@ -80,6 +80,8 @@ define(function (require, exports, module) {
     render: function (slug) {
       var self = this;
 
+      $('#app').addClass('chat-open');
+
       userController.getUserWithSlug(slug, function (user) {
         self.username = user.username;
         self.slug = slug;

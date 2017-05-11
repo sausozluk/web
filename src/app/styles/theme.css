@@ -152,6 +152,10 @@ div.content {
     margin-right: 20px;
 }
 
+div.content.chat-open {
+    padding: 0;
+}
+
 h1.topic_title {
     font-size: 18pt;
     text-transform: lowercase;
@@ -236,7 +240,7 @@ ul.entries > li > .entry_info > a.no {
 ul.entries > li > .entry_info > span.time {
     float: right;
     font-size: 7.5pt;
-} 
+}
 
 ul.entries > li > div.text {
     display: block;
