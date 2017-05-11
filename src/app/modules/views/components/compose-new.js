@@ -19,7 +19,7 @@ define(function (require, exports, module) {
       e.preventDefault();
 
       var text = $('#new_entry').val().trim();
-      var length = text.length;
+      var length = this.title.length;
 
       if (this.validate(text)) {
         if (length > 0 && length < 51) {
