@@ -10,6 +10,7 @@ div.navbar {
     top: 0;
     height: 40px;
     width: 100%;
+    z-index: 2;
     -webkit-transition: background-color 1000ms ease;
     -moz-transition: background-color 1000ms ease;
     -o-transition: background-color 1000ms ease;
@@ -338,6 +339,10 @@ ul.form > li > input {
     min-width: 200px;
 }
 
+ul.form > li > input[type='checkbox'] {
+    min-width: inherit;
+}
+
 ul.form > li > button {
     padding: 5px;
     color: #fff;
@@ -424,7 +429,7 @@ div.footer > a:hover {
 .dropdown-content {
     background: #404096;
     position: absolute;
-    z-index: 1000;
+    z-index: 3;
     right: 0;
     top: 100%;
     border-radius: 3px;
@@ -478,7 +483,7 @@ div.footer > a:hover {
 }
 
 .search-suggestion {
-    z-index: 999;
+    z-index: 3;
     background: #fff;
     width: 100%;
     border-radius: 2px;
