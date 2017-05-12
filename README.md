@@ -4,28 +4,26 @@
 
 ## todo
 ```text
-- rework for views
-- mobile chat ui looks like shitty
+- create backbone compose component
 - admin and moderation panel
 - settings page
 - mail authorization
-- message archive
 - chat messages must be like entry design
-- report topic and entry system
 - fix domain config with nginx
 - websocket port problem fix (maybe websocket balancer?)
-- notification for fatal problems (telegram, slack maybe?)
 - up vote, down vote button must be hidden if belong logged-in user (or visitor account).
 - check pagination for index cause its list box not a aHref?
 - apply promises for whole async mechanic (maybe proxies? but check supported browsers)
 - apply base view model for generic methods
-- github hooks (do not remember!)
-- check fucking tab views (jquery ui?)
-- global error management
-- mail notification for unread chat messages
-- update bower deps
+- create backbone tab component
 - backup db (job)
 - sitemap.xml
-- check topic name length on front-end idiot
 - http://www.w3resource.com/schema.org/Article.php
+- user can apply bkz, * ... when select text
+- left frame load more overflow problem
+- allow 3 entry without time block
+- loading bar has problem when long ajax request
+- add unread badge on message menu
+- new chat ui looks like shitty cause of me
+- manage updatedAt attr yourself
 ```
