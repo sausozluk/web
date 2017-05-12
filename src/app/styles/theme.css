@@ -73,6 +73,15 @@ ul.menu > li .menu-link > span.menu-link-text {
     padding-left: 8px;
 }
 
+span.unread-count {
+    margin-left: 8px;
+    background-color: #fff;
+    padding: 2px 4px;
+    line-height: 16px;
+    border-radius: 5px;
+    color: #404096;
+}
+
 div.wrapper {
     display: block;
     margin-top: 40px;
