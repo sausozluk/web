@@ -23,7 +23,7 @@
 .chat_messages {
     display: block;
     margin-top: 60px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     padding: 20px;
     padding-right: 0;
     margin-right: -20px;
@@ -60,8 +60,10 @@
     bottom: 0;
     z-index: 1;
     background-color: #fafafa;
-    border-top: 1px solid #f1f1f1;
-    max-height: 60px;
+    border-top: 1px solid #dedede;
+    max-height: 80px;
+    outline: none;
+    font-size: 12px;
 }
 
 .compose_message > #message {
