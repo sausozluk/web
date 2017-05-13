@@ -1,14 +1,40 @@
 .page_title.profile {
     color: #404096;
+    font-size: 26px;
+    margin-bottom: 20px;
 }
 
-#profile-cards.ul {
+#profile-cards {
     list-style: none;
+    margin-top: 28px;
 }
 
 #profile-cards:before {
     display: table;
     content: "";
+}
+
+ul.user-badges {
+    display: block;
+}
+
+ul.user-badges li {
+    display: inline-block;
+    font-size: 10px;
+}
+
+.user-badge-default {
+    padding: 4px;
+    border-radius: 2px;
+    background-color: #404096;
+    color: #fff;
+}
+
+.user-badge-admin {
+    padding: 4px;
+    border-radius: 2px;
+    background-color: darkred;
+    color: #fff;
 }
 
 #profile-cards > li {
@@ -25,11 +51,12 @@
 }
 
 #profile-cards a {
-    color: #bdbdbd;
+    color: #404096;
     text-decoration: none;
     cursor: pointer;
     -ms-touch-action: manipulation;
     touch-action: manipulation;
+    font-size: 12px;
 }
 
 #profile-cards > li > ul {
