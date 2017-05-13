@@ -91,7 +91,7 @@ div.left {
     float: left;
     width: 240px;
     border-right: 1px solid #dbdbdb;
-    height: 100%;
+    height: calc(100% - 40px);
     position: fixed;
     z-index: 2;
 }
