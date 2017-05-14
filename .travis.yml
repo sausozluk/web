@@ -29,6 +29,6 @@ after_script:
 deploy:
  provider: script
  skip_cleanup: true
- script: cd .. && chmod 600 deploy_key && ssh -o StrictHostKeyChecking=no -i deploy_key ubuntu@ec2-35-157-80-0.eu-central-1.compute.amazonaws.com "./sozluk/deploy.sh"
+ script: cd .. && chmod 600 deploy_key && ssh -o StrictHostKeyChecking=no -i deploy_key ubuntu@ec2-35-157-80-0.eu-central-1.compute.amazonaws.com "cd sozluk && ./deploy.sh"
  on:
    branch: master
