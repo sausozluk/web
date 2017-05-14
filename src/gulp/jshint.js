@@ -4,5 +4,5 @@ var jshint = require('gulp-jshint');
 gulp.task('jshint', ['clean'], function () {
   return gulp.src('./app/**/*.js')
     .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter(env === 'prod' ? 'fail' : 'default'));
+    .pipe(jshint.reporter('default'));
 });

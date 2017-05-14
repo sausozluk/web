@@ -4,14 +4,10 @@ var fs = require('fs');
 var dir = './gulp';
 
 require('dotenv').config();
+var sozluk_env = process.env['SOZLUK_ENV'] || 'local';
+global.config = require(__dirname + '/confs/' + sozluk_env);
 
-global.name = process.env['SOZLUK_NAME'] || 'saüsözlük';
-global.env = process.env['SOZLUK_ENV'] || 'dev';
-global.apiUrl = process.env['SOZLUK_API_URL'] || 'http://localhost:8080/api/v1';
-
-log('SOZLUK_NAME #', name);
-log('SOZLUK_ENV #', env);
-log('SOZLUK_API_URL #', apiUrl);
+log('SOZLUK_ENV #', sozluk_env);
 
 fs.readdirSync(dir).map(function (file) {
   require(dir + '/' + file);

@@ -5,8 +5,8 @@ gulp.task('processhtml', ['jshint'], function () {
   return gulp.src('index.html')
     .pipe(processhtml({
       data: {
-        apiUrl: apiUrl,
-        name: name
+        apiUrl: config['api_url'],
+        name: config['name']
       }
     }))
     .pipe(gulp.dest('dist/'));
