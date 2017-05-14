@@ -36,6 +36,8 @@ define(function (require, exports, module) {
 
         this.leftView.reload();
       }).bind(this));
+
+      eventBus.on('unread', this.updateUnread.bind(this));
     },
 
     render: function () {
@@ -67,6 +69,12 @@ define(function (require, exports, module) {
         }
         NProgress.done();
       }).bind(this));
+    },
+
+    updateUnread: function (count) {
+      count = count || 0;
+      $('.unread-count').text(count > 0 ? count : ':)');
+      window.unread = count;
     }
   });
 });

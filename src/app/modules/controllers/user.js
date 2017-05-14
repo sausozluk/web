@@ -1,5 +1,6 @@
 define(function (require, exports, module) {
   var AjaxModel = require('../models/ajax');
+  var eventBus = require('eventbus');
 
   module.exports = {
     'getProfileWithSlug': function (id, callback) {
@@ -38,6 +39,10 @@ define(function (require, exports, module) {
 
       ajaxModel.save({}, {
         success: function (model, response) {
+          if (response.data.isAlive) {
+            eventBus.emit('unread', response.data.unread);
+          }
+
           callback(response.data.isAlive);
         }
       });
