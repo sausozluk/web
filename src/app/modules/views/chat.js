@@ -83,6 +83,13 @@ define(function (require, exports, module) {
         }).render().el);
 
         this.goBottomOfChat();
+
+        window.socket.send({
+          action: 'mark_messages',
+          data: {
+            to: this.slug
+          }
+        });
       }
     },
 
