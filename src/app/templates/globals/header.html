@@ -15,7 +15,10 @@
     <li><a href="/biri/<%- data.slug %>" class="menu-link"><i class="fa fa-user"></i><span
             class="menu-link-text">ben</span></a>
     </li>
-    <li><a href="/mesaj" class="menu-link"><i class="fa fa-inbox"></i><span class="menu-link-text">mesaj</span><span class="unread-count">0</span></a>
+    <li>
+        <a href="/mesaj" class="menu-link"><i class="fa fa-inbox"></i><span class="menu-link-text">mesaj</span>
+            <span class="unread-count"><%= data.unread %></span>
+        </a>
     </li>
     <li class="dropdown-menu" tabindex="0" onclick="">
         <span class="dropdown-link">...</span>

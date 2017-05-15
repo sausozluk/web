@@ -41,6 +41,9 @@ define(function (require, exports, module) {
     timer: -1,
     timeout: 500,
 
+    initialize: function () {
+    },
+
     startTimer: function (e) {
       if (e.keyCode === 13) {
         this.doMatch();
@@ -177,8 +180,10 @@ define(function (require, exports, module) {
     renderWithAuth: function (auth) {
       $(this.el).html(HeaderTemplate({
         name: window.sozlukName,
-        auth: auth, data: auth ? {
-          slug: storage.slug
+        auth: auth,
+        data: auth ? {
+          slug: storage.slug,
+          unread: window.unread || ':)'
         } : {}
       }));
     }

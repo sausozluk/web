@@ -35,12 +35,14 @@ define(function (require, exports, module) {
         password: $('#password').val()
       }, function (data) {
         storage.id = data['user_id'];
-        storage.token = data['user_id'];
+        storage.token = data['token'];
         storage.permission = data['authority'];
         storage.username = data['username'];
         storage.slug = data['slug'];
 
         eventBus.emit('auth-true');
+        eventBus.emit('unread', data['unread']);
+
         notification.info('gel gel sen de gel');
         window.router.navigate('/', true);
       });

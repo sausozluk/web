@@ -33,6 +33,8 @@ define(function (require, exports, module) {
         notification.info('[' + data.from + '] ' + data.message, function () {
           window.router.navigate('/mesaj/' + data.slug, true);
         });
+
+        eventBus.emit('unread', window.unread + 1);
       }
     },
     send: function (data) {

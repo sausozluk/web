@@ -47,6 +47,8 @@ define(function (require, exports, module) {
         storage.slug = data['slug'];
 
         eventBus.emit('auth-true');
+        eventBus.emit('unread', data['unread']);
+
         notification.info('yaaa şapşik ♥');
 
         if (!!cache.lastTry) {
