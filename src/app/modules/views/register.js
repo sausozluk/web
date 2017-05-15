@@ -24,7 +24,7 @@ define(function (require, exports, module) {
 
       var length = $('#username').val().trim().length;
 
-      if (length > 0 && length < 41) {
+      if (length > 40) {
         notification.error('bizde 40 karakter kısıtlaması var salih abi :(');
         return;
       }
