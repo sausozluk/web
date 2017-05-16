@@ -1,6 +1,6 @@
 # sausozluk / web ![badge](https://travis-ci.org/sausozluk/web.svg?branch=master)
 
-> web client implementation for sausozluk which is developed with Backbone.
+> A web interface for saü sözlük
 
 ## todo
 ```text
@@ -9,10 +9,8 @@
 - settings page
 - mail authorization
 - chat messages must be like entry design
-- fix domain config with nginx
 - up vote, down vote button must be hidden if belong logged-in user (or visitor account).
 - check pagination for index cause its list box not a aHref?
-- apply promises for whole async mechanic (maybe proxies? but check supported browsers)
 - apply base view model for generic methods
 - create backbone tab component
 - backup db (job)
