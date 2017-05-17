@@ -10,6 +10,7 @@ define(function (require, exports, module) {
       options = options || {};
 
       options.beforeSend = function (xhr) {
+        console.log('COL START');
         NProgress.start();
         xhr.setRequestHeader('token', (storage.token || module.config().defaultToken));
       };
@@ -23,6 +24,7 @@ define(function (require, exports, module) {
       };
 
       options.success = function (collection, response, xhr) {
+        console.log('COL ENDs');
         NProgress.done();
         if (!arguments[1].success) {
           var msg = arguments[1].message;
@@ -47,6 +49,7 @@ define(function (require, exports, module) {
         options = options || {};
 
         options.beforeSend = function (xhr) {
+          console.log('MODEL START');
           NProgress.start();
           xhr.setRequestHeader('token', (storage.token || module.config().defaultToken)
           );
@@ -61,6 +64,7 @@ define(function (require, exports, module) {
         };
 
         options.success = function () {
+          console.log('MODEL END');
           NProgress.done();
           if (!arguments[0].success) {
             var msg = arguments[0].message;

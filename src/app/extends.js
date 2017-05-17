@@ -1,5 +1,5 @@
-require(['jquery', 'backbone', 'moment', 'libraries/vendor/emoji-strip', 'notification'],
-  function ($, Backbone, moment, emojiStrip, notification) {
+require(['jquery', 'backbone', 'moment', 'libraries/vendor/emoji-strip', 'notification', 'nprogress'],
+  function ($, Backbone, moment, emojiStrip, notification, NProgress) {
     moment['locale']('tr');
 
     String.prototype.replaceAll = function (search, replacement) {
@@ -28,6 +28,25 @@ require(['jquery', 'backbone', 'moment', 'libraries/vendor/emoji-strip', 'notifi
         Backbone.history.navigate(href.attr, true);
       }
     });
+
+    var counter = 0;
+
+    var oldStart = NProgress.start;
+    var oldDone = NProgress.done;
+
+    NProgress.start = function () {
+      counter++;
+      if (counter === 1) {
+        oldStart.apply(this, arguments);
+      }
+    };
+
+    NProgress.done = function () {
+      counter--;
+      if (counter === 0) {
+        oldDone.apply(this, arguments);
+      }
+    };
 
     return true;
   });
