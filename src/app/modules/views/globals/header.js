@@ -183,7 +183,7 @@ define(function (require, exports, module) {
         auth: auth,
         data: auth ? {
           slug: storage.slug,
-          unread: window.unread || ':)'
+          unread: window.unread || 'xoxo'
         } : {}
       }));
     }
