@@ -8,8 +8,7 @@
         <h3>son entry'leri</h3>
         <ul>
             <% for (var i in last_entries) { %>
-            <li><a href="/entry/<%= last_entries[i].id %>" title="#<%= last_entries[i].id %>"><%- last_entries[i].title
-                %></a></li>
+            <li><a href="/entry/<%= last_entries[i].id %>" title="#<%= last_entries[i].id %>"><%- last_entries[i].title %></a></li>
             <% } %>
         </ul>
     </li>
