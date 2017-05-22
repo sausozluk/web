@@ -73,13 +73,7 @@ define(function (require, exports, module) {
 
     updateUnread: function (count) {
       count = count || 0;
-      if(count > 0){
-        $('.unread-count').text(count);
-        $('.undread-count').show();
-      }
-      else {
-        $('.undread-count').hide();
-      }
+      $('.unread-count').text(count > 0 ? count : 'xoxo');
       window.unread = count;
     }
   });
