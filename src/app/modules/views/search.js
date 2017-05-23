@@ -3,6 +3,7 @@ define(function (require, exports, module) {
   var Backbone = require('backbone');
   var SearchTemplate = require('template!../../templates/search');
   var app = require('app');
+  var utils = require('utils');
 
   module.exports = Backbone.View.extend({
     title: 'ara',
@@ -32,6 +33,10 @@ define(function (require, exports, module) {
       var text = $('#search-page-input').val().trim();
 
       if (text === '') {
+        return;
+      }
+      
+      if (!utils.title(text)) {
         return;
       }
 
