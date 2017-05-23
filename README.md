@@ -15,4 +15,3 @@
 - user can apply bkz, * ... when select text
 - new chat ui looks like shitty cause of me
 - manage updatedAt attr yourself
-- check '.', '..', '...', '/', '#', '+', and combination slug conflict, "\"", "╩" and another special char

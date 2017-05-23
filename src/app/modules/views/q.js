@@ -30,19 +30,7 @@ define(function (require, exports, module) {
       }
     },
 
-    prettyTitle: function (title) {
-      for (var i = 0; i < title.length; i++) {
-        var char = title[i];
-        if (!utils.title(char)) {
-          title = title.replaceAt(i, ' ');
-        }
-      }
-
-      return title.trim();
-    },
-
     render: function (title) {
-      title = this.prettyTitle(title);
       searchController.suggest(title, (function (data) {
         if (data.topics.length) {
           var result = _.find(data.topics, {title: title});

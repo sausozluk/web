@@ -22,13 +22,13 @@ define(function (require, exports, module) {
       var length = this.title.length;
 
       if (this.validate(text)) {
-        if (length > 0 && length < 51) {
+        if (length > 0 && length < 51 && utils.title(this.title)) {
           topicController.newTopic(this.title, text, function (id) {
             eventBus.emit('reload-left');
             window.router.navigate('/entry/' + id, true);
           });
         } else {
-          notification.error('50 karakter uzun olamaz la');
+          notification.error('bu konuyla bi yere varamazsın');
         }
       } else {
         notification.error('yakışmadı');

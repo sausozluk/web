@@ -185,7 +185,7 @@ define(function (require, exports, module) {
       return str.replace(/(?:\r\n|\r|\n)/g, '<br/>');
     },
     title: function (str) {
-      return /^[a-zA-Z+-=_\\\/%& '.$0-9ığüşöçİĞÜŞÖÇ]+$/.test(str);
+      return /^[a-zA-Z $0-9ığüşöçİĞÜŞÖÇ]+$/.test(str);
     },
     ws_uri: function () {
       var loc = window.location, new_uri;

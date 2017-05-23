@@ -6,6 +6,7 @@ define(function (require, exports, module) {
   var SuggestListItemTemplate = require('template!../../../templates/components/suggest-list-item');
   var searchController = require('../../controllers/search');
   var storage = require('storage');
+  var utils = require('utils');
 
   var SuggestListItem = Backbone.View.extend({
     template: SuggestListItemTemplate,
@@ -120,6 +121,10 @@ define(function (require, exports, module) {
         return;
       }
 
+      if (!utils.title(text)) {
+        return;
+      }
+
       if (text.match('^#')) {
         window.router.navigate('/entry/' + text.substr(1), true);
         return;
@@ -152,6 +157,10 @@ define(function (require, exports, module) {
 
       if (text === '') {
         suggestArea.hide();
+        return;
+      }
+
+      if (!utils.title(text)) {
         return;
       }
 

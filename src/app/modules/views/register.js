@@ -22,16 +22,17 @@ define(function (require, exports, module) {
     doRegister: function (e) {
       e.preventDefault();
 
-      var length = $('#username').val().trim().length;
+      var username = $('#username').val();
+      var length = username.trim().length;
 
-      if (length > 40) {
-        notification.error('bizde 40 karakter kısıtlaması var salih abi :(');
+      if (length > 40 && utils.title(username)) {
+        notification.error('kullanıcı adı uygunsuz :p');
         return;
       }
 
       userController.register({
         email: $('#email').val(),
-        username: $('#username').val(),
+        username: username,
         password: $('#password').val()
       }, function (data) {
         storage.id = data['user_id'];
