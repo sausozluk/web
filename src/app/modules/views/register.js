@@ -25,7 +25,7 @@ define(function (require, exports, module) {
       var username = $('#username').val();
       var length = username.trim().length;
 
-      if (length > 40 && utils.title(username)) {
+      if (length > 40 && !utils.title(username)) {
         notification.error('kullanıcı adı uygunsuz :p');
         return;
       }
