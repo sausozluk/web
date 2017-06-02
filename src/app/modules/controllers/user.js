@@ -68,6 +68,16 @@ define(function (require, exports, module) {
           callback(response.data);
         }
       });
+    },
+    'activate': function (token, callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/activate/' + token);
+
+      ajaxModel.fetch({
+        success: function (model, response) {
+          callback(response.data);
+        }
+      });
     }
   };
 });

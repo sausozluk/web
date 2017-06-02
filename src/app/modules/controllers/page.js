@@ -12,6 +12,7 @@ define(function (require, exports, module) {
   var ChatView = require('../views/chat');
   var QView = require('../views/q');
   var EntryView = require('../views/entry');
+  var ActivateView = require('../views/activate');
   var EntryEditView = require('../views/entry-edit');
   var SearchView = require('../views/search');
   var DeveloperView = require('../views/developer');
@@ -57,6 +58,9 @@ define(function (require, exports, module) {
     },
     'entry': function (req) {
       renderPage(new EntryView(), req.params);
+    },
+    'activate': function (req) {
+      renderPage(new ActivateView(), req.params);
     },
     'q': function (req) {
       renderPage(new QView(), req.params);
