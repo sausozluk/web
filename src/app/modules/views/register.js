@@ -8,7 +8,6 @@ define(function (require, exports, module) {
   var storage = require('storage');
   var userController = require('../controllers/user');
   var notification = require('notification');
-  var eventBus = require('eventbus');
 
   module.exports = Backbone.View.extend({
     title: 'kaydol',

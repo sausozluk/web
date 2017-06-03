@@ -2,18 +2,37 @@ define(function (require, exports, module) {
   var $ = require('jquery');
   var Backbone = require('backbone');
   var TabTemplate = require('template!../../../templates/components/settings-tab');
+  var userController = require('../../controllers/user');
+  var notification = require('notification');
 
   module.exports = Backbone.View.extend({
     template: TabTemplate,
 
     events: {
-      'click .tabs-menu span': 'handleClickTab'
+      'click .tabs-menu span': 'handleClickTab',
+      'click #email-ok': 'handleClickEmailOk'
     },
 
     tagName: 'div',
     className: 'tabs-container',
 
     initialize: function () {
+    },
+
+    handleClickEmailOk: function (e) {
+      e.preventDefault();
+
+      var info = {
+        old_email: $('#old_email').val(),
+        password: $('#password').val(),
+        new_email_a: $('#new_email_a').val(),
+        new_email_b: $('#new_email_b').val()
+      };
+
+      userController.changeMail(info, function (data) {
+        notification.info('yeni maile bi bakıver');
+        window.router.navigate('/', true);
+      });
     },
 
     handleClickTab: function (e) {

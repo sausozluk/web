@@ -13,6 +13,7 @@ define(function (require, exports, module) {
   var QView = require('../views/q');
   var EntryView = require('../views/entry');
   var ActivateView = require('../views/activate');
+  var ActivateMailView = require('../views/activate-mail');
   var EntryEditView = require('../views/entry-edit');
   var SearchView = require('../views/search');
   var DeveloperView = require('../views/developer');
@@ -61,6 +62,9 @@ define(function (require, exports, module) {
     },
     'activate': function (req) {
       renderPage(new ActivateView(), req.params);
+    },
+    'activateMail': function (req) {
+      renderPage(new ActivateMailView(), req.params);
     },
     'q': function (req) {
       renderPage(new QView(), req.params);

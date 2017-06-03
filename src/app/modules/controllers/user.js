@@ -69,13 +69,33 @@ define(function (require, exports, module) {
         }
       });
     },
+    'changeMail': function (data, callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/users/change-mail');
+
+      ajaxModel.save(data, {
+        success: function (model, response) {
+          callback(response);
+        }
+      });
+    },
+    'activateMail': function (token, callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/users/activate-mail/' + token);
+
+      ajaxModel.fetch({
+        success: function (model, response) {
+          callback(response);
+        }
+      });
+    },
     'activate': function (token, callback) {
       var ajaxModel = new AjaxModel();
       ajaxModel.changeUrl('/activate/' + token);
 
       ajaxModel.fetch({
         success: function (model, response) {
-          callback(response.data);
+          callback(response);
         }
       });
     }
