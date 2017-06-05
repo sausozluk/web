@@ -6,15 +6,25 @@ define(function (require, exports, module) {
   var storage = require('storage');
 
   module.exports = Backbone.View.extend({
-    events: {},
+    events: {
+      'click .user-do-ban': 'doBan'
+    },
 
     setTitleAndDescription: function (text) {
       document.title = text;
       $('[name="description"]').attr('content', ('"' + text + '" nickli kullanıcı işte'));
     },
 
+    doBan: function (e) {
+      e.preventDefault();
+
+      console.log(this.slug, 'banning ...');
+    },
+
     render: function (nick) {
+      this.slug = nick;
       userController.getProfileWithSlug(nick, (function (profile) {
+        profile.isAdmin = storage.permission > 1;
         this.setTitleAndDescription(profile.username);
         $(this.el).html(ProfileTemplate(profile));
       }).bind(this));

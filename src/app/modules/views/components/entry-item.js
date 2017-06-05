@@ -98,6 +98,7 @@ define(function (require, exports, module) {
     render: function () {
       var json = this.model.toJSON();
       json.system_id = storage.id;
+      json.isMod = storage.permission > 0;
       json.canivote = storage.id ? storage.id !== json.user.id : false;
       json.text = this.strCleaner(json.text);
       this.text = json.text;

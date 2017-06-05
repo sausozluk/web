@@ -1,14 +1,17 @@
 <h1 class="page_title profile"><%- username %></h1>
 <ul class="user-badges">
-    <li><span class="user-badge-admin">admin</span></li>
-    <li><span class="user-badge-default">deneyimli</span></li>
+    <li><span class="user-badge-default"><%- status %></span></li>
+    <% if (isAdmin) { %>
+    <li><span class="user-do-ban">banla şunu</span></li>
+    <% } %>
 </ul>
 <ul id="profile-cards">
     <li>
         <h3>son entry'leri</h3>
         <ul>
             <% for (var i in last_entries) { %>
-            <li><a href="/entry/<%= last_entries[i].id %>" title="#<%= last_entries[i].id %>"><%- last_entries[i].title %></a></li>
+            <li><a href="/entry/<%= last_entries[i].id %>" title="#<%= last_entries[i].id %>"><%- last_entries[i].title
+                %></a></li>
             <% } %>
         </ul>
     </li>

@@ -3,7 +3,6 @@
 > A web interface for saü sözlük
 
 ## todo
-- admin and moderation panel
 - chat messages must be like entry design
 - up vote, down vote button must be hidden if belong logged-in user (or visitor account).
 - check pagination for index cause its list box not a aHref?
