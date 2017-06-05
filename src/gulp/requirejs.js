@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var rjs = require('gulp-rjs2');
 
-gulp.task('requirejs', ['copy'], function () {
+gulp.task('requirejs', function () {
   return rjs({
     mainConfigFile: "app/config.js",
     generateSourceMaps: false,

@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var $ = require('gulp-sync')(gulp);
 var log = require('gulp-util').log;
 var fs = require('fs');
 var dir = './gulp';
@@ -13,5 +14,31 @@ fs.readdirSync(dir).map(function (file) {
   require(dir + '/' + file);
 });
 
-gulp.task('default', ['watch']);
-gulp.task('build', ['cssmin']);
+var js = ['jshint', 'copy-deps', 'requirejs'];
+var css = ['styles', 'cssmin'];
+
+gulp.task('build', $.sync([
+  'clean',
+  [
+    js,
+    css,
+    'processhtml',
+    'copy-assets',
+    'copy-robot',
+    'copy-favicon'
+  ]
+]));
+
+gulp.task('default', $.sync([
+  'clean',
+  [
+    js,
+    css,
+    'processhtml',
+    'copy-assets',
+    'copy-robot',
+    'copy-favicon'
+  ],
+  'connect',
+  'watch'
+]));

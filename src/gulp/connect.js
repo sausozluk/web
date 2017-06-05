@@ -9,7 +9,7 @@ var cache = function (req, res, next) {
   next();
 };
 
-gulp.task('connect', ['cssmin'], function () {
+gulp.task('connect', function () {
   return connect.server({
       port: 1337,
       root: 'dist',

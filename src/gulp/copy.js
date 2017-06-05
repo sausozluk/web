@@ -1,11 +1,20 @@
 var gulp = require('gulp');
-var merge = require('merge-stream');
+var $ = require('gulp-sync')(gulp);
 
-gulp.task('copy', ['processhtml'], function () {
-  var dist = gulp.src('deps/**').pipe(gulp.dest('dist/deps/'));
-  var assets = gulp.src('app/assets/**').pipe(gulp.dest('dist/assets/'));
-  var robot = gulp.src('robots.txt').pipe(gulp.dest('dist/'));
-  var favicon = gulp.src('favicon.ico').pipe(gulp.dest('dist/'));
-
-  return merge(dist, assets, robot, favicon);
+gulp.task('copy-deps', function () {
+  return gulp.src('deps/**').pipe(gulp.dest('dist/deps/'));
 });
+
+gulp.task('copy-assets', function () {
+  return gulp.src('app/assets/**').pipe(gulp.dest('dist/assets/'));
+});
+
+gulp.task('copy-robot', function () {
+  return gulp.src('robots.txt').pipe(gulp.dest('dist/'));
+});
+
+gulp.task('copy-favicon', function () {
+  return gulp.src('favicon.ico').pipe(gulp.dest('dist/'));
+});
+
+gulp.task('copy', $.sync(['copy-deps', 'copy-assets', 'copy-robot', 'copy-favicon']));
