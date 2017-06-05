@@ -24,7 +24,6 @@ define(function (require, exports, module) {
         storage.remove('token');
         storage.remove('permission');
         storage.remove('username');
-        storage.remove('email');
         storage.remove('slug');
         eventBus.emit('auth-false');
         notification.info('sad but true :<');
