@@ -79,6 +79,16 @@ define(function (require, exports, module) {
         }
       });
     },
+    'changePassword': function (data, callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/users/change-password');
+
+      ajaxModel.save(data, {
+        success: function (model, response) {
+          callback(response);
+        }
+      });
+    },
     'activateMail': function (token, callback) {
       var ajaxModel = new AjaxModel();
       ajaxModel.changeUrl('/users/activate-mail/' + token);

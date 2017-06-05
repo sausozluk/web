@@ -10,7 +10,8 @@ define(function (require, exports, module) {
 
     events: {
       'click .tabs-menu span': 'handleClickTab',
-      'click #email-ok': 'handleClickEmailOk'
+      'click #email-ok': 'handleClickEmailOk',
+      'click #password-ok': 'handleClickPasswordOk'
     },
 
     tagName: 'div',
@@ -31,6 +32,21 @@ define(function (require, exports, module) {
 
       userController.changeMail(info, function (data) {
         notification.info('yeni maile bi bakıver');
+        window.router.navigate('/', true);
+      });
+    },
+
+    handleClickPasswordOk: function (e) {
+      e.preventDefault();
+
+      var info = {
+        old_password: $('#old_password').val(),
+        new_password_a: $('#new_password_a').val(),
+        new_password_b: $('#new_password_b').val()
+      };
+
+      userController.changePassword(info, function (data) {
+        notification.info('oldu da bitti');
         window.router.navigate('/', true);
       });
     },
