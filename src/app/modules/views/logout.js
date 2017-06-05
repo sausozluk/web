@@ -22,7 +22,7 @@ define(function (require, exports, module) {
       UserController.logout({}, function () {
         storage.remove('id');
         storage.remove('token');
-        storage.remove('authority');
+        storage.remove('permission');
         storage.remove('username');
         storage.remove('email');
         storage.remove('slug');
