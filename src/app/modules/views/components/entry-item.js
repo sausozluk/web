@@ -37,7 +37,7 @@ define(function (require, exports, module) {
     handleClickReadMore: function (e) {
       e.preventDefault();
 
-      $(this.el).find('.text').text(this.text);
+      this.render(true);
     },
 
     handleClickUpVote: function (e) {
@@ -95,15 +95,16 @@ define(function (require, exports, module) {
       return utils.br(utils.link(utils.yildiz(utils.bkz(_.escape(emoticon(str))))));
     },
 
-    render: function () {
+    render: function (expanded) {
       var json = this.model.toJSON();
+      var isExpanded = expanded ? expanded : json.text.length < 501;
       json.system_id = storage.id;
       json.isMod = storage.permission > 0;
       json.canivote = storage.id ? storage.id !== json.user.id : false;
       json.text = this.strCleaner(json.text);
       this.text = json.text;
       json.moment = moment;
-      json.expanded = json.text.length < 501;
+      json.expanded = isExpanded;
       $(this.el).html(this.template(json));
       return this;
     }

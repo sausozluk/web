@@ -3,6 +3,46 @@ define(function (require, exports, module) {
   var eventBus = require('eventbus');
 
   module.exports = {
+    'banWithSlug': function (id, callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/users/ban/' + id);
+
+      ajaxModel.fetch({
+        success: function (model, response) {
+          callback(response);
+        }
+      });
+    },
+    'unbanWithSlug': function (id, callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/users/unban/' + id);
+
+      ajaxModel.fetch({
+        success: function (model, response) {
+          callback(response);
+        }
+      });
+    },
+    'modWithSlug': function (id, callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/users/mod/' + id);
+
+      ajaxModel.fetch({
+        success: function (model, response) {
+          callback(response);
+        }
+      });
+    },
+    'unmodWithSlug': function (id, callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/users/unmod/' + id);
+
+      ajaxModel.fetch({
+        success: function (model, response) {
+          callback(response);
+        }
+      });
+    },
     'getProfileWithSlug': function (id, callback) {
       var ajaxModel = new AjaxModel();
       ajaxModel.changeUrl('/users/profile/' + id);

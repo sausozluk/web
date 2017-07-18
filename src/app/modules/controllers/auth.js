@@ -2,6 +2,7 @@ define(function (require, exports, module) {
   var UserController = require('./user');
   var cache = require('cache');
   var eventBus = require('eventbus');
+  var storage = require('storage');
 
   var login = function () {
     eventBus.emit('auth-true');
@@ -10,6 +11,7 @@ define(function (require, exports, module) {
 
   var logout = function () {
     eventBus.emit('auth-false');
+    storage.clean();
     window.socket.stop();
   };
 

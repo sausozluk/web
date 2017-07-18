@@ -4,6 +4,7 @@ define(function (require, exports, module) {
   var ProfileTemplate = require('template!../../templates/profile');
   var userController = require('../controllers/user');
   var storage = require('storage');
+  var notification = require('notification');
 
   module.exports = Backbone.View.extend({
     events: {
@@ -18,7 +19,9 @@ define(function (require, exports, module) {
     doBan: function (e) {
       e.preventDefault();
 
-      console.log(this.slug, 'banning ...');
+      userController.banWithSlug(this.slug, (function () {
+        notification.info('hehe gitti mal');
+      }).bind(this));
     },
 
     render: function (nick) {

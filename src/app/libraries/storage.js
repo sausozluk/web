@@ -56,6 +56,13 @@ define(function (require, exports, module) {
     set slug(slug) {
       storage.set('slug', slug);
     },
+    clean: function () {
+      this.remove('id');
+      this.remove('token');
+      this.remove('permission');
+      this.remove('username');
+      this.remove('slug');
+    },
     remove: storage.remove
   };
 });

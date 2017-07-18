@@ -20,11 +20,7 @@ define(function (require, exports, module) {
     render: function () {
       $(this.el).html(LogoutTemplate({}));
       UserController.logout({}, function () {
-        storage.remove('id');
-        storage.remove('token');
-        storage.remove('permission');
-        storage.remove('username');
-        storage.remove('slug');
+        storage.clean();
         eventBus.emit('auth-false');
         notification.info('sad but true :<');
         window.router.navigate('/giris', true);
