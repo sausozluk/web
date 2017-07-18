@@ -37,6 +37,13 @@ ul.user-badges li {
     color: #fff;
 }
 
+.user-do-mod {
+    padding: 4px;
+    border-radius: 2px;
+    background-color: darkolivegreen;
+    color: #fff;
+}
+
 .user-do-ban {
     padding: 4px;
     border-radius: 2px;
