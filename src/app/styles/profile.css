@@ -37,6 +37,13 @@ ul.user-badges li {
     color: #fff;
 }
 
+.user-do-ban {
+    padding: 4px;
+    border-radius: 2px;
+    background-color: black;
+    color: #fff;
+}
+
 #profile-cards > li {
     display: inline-block;
     float: left;

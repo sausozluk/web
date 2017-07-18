@@ -21,7 +21,7 @@ define(function (require, exports, module) {
 
     render: function (id) {
       entryController.getEntryById(id, (function (entry) {
-        if (storage.id !== entry.get('user').id) {
+        if (storage.id !== entry.get('user').id && storage.permission === 0) {
           window.router.navigate('/entry/' + entry.get('id'), true);
           notification.info('taklitçi olma kendin ol biraz');
           return;
