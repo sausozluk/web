@@ -35,16 +35,22 @@ define(function (require, exports, module) {
       if (text === '') {
         return;
       }
-      
-      if (!utils.title(text)) {
-        return;
-      }
 
       if (text.match('^#')) {
-        window.router.navigate('/entry/' + text.substr(1), true);
+        var str = text.substr(1);
+
+        if (isNaN(str)) {
+          return;
+        }
+
+        window.router.navigate('/entry/' + str, true);
       } else if (text.match('^@')) {
         window.router.navigate('/biri/' + text.substr(1), true);
       } else {
+        if (!utils.title(text)) {
+          return;
+        }
+
         window.router.navigate('/q/' + text, true);
       }
     },

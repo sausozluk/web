@@ -121,12 +121,14 @@ define(function (require, exports, module) {
         return;
       }
 
-      if (!utils.title(text)) {
-        return;
-      }
-
       if (text.match('^#')) {
-        window.router.navigate('/entry/' + text.substr(1), true);
+        var str = text.substr(1);
+
+        if (isNaN(str)) {
+          return;
+        }
+
+        window.router.navigate('/entry/' + str, true);
         return;
       }
 
@@ -134,6 +136,10 @@ define(function (require, exports, module) {
         window.router.navigate('/q/' + text, true);
       } else {
         if (!text.match('^@')) {
+          if (!utils.title(text)) {
+            return;
+          }
+
           searchController.suggest(text, (function (data) {
             if (!data.topics.length) {
               window.router.navigate('/q/' + text, true);
@@ -146,6 +152,8 @@ define(function (require, exports, module) {
               }
             }
           }).bind(this));
+        } else {
+          window.router.navigate('/biri/' + text.substr(1), true);
         }
       }
     },
