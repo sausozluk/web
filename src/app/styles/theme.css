@@ -52,11 +52,14 @@ ul.menu {
 
 ul.menu > li {
     float: left;
+    line-height: 36px;
+    display: inline-block;
 }
 
 ul.menu > li .menu-link, .dropdown-link {
     color: #fff;
-    line-height: 40px;
+    display: inline-block;
+    line-height: 18px;
     font-size: 9pt;
     text-decoration: none;
     padding: 5px 8px;
@@ -74,12 +77,13 @@ ul.menu > li .menu-link > span.menu-link-text {
 }
 
 span.unread-count {
-    margin-left: 8px;
-    background-color: #fff;
+    margin-left: 4px;
+    background-color: #cc0000;
     padding: 2px 4px;
     line-height: 16px;
     border-radius: 5px;
-    color: #404096;
+    color: #fff;
+    font-size: 10px;
 }
 
 div.wrapper {
