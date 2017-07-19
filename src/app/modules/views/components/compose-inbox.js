@@ -17,20 +17,25 @@ define(function (require, exports, module) {
     handleOk: function (e) {
       e.preventDefault();
 
+      $(e.target).prop('disabled', true);
+
       var text = $('#new_entry').val().trim();
 
       if (!this.validate(text)) {
         notification.error('yakışmadı');
+        $(e.target).prop('disabled', false);
         return;
       }
 
       if (!this.validate(this.slug)) {
         notification.error('mesajlar birileri içindir');
+        $(e.target).prop('disabled', false);
         return;
       }
 
       if (this.slug === storage.slug) {
         notification.error('partenogenez?');
+        $(e.target).prop('disabled', false);
         return;
       }
 
@@ -43,6 +48,7 @@ define(function (require, exports, module) {
       });
 
       notification.info('yey :D');
+      $(e.target).prop('disabled', false);
       window.router.navigate('/mesaj/' + this.slug, true);
     },
 

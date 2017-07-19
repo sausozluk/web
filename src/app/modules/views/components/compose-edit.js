@@ -16,6 +16,8 @@ define(function (require, exports, module) {
     handleOk: function (e) {
       e.preventDefault();
 
+      $(e.target).prop('disabled', true);
+
       var id = this.model.get('id');
       var text = $('#new_entry').val().trim();
 
@@ -24,12 +26,14 @@ define(function (require, exports, module) {
         this.model.set('id', id);
         this.model.save({text: text}, {
           success: function () {
+            $(e.target).prop('disabled', false);
             window.router.navigate('/entry/' + id, true);
             notification.info('ders aldın umarım');
           }
         });
       } else {
         notification.error('yakışmadı');
+        $(e.target).prop('disabled', false);
       }
     },
 

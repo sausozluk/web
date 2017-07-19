@@ -43,11 +43,23 @@ define(function (require, exports, module) {
       }
     },
 
+    validate: function (text) {
+      if (text.trim().length > 0) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+
     handleClickOk: function (e) {
       e.preventDefault();
 
       var textarea = $('#message');
       var message = textarea.val().trim();
+
+      if (!this.validate(message)) {
+        return;
+      }
 
       window.socket.send({
         action: 'send_message',

@@ -18,6 +18,8 @@ define(function (require, exports, module) {
     handleOk: function (e) {
       e.preventDefault();
 
+      $(e.target).prop('disabled', true);
+
       var text = $('#new_entry').val().trim();
       var length = this.title.length;
 
@@ -25,13 +27,16 @@ define(function (require, exports, module) {
         if (length > 0 && length < 51 && utils.title(this.title)) {
           topicController.newTopic(this.title, text, function (id) {
             eventBus.emit('reload-left');
+            $(e.target).attr('disabled', false);
             window.router.navigate('/entry/' + id, true);
           });
         } else {
           notification.error('bu konuyla bi yere varamazsın');
+          $(e.target).prop('disabled', false);
         }
       } else {
         notification.error('yakışmadı');
+        $(e.target).prop('disabled', false);
       }
     },
 

@@ -66,6 +66,8 @@ define(function (require, exports, module) {
     handleOk: function (e) {
       e.preventDefault();
 
+      $(e.target).prop('disabled', true);
+
       var now = new Date().getTime();
 
       var text = $('#new_entry').val().trim();
@@ -92,9 +94,11 @@ define(function (require, exports, module) {
           notification.info('vayyy, okuyo musunuz kaça gidiyosunuz?');
           $('#new_entry').val('');
           eventBus.emit('reload-left');
+          $(e.target).prop('disabled', false);
         }).bind(this));
       } else {
         notification.error('yakışmadı');
+        $(e.target).prop('disabled', false);
       }
     },
 

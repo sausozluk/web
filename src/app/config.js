@@ -16,7 +16,8 @@ require.config({
     'storage': './libraries/storage',
     'perfect-scrollbar': '../deps/perfect-scrollbar/js/perfect-scrollbar.jquery.min',
     'alertify': '../deps/alertifyjs/dist/js/alertify',
-    'EasyAutocomplete': '../deps/EasyAutocomplete/dist/jquery.easy-autocomplete.min'
+    'EasyAutocomplete': '../deps/EasyAutocomplete/dist/jquery.easy-autocomplete.min',
+    'base64': '../deps/js-base64/base64.min'
   },
 
   lodashLoader: {

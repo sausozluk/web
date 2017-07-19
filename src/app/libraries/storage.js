@@ -1,4 +1,6 @@
 define(function (require, exports, module) {
+  require('base64');
+
   var storage = {
     get: function (k) {
       var result = localStorage[k];
@@ -7,18 +9,10 @@ define(function (require, exports, module) {
         return result;
       }
 
-      var arr = atob(result).split('|');
-
-      if (arr[1] === 'number') {
-        return parseFloat(arr[0]);
-      } else if (arr[1] === 'boolean') {
-        return JSON.parse(arr[0]);
-      } else {
-        return arr[0];
-      }
+      return Base64.decode(result);
     },
     set: function (k, v) {
-      localStorage[k] = btoa(v + '|' + typeof v);
+      localStorage[k] = Base64.encode(v);
     },
     remove: function (k) {
       localStorage.removeItem(k);
