@@ -1,5 +1,5 @@
 var Socket = function (token) {
-  this.uri = 'ws:' + location.origin.split(':').slice(1, 2).toString() + ':8080' + '/' + token;
+  this.uri = 'ws:' + location.origin.split(':').slice(1, 2).toString() + '/service/ws/' + token;
   this.socket = new WebSocket(this.uri);
   this.socket.onopen = this.open.bind(this);
   this.socket.onclose = this.close.bind(this);
