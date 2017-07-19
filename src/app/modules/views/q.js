@@ -16,6 +16,8 @@ define(function (require, exports, module) {
     setTitleAndDescription: function (text) {
       document.title = text;
       $('[name="description"]').attr('content', ('"' + text + '" hakkında gereksiz şeylerle bilgilendir'));
+      $('[name="twitter:title"]').attr('content', text);
+      $('[name="twitter:description"]').attr('content', ('"' + text + '" hakkında gereksiz şeyler içerir'));
     },
 
     continueRender: function (title) {

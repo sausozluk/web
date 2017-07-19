@@ -22,9 +22,11 @@ define(function (require, exports, module) {
       window.router.navigate('/' + this.topicUrl + '--' + this.topicId + '/' + page, true);
     },
 
-    setTitleAndDescription: function (text) {
+    setTitleAndDescription: function (text, entry) {
       document.title = text;
-      $('[name="description"]').attr('content', ('"' + text + '" hakkında gereksiz şeyler içerir'));
+      $('[name="description"]').attr('content', entry ? entry.get('text') : 'hmm');
+      $('[name="twitter:title"]').attr('content', text);
+      $('[name="twitter:description"]').attr('content', entry ? entry.get('text') : 'hmm');
     },
 
     renderCompose: function (model, entries) {
@@ -60,7 +62,7 @@ define(function (require, exports, module) {
         json.site = location.origin;
         $(this.el).html(TopicTemplate(json));
 
-        this.setTitleAndDescription(topic.get('title'));
+        this.setTitleAndDescription(topic.get('title'), topic.entries ? topic.entries.models[0] : null);
         this.totalPage = topic.get('total_page');
 
         this.entriesEl = $(this.el).find('.entries');
