@@ -40,6 +40,13 @@
             </a>
         </li>
         <% } %>
+        <% if (canivote) { %>
+        <li class="report">
+            <a>
+                şikayet
+            </a>
+        </li>
+        <% } %>
         <li><a class="user" href="/biri/<%- user.slug %>"><%- user.username %></a></li>
     </ul>
 </div>

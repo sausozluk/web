@@ -28,10 +28,10 @@ define(function (require, exports, module) {
           var msg = arguments[1].message;
           if ($.isArray(msg)) {
             for (var i in msg) {
-              notification.error(msg[i]);
+              notification.error(msg[i].replace('ValidationError:', '').trim());
             }
           } else {
-            notification.error(msg);
+            notification.error(msg.replace('ValidationError:', '').trim());
           }
         } else {
           _s.apply(this, arguments);
@@ -66,10 +66,10 @@ define(function (require, exports, module) {
             var msg = arguments[0].message;
             if ($.isArray(msg)) {
               for (var i in msg) {
-                notification.error(msg[i]);
+                notification.error(msg[i].replace('ValidationError:', '').trim());
               }
             } else {
-              notification.error(msg);
+              notification.error(msg.replace('ValidationError:', '').trim());
             }
           } else {
             _s.apply(this, arguments);
@@ -181,7 +181,7 @@ define(function (require, exports, module) {
       return str.replace(/(?:\r\n|\r|\n)/g, '<br/>');
     },
     title: function (str) {
-      return /^[a-zA-Z $0-9ığüşöçİĞÜŞÖÇ]+$/.test(str);
+      return /^[a-zA-Z $0-9ığüşöçİĞÜŞÖÇ.-]+$/.test(str);
     },
     ws_uri: function () {
       var loc = window.location, new_uri;

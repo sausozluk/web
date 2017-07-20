@@ -4,6 +4,7 @@ define(function (require, exports, module) {
   var _ = require('underscore');
   var EntryItemTemplate = require('template!../../../templates/components/entry-item');
   var entryController = require('../../controllers/entry');
+  var reportController = require('../../controllers/report');
   var moment = require('moment');
   var storage = require('storage');
   var utils = require('utils');
@@ -24,7 +25,8 @@ define(function (require, exports, module) {
       'click .down-vote': 'handleClickDownVote',
       'click .remove': 'handleClickRemove',
       'click .edit': 'handleClickEdit',
-      'click .read-more': 'handleClickReadMore'
+      'click .read-more': 'handleClickReadMore',
+      'click .report': 'handleClickReport'
     },
 
     updateVotes: function (res) {
@@ -38,6 +40,19 @@ define(function (require, exports, module) {
       e.preventDefault();
 
       this.render(true);
+    },
+
+    handleClickReport: function (e) {
+      e.preventDefault();
+
+      if (!confirm('eminsin?')) {
+        return;
+      }
+
+      reportController.report({entry: this.model.get('id')},
+        (function (res) {
+          notification.info('karışma bizde');
+        }).bind(this));
     },
 
     handleClickUpVote: function (e) {

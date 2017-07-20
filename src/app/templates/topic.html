@@ -1,4 +1,11 @@
-<h1 class="topic_title"><a href="/<%- (slug + '--' + id) %>"><%- title %></a></h1>
+<h1 class="topic_title">
+    <% if (isMod) { %>
+    <span class="topic_edit">
+        <i class="fa fa-pencil-square-o"></i>
+    </span>
+    <% } %>
+    <a href="/<%- (slug + '--' + id) %>"><%- title %></a>
+</h1>
 <ul class="topic_actions">
     <li><span><i class="fa fa-share-alt"></i>paylaş:</span></li>
     <li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%- site %>/<%- (slug + '--' + id) %>"><i class="fa fa-facebook"></i></a>

@@ -4,7 +4,6 @@ define(function (require, exports, module) {
   var ComposeTemplate = require('template!../../../templates/components/compose-edit');
   var utils = require('utils');
   var cache = require('cache');
-  var app = require('app');
   var notification = require('notification');
 
   module.exports = Compose.extend({
