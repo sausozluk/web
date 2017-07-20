@@ -1,4 +1,4 @@
-<a href="/<%- (slug + '--' + id) %>">
+<a href="/<%- (slug + '--' + id + (page !== 1 ? '/' + page : '')) %>">
     <% if (count) { %>
     <span class="count"><%- count %></span>
     <% } %>

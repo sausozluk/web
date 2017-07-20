@@ -74,7 +74,7 @@ define(function (require, exports, module) {
       '*path': 'default'
     },
 
-    use: [utils.metaSuccess, utils.pageEventCleaner(window.appView), utils.colorize()],
+    use: [utils.metaSuccess, utils.pageEventCleaner(window.appView), utils.colorize(), utils.cleanPageMeta],
 
     home: [auth.isVoid, page.home],
     register: [auth.isNotSecure, page.register],

@@ -153,6 +153,12 @@ define(function (require, exports, module) {
         next();
       };
     },
+    cleanPageMeta: function (req, next) {
+      $('#prev').remove();
+      $('#next').remove();
+
+      next();
+    },
     bkz: function (str) {
       return str.replace(/\(bkz: *([^)]+)\)/g, function (a, t) {
         if (t.match('^#')) {

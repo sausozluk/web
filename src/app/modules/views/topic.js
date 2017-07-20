@@ -83,6 +83,19 @@ define(function (require, exports, module) {
       }
     },
 
+    reloadPageMeta: function () {
+      var prevEl = $('<link id="prev" rel="prev" href="http://sausozluk.net/' + this.topicUrl + '--' + this.topicId + '/' + ( this.currentPage - 1) + '">');
+      var nextEl = $('<link id="next" rel="next" href="http://sausozluk.net/' + this.topicUrl + '--' + this.topicId + '/' + ( this.currentPage + 1) + '">');
+
+      if (this.currentPage !== 1) {
+        $('head').append(prevEl);
+      }
+
+      if (this.currentPage !== this.totalPage) {
+        $('head').append(nextEl);
+      }
+    },
+
     render: function (url, id, page) {
       this.topicUrl = url;
       this.topicId = id;
@@ -114,6 +127,8 @@ define(function (require, exports, module) {
         if (storage.username) {
           this.renderCompose(topic, topic.entries);
         }
+
+        this.reloadPageMeta();
       }).bind(this));
     }
   });
