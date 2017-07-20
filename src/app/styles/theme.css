@@ -147,6 +147,9 @@ ul.topics > li a > span.subject {
     text-transform: lowercase;
     font-size: .7em;
     padding-right: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 ul.topics > li a > span.count {
