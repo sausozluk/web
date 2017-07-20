@@ -177,6 +177,10 @@ div.content.chat-open {
 h1.topic_title {
     font-size: 18pt;
     text-transform: lowercase;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 32px;
 }
 
 h1.topic_title > a {
@@ -284,6 +288,7 @@ div.text > a {
 ul.entries > li > div.info {
     float: right;
     display: block;
+    line-height: 12px;
 }
 
 ul.entries > li > div.info > ul.vote {
