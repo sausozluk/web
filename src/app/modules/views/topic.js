@@ -92,6 +92,8 @@ define(function (require, exports, module) {
         this.topic = topic;
         json.site = location.origin;
         json.isMod = storage.permission > 0;
+        json.single = false;
+
         $(this.el).html(TopicTemplate(json));
 
         this.setTitleAndDescription(topic.get('title'), topic.entries ? topic.entries.models[0] : null);

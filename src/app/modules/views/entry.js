@@ -23,6 +23,8 @@ define(function (require, exports, module) {
       entryController.getEntryById(id, (function (entry) {
         var json = entry.get('topic');
         json.site = location.origin;
+        json.isMod = storage.permission > 0;
+        json.single = true;
         $(this.el).html(TopicTemplate(json));
         this.setTitleAndDescription(
           entry.get('topic').title + ' - #' + entry.get('id'),
