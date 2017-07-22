@@ -53,7 +53,7 @@ define(function (require, exports, module) {
     },
 
     setTitleAndDescription: function (text, entry) {
-      document.title = text;
+      document.title = text + ' - saü sözlük';
       $('[name="description"]').attr('content', entry ? entry.get('text') : 'hmm');
       $('[name="twitter:title"]').attr('content', text);
       $('[name="twitter:description"]').attr('content', entry ? entry.get('text') : 'hmm');
