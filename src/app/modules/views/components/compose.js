@@ -30,29 +30,33 @@ define(function (require, exports, module) {
     handleBkz: function (e) {
       e.preventDefault();
 
-      var value = prompt('hangi başlığa bkz verilecek?');
-      if (value) {
-        utils.insertAtCaret('new_entry', '(bkz: ' + value + ')');
-      }
+      notification.prompt('hangi başlığa bkz verilecek?', '', function (value) {
+        if (value) {
+          utils.insertAtCaret('new_entry', '(bkz: ' + value + ')');
+        }
+      });
     },
 
     handleYildiz: function (e) {
       e.preventDefault();
 
-      var value = prompt('yıldız içinde ne görünecek?');
-      if (value) {
-        utils.insertAtCaret('new_entry', '`:' + value + '`');
-      }
+      notification.prompt('yıldız içinde ne görünecek?', '', function (value) {
+        if (value) {
+          utils.insertAtCaret('new_entry', '`:' + value + '`');
+        }
+      });
     },
 
     handleLink: function (e) {
       e.preventDefault();
 
-      var address = prompt('hangi adrese gidecek?', 'http://');
-      var text = prompt('verilecek linkin adı ne olacak?');
-      if (address && text) {
-        utils.insertAtCaret('new_entry', '[' + address + ' ' + text + ']');
-      }
+      notification.prompt('hangi adrese gidecek?', 'http://', function (address) {
+        notification.prompt('verilecek linkin adı ne olacak?', '', function (text) {
+          if (address && text) {
+            utils.insertAtCaret('new_entry', '[' + address + ' ' + text + ']');
+          }
+        });
+      });
     },
 
     validate: function (text) {

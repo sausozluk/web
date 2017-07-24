@@ -9,6 +9,16 @@ define(function (require, exports, module) {
     },
     error: function (message, callback) {
       alertify.error.apply(this, arguments);
+    },
+    prompt: function (q, d, s) {
+      alertify
+        .defaultValue(d)
+        .prompt(q, function (val, ev) {
+          ev.preventDefault();
+          s(val);
+        }, function (ev) {
+          ev.preventDefault();
+        });
     }
   };
 });
