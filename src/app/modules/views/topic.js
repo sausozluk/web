@@ -29,26 +29,26 @@ define(function (require, exports, module) {
       e.preventDefault();
 
       if (this.topic) {
-        var new_title = prompt('yeni başlık', this.topic.get('title'));
+        notification.prompt('yeni başlık', this.topic.get('title'), (function (new_title) {
+          if (new_title) {
+            var id = this.topic.get('id');
+            var length = new_title.length;
 
-        if (new_title) {
-          var id = this.topic.get('id');
-          var length = new_title.length;
-
-          if (length > 0 && length < 51 && utils.title(new_title)) {
-            this.topic.clear({silent: true});
-            this.topic.set('id', id);
-            this.topic.save({title: new_title}, {
-              success: function (res) {
-                window.router.navigate('/' + res.get('slug') + '--' + res.get('id'), true);
-                $('h1.topic_title > a').text(res.get('title'));
-                notification.info('böyle daha iyi sanki');
-              }
-            });
-          } else {
-            notification.error('yakışmadı');
+            if (length > 0 && length < 51 && utils.title(new_title)) {
+              this.topic.clear({silent: true});
+              this.topic.set('id', id);
+              this.topic.save({title: new_title}, {
+                success: function (res) {
+                  window.router.navigate('/' + res.get('slug') + '--' + res.get('id'), true);
+                  $('h1.topic_title > a').text(res.get('title'));
+                  notification.info('böyle daha iyi sanki');
+                }
+              });
+            } else {
+              notification.error('yakışmadı');
+            }
           }
-        }
+        }).bind(this));
       }
     },
 
