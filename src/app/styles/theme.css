@@ -657,3 +657,25 @@ ul.list-row > li > div.list-row-info > span.time {
     border-radius: 4px;
     outline: none;
 }
+
+ul.rules {
+    display: block;
+    font-size: 12px;
+    padding-top: 20px;
+    color: gray;
+    line-height: 16px;
+    list-style-type: decimal;
+    margin-left: 20px;
+}
+
+ul.rules > li {
+    padding-bottom: 5px;
+}
+
+div.rules-info {
+    display: block;
+    font-size: 14px;
+    padding-top: 20px;
+    line-height: 18px;
+    color: gray;
+}
