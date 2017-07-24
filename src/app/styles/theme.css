@@ -147,9 +147,6 @@ ul.topics > li a > span.subject {
     text-transform: lowercase;
     font-size: .7em;
     padding-right: 5px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
 }
 
 ul.topics > li a > span.count {
@@ -181,9 +178,6 @@ div.content.chat-open {
 h1.topic_title {
     font-size: 18pt;
     text-transform: lowercase;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
     line-height: 32px;
 }
 
@@ -314,9 +308,6 @@ ul.entries > li > div.info > ul.vote > li {
 ul.entries > li > div.info > ul.vote > li:last-child {
     margin-left: 12px;
     max-width: 180px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
 }
 
 ul.entries > li > div.info > ul.vote > li > a {
@@ -355,9 +346,6 @@ h1.page_title {
     font-size: 20pt;
     margin-bottom: 30px;
     max-width: 100%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
     line-height: 1.3;
 }
 
@@ -423,6 +411,15 @@ div.footer > a:hover {
         visibility: hidden;
         display: none;
     }
+
+    .visible {
+        visibility: visible;
+        display: inline-block;
+    }
+
+    .unread-count {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 850px) {
@@ -454,6 +451,10 @@ div.footer > a:hover {
     li.register-item {
         visibility: hidden;
         display: none;
+    }
+
+    ul.topics > li > a {
+        font-size: 18px;
     }
 }
 
@@ -545,9 +546,6 @@ ul.suggest-list > li {
     font-size: 0.8em;
     color: #666;
     border-bottom: 1px solid #eee;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
 }
 
 ul.suggest-list > li:hover {
@@ -595,9 +593,6 @@ ul.list-row > li > div.list-row-info > span.time {
     color: #404096;
     float: left;
     max-width: 180px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
 }
 
 .list-row-message > span.user:after {

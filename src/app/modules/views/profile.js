@@ -13,7 +13,7 @@ define(function (require, exports, module) {
     },
 
     setTitleAndDescription: function (text) {
-      document.title = text;
+      document.title = text + ' - saü sözlük';
       $('[name="description"]').attr('content', ('"' + text + '" nickli kullanıcı işte'));
       $('[name="twitter:title"]').attr('content', text);
       $('[name="twitter:description"]').attr('content', ('"' + text + '" nickli kullanıcı işte'));
