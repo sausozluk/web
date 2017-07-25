@@ -42,7 +42,7 @@ define(function (require, exports, module) {
 
       notification.prompt('yıldız içinde ne görünecek?', '', function (value) {
         if (value) {
-          utils.insertAtCaret('new_entry', '`:' + value + '`');
+          utils.insertAtCaret('new_entry', '`:' + value.toLowerCase() + '`');
         }
       });
     },
