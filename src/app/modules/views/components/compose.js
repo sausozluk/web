@@ -34,7 +34,7 @@ define(function (require, exports, module) {
         if (value) {
           utils.insertAtCaret('new_entry', '(bkz: ' + value.toLowerCase() + ')');
         }
-      });
+      }, {ok: 'hadi bakalım', cancel: 'neyse ya'});
     },
 
     handleYildiz: function (e) {
@@ -44,7 +44,7 @@ define(function (require, exports, module) {
         if (value) {
           utils.insertAtCaret('new_entry', '`:' + value.toLowerCase() + '`');
         }
-      });
+      }, {ok: 'hazırım ışınla', cancel: 'boşver'});
     },
 
     handleLink: function (e) {
@@ -55,8 +55,8 @@ define(function (require, exports, module) {
           if (address && text) {
             utils.insertAtCaret('new_entry', '[' + address + ' ' + text + ']');
           }
-        });
-      });
+        },  {ok: 'heh oldu', cancel: 'vazgeçtim'});
+      }, {ok: 'sıradaki gelsin', cancel: 'burada duralım'});
     },
 
     validate: function (text) {
