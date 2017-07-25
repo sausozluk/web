@@ -51,6 +51,13 @@ ul.user-badges li {
     color: #fff;
 }
 
+.user-entry-count {
+    padding: 4px;
+    border-radius: 2px;
+    background-color: darkred;
+    color: #fff;
+}
+
 #profile-cards > li {
     display: inline-block;
     float: left;
