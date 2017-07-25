@@ -32,7 +32,7 @@ define(function (require, exports, module) {
 
       notification.prompt('hangi başlığa bkz verilecek?', '', function (value) {
         if (value) {
-          utils.insertAtCaret('new_entry', '(bkz: ' + value + ')');
+          utils.insertAtCaret('new_entry', '(bkz: ' + value.toLowerCase() + ')');
         }
       });
     },
