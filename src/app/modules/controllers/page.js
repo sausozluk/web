@@ -12,6 +12,7 @@ define(function (require, exports, module) {
   var ChatView = require('../views/chat');
   var QView = require('../views/q');
   var EntryView = require('../views/entry');
+  var VotesView = require('../views/votes');
   var ActivateView = require('../views/activate');
   var ActivateMailView = require('../views/activate-mail');
   var EntryEditView = require('../views/entry-edit');
@@ -59,6 +60,9 @@ define(function (require, exports, module) {
     },
     'entry': function (req) {
       renderPage(new EntryView(), req.params);
+    },
+    'votes': function (req) {
+      renderPage(new VotesView(), req.params);
     },
     'activate': function (req) {
       renderPage(new ActivateView(), req.params);

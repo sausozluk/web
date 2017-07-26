@@ -26,7 +26,14 @@ define(function (require, exports, module) {
       'click .remove': 'handleClickRemove',
       'click .edit': 'handleClickEdit',
       'click .read-more': 'handleClickReadMore',
-      'click .report': 'handleClickReport'
+      'click .report': 'handleClickReport',
+      'click .go-votes': 'handleClickGoVotes'
+    },
+
+    handleClickGoVotes: function (e) {
+      e.preventDefault();
+
+      window.router.navigate('/entry/' + this.model.get('id') + '/oylar', true);
     },
 
     updateVotes: function (res) {

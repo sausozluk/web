@@ -12,22 +12,26 @@
 </div>
 <div class="info">
     <ul class="vote">
-        <li<% if (canivote) { %> class="up-vote" <% } %>>
+        <% if (upvotes_count > 0) { %>
+        <li class="go-votes">
+            <a>
+                <i class="fa fa-thumbs-up"></i>
+                <span class="vote_text"><%- upvotes_count %></span>
+            </a>
+        </li>
+        <% } %>
+        <% if (canivote) { %>
+        <li class="up-vote">
             <a>
                 <i class="fa fa-angle-up"></i>
-                <% if (upvotes_count > 0) { %>
-                <span class="vote_text"><%- upvotes_count %></span>
-                <% } %>
             </a>
         </li>
-        <li<% if (canivote) { %> class="down-vote" <% } %>>
+        <li class="down-vote">
             <a>
                 <i class="fa fa-angle-down"></i>
-                <% if (downvotes_count > 0) { %>
-                <span class="vote_text"><%- downvotes_count %></span>
-                <% } %>
             </a>
         </li>
+        <% } %>
         <% if (user.id === system_id || isMod) { %>
         <li class="remove">
             <a>

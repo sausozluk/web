@@ -21,6 +21,16 @@ define(function (require, exports, module) {
         }
       });
     },
+    getEntryVotesById: function (id, callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/entries/' + id + '/votes');
+
+      ajaxModel.fetch({
+        success: function (model, response) {
+          callback(response.data);
+        }
+      });
+    },
     'upVote': function (id, callback) {
       var ajaxModel = new AjaxModel();
 

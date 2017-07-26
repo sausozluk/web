@@ -679,3 +679,33 @@ div.rules-info {
     line-height: 18px;
     color: gray;
 }
+
+ul.votes {
+    display: block;
+    margin-top: 24px;
+    border-top: 1px solid #dbdbdb;
+}
+
+ul.votes > li {
+    display: block;
+}
+
+ul.votes > li a {
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 5px 0px 5px 12px;
+    color: #666;
+}
+
+ul.votes > li a:hover {
+    background-color: #fafafa;
+}
+
+ul.votes > li a > span.nick {
+    display: block;
+    line-height: 18px;
+    text-transform: lowercase;
+    font-size: .7em;
+    padding-right: 5px;
+}

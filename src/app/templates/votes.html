@@ -1,0 +1,12 @@
+<h1 class="topic_title">
+    #<%- id %> sevenler
+</h1>
+<ul class="votes">
+    <% for (var i = 0; i < votes.length ; i++) { %>
+    <li>
+        <a href="/biri/<%- votes[i].slug %>">
+            <span class="nick"><%- votes[i].username %></span>
+        </a>
+    </li>
+    <% } %>
+</ul>
