@@ -14,3 +14,50 @@
 .alertify-logs > div.error {
     background-color: #d63f3f;
 }
+
+.alertify {
+    z-index: 999 !important;
+}
+
+.alertify > .dialog > div {
+    padding: 15px !important;
+}
+
+.alertify > .dialog > div > p {
+    padding: 0 !important;
+    display: block !important;
+    margin-bottom: 10px !important;
+    font-size: 12px !important;
+}
+
+.alertify > .dialog > div > input {
+    padding: 5px !important;
+    outline: none !important;
+    font-size: 12px !important;
+    margin-bottom: 0 !important;
+}
+
+.alertify > .dialog > div > nav {
+    margin-top: 8px;
+}
+
+.alertify > .dialog > div > nav > button {
+    border: 1px solid #dbdbdb !important;
+    font-size: 12px !important;
+    text-transform: lowercase !important;
+    min-width: unset !important;
+    min-height: unset !important;
+    line-height: 18px !important;
+    padding: 6px 8px !important;
+    margin: 0 3px !important;
+}
+
+.alertify > .dialog > div > nav > button.ok {
+    background-color: #404096 !important;
+    border: 1px solid #404096 !important;
+    color: #fff !important;
+}
+
+.alertify > .dialog > div > nav > button.ok:hover {
+    background-color: rgba(64, 64, 150, .9) !important;
+}
