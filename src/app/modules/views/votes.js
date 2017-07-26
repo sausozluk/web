@@ -17,7 +17,7 @@ define(function (require, exports, module) {
     render: function (id) {
       entryController.getEntryVotesById(id, (function (entry) {
         $(this.el).html(VotesTemplate({
-          id: entry.id,
+          id: id,
           votes: entry.up
         }));
 
