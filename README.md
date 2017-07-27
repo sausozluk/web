@@ -12,7 +12,7 @@
 - improve mobil search
 - fix twitter share links
 - fix confirm native functions
-- fix and improve left-frame (save pozition)
+- fix and improve left-frame (save position)
 - fix main -> /q/{query} -> topic x (cannot back) bug
 - cursor: pointer
 - improve css files
