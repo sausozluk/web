@@ -4,10 +4,19 @@
 
 ## todo
 - chat messages must be like entry design
-- up vote, down vote button must be hidden if belong logged-in user (or visitor account).
-- check pagination for index cause its list box not a aHref?
 - create base view model for generic methods
 - create backbone tab component
 - sitemap.xml
 - user can apply bkz, * ... when select text
 - manage updatedAt attr yourself
+- improve mobil search
+- fix twitter share links
+- fix confirm native functions
+- fix and improve left-frame (save pozition)
+- fix main -> /q/{query} -> topic x (cannot back) bug
+- cursor: pointer
+- improve css files
+- improve compose components
+- reports page (for admins)
+- promises
+- prerender seo redirections and status codes
