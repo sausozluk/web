@@ -23,6 +23,7 @@ div.compose > ul.buttons {
 div.compose > ul.buttons > li {
     float: left;
     margin-right: 6px;
+    height: 32px;
 }
 
 div.compose > ul.buttons > li > a {
