@@ -15,7 +15,9 @@ define(function (require, exports, module) {
 
     events: {
       'click #bkz': 'handleBkz',
+      'click #hede': 'handleHede',
       'click #yildiz': 'handleYildiz',
+      'click #spoiler': 'handleSpoiler',
       'click #link': 'handleLink',
       'click #ok': 'handleOk'
     },
@@ -37,6 +39,16 @@ define(function (require, exports, module) {
       }, {ok: 'hadi bakalım', cancel: 'neyse ya'});
     },
 
+    handleHede: function (e) {
+      e.preventDefault();
+
+      notification.prompt('hangi başlık için link oluşturulacak?', '', function (value) {
+        if (value) {
+          utils.insertAtCaret('new_entry', '`' + value.toLowerCase() + '`');
+        }
+      }, {ok: 'hadi bakalım', cancel: 'neyse ya'});
+    },
+
     handleYildiz: function (e) {
       e.preventDefault();
 
@@ -45,6 +57,17 @@ define(function (require, exports, module) {
           utils.insertAtCaret('new_entry', '`:' + value.toLowerCase() + '`');
         }
       }, {ok: 'hazırım ışınla', cancel: 'boşver'});
+    },
+
+    handleSpoiler: function (e) {
+      e.preventDefault();
+
+      notification.prompt('spoiler içine ne yazılacak?', '', function (value) {
+        if (value) {
+          var s = '---  `spoiler` ---';
+          utils.insertAtCaret('new_entry', s + '\n\n' + value.toLowerCase() + '\n\n' + s);
+        }
+      }, {ok: 'hadi bakalım', cancel: 'neyse ya'});
     },
 
     handleLink: function (e) {
