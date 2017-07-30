@@ -159,6 +159,16 @@ define(function (require, exports, module) {
 
       next();
     },
+    hede: function (str) {
+      return str.replace(/`([^`]+)`/g, function (a, t) {
+        if (t.match('^#')) {
+          var entry_id = t.slice(1);
+          return '<a href="/entry/' + entry_id + '">' + t + '</a>';
+        } else {
+          return '<a href="/q/' + t + '">' + t + '</a>';
+        }
+      });
+    },
     bkz: function (str) {
       return str.replace(/\(bkz: *([^)]+)\)/g, function (a, t) {
         if (t.match('^#')) {

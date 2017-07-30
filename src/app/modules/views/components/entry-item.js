@@ -114,7 +114,7 @@ define(function (require, exports, module) {
     },
 
     strCleaner: function (str) {
-      return utils.br(utils.link(utils.yildiz(utils.bkz(_.escape(emoticon(str))))));
+      return utils.br(utils.link(utils.hede(utils.yildiz(utils.bkz(_.escape(emoticon(str)))))));
     },
 
     strNotExpandedCleaner: function (str) {
