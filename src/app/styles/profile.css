@@ -7,6 +7,8 @@
 #profile-cards {
     list-style: none;
     margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #profile-cards:before {

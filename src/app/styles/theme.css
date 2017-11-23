@@ -554,6 +554,7 @@ span.online i {
     top: 100%;
     border-radius: 3px;
     margin-top: -1px;
+    margin-right: 2px;
     border: 1px solid #fff;
     display: none;
 }
@@ -631,6 +632,9 @@ ul.list-row > li > div.list-row-info > span.time {
 
 .list-row-message {
     font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .list-row-message > span.user {
@@ -758,14 +762,29 @@ ul.votes > li a > span.nick {
     padding-right: 5px;
 }
 
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
 
 .reload-left.spin i {
-    -webkit-animation:spin 2s linear infinite;
-    -moz-animation:spin 2s linear infinite;
-    animation:spin 2s linear infinite;
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
 }
 
 button.remove {
