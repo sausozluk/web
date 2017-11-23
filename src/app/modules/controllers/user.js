@@ -3,6 +3,16 @@ define(function (require, exports, module) {
   var eventBus = require('eventbus');
 
   module.exports = {
+    'noteWithSlug': function (slug, note, callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/users/note/' + slug);
+
+      ajaxModel.save({note: note}, {
+        success: function (model, response) {
+          callback(response);
+        }
+      });
+    },
     'banWithSlug': function (id, callback) {
       var ajaxModel = new AjaxModel();
       ajaxModel.changeUrl('/users/ban/' + id);

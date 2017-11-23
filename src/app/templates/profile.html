@@ -86,4 +86,10 @@
         </ul>
     </li>
     <% } %>
+    <% if (isLoggedIn) { %>
+    <li>
+        <h3>notlar</h3>
+        <textarea class="notes" rows="10" placeholder="<%- username %> hakkındaki notlarım"><%- note %></textarea>
+    </li>
+    <% } %>
 </ul>

@@ -780,3 +780,15 @@ button.remove i {
     padding-right: 4px;
     color: #bdbdbd;
 }
+
+.notes {
+    margin: 8px 0 0 0;
+    width: 240px;
+    height: 120px;
+    padding: 8px 8px;
+    border: 1px solid #333;
+    border-radius: 2px;
+    background: #1f1f1f;
+    color: #bdbdbd;
+    outline: 0;
+}

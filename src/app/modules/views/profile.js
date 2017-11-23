@@ -9,11 +9,13 @@ define(function (require, exports, module) {
   var notification = require('notification');
   var moment = require('moment');
   var _ = require('lodash');
+  var utils = require('utils');
 
   module.exports = Backbone.View.extend({
     events: {
       'click .user-do-ban': 'doBan',
-      'click .user-do-mod': 'doMod'
+      'click .user-do-mod': 'doMod',
+      'keyup .notes': 'handleNotesChange'
     },
 
     setTitleAndDescription: function (text) {
@@ -54,6 +56,23 @@ define(function (require, exports, module) {
       });
     },
 
+    handleNotesChange: function (e) {
+      e.preventDefault();
+
+      var self = this;
+      var val = $(e.currentTarget).val();
+
+      utils.delay(function () {
+        self.saveNote(val);
+      }, 1000);
+    },
+
+    saveNote: function (note) {
+      userController.noteWithSlug(this.slug, note, function () {
+        notification.info('yazdık bunu bi kenara');
+      });
+    },
+
     render: function (nick) {
       this.slug = nick;
       userController.getProfileWithSlug(nick, (function (profile) {
@@ -69,6 +88,8 @@ define(function (require, exports, module) {
         profile.isLoggedIn = !!storage.token;
         profile.slug = this.slug;
         profile.m = moment;
+        profile.note = profile.note || '';
+        profile.email = profile.email || 'u_have_no_access@faggot.idiot';
         this.setTitleAndDescription(profile.username);
         $(this.el).html(ProfileTemplate(profile));
 
