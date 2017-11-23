@@ -1,0 +1,6 @@
+<li><a href="/q/toplam entry" title="#toplam entry">toplam entry: <span><%- entry_count %></span></a></li>
+<li><a href="/q/toplam yazar" title="#toplam yazar">toplam yazar: <span><%- user_count %></span></a></li>
+<li><a href="/q/toplam başlık" title="#toplam başlık">toplam başlık: <span><%- topic_count %></span></a></li>
+<% if (active_topic) { %>
+<li><a href="/<%- active_topic.slug + '--' + active_topic.id %>" title="">en aktif başlık: <span><%- active_topic.title %> - <%- active_topic.entry_count %> entry</span></a></li>
+<% } %>

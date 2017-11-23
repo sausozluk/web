@@ -1,0 +1,56 @@
+<div class="entry_info">
+    <a href="/entry/<%- id %>" class="no">#<%- id %></a>
+    <span class="time"><%- moment(created_at).format('DD.MM.YYYY HH:mm') %></span>
+</div>
+<div class="text">
+    <%= text %>
+    <% if (!expanded) { %>
+    <div class="read-more">
+        devamını oku
+    </div>
+    <% } %>
+</div>
+<div class="info">
+    <ul class="vote">
+        <% if (upvotes_count > 0) { %>
+        <li class="go-votes">
+            <a>
+                <i class="fa fa-thumbs-up"></i>
+                <span class="vote_text"><%- upvotes_count %></span>
+            </a>
+        </li>
+        <% } %>
+        <% if (canivote) { %>
+        <li class="up-vote">
+            <a>
+                <i class="fa fa-angle-up"></i>
+            </a>
+        </li>
+        <li class="down-vote">
+            <a>
+                <i class="fa fa-angle-down"></i>
+            </a>
+        </li>
+        <% } %>
+        <% if (user.id === system_id || isMod) { %>
+        <li class="remove">
+            <a>
+                sil
+            </a>
+        </li>
+        <li class="edit">
+            <a>
+                düzenle
+            </a>
+        </li>
+        <% } %>
+        <% if (canivote) { %>
+        <li class="report">
+            <a>
+                şikayet
+            </a>
+        </li>
+        <% } %>
+        <li><a class="user" href="/biri/<%- user.slug %>"><%- user.username %></a></li>
+    </ul>
+</div>

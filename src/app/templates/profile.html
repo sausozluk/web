@@ -1,0 +1,89 @@
+<h1 class="page_title profile">
+    <%- username %>
+    <% if (isLoggedIn && online) { %>
+    <span class="online" title="online"><i class="fa fa-circle"></i></span>
+    <% } %>
+    <% if (isLoggedIn && !isMe) { %>
+    <ul class="profile-actions">
+        <li>
+            <a href="/mesaj/<%- slug %>">mesajla</a>
+        </li>
+        <% if (isAdmin) { %>
+        <li>
+            <a href="mailto:<%- email %>">eposta</a>
+        </li>
+        <% } %>
+    </ul>
+    <% } %>
+</h1>
+<ul class="user-badges">
+    <li><span class="user-badge-default"><%- status %></span></li>
+    <li><span class="user-entry-count"><%- entry_count %> entry</span></li>
+    <% if (isAdmin) { %>
+    <li><span class="user-do-ban">banla şunu</span></li>
+    <% } %>
+    <% if (isAdmin) { %>
+    <li><span class="user-do-mod">mod yapıver</span></li>
+    <% } %>
+</ul>
+<ul id="profile-cards">
+    <li>
+        <h3>son entry'leri</h3>
+        <ul>
+            <% for (var i in last_entries) { %>
+            <li><a href="/entry/<%= last_entries[i].id %>" title="#<%= last_entries[i].id %>"><%- last_entries[i].title
+                %></a></li>
+            <% } %>
+        </ul>
+    </li>
+    <li>
+        <h3>son aktiviteleri</h3>
+        <ul>
+            <% for (var i in last_activities) { var activity = last_activities[i]; %>
+            <% if (activity.action === 'login') { %>
+            <li title="<%= m(activity.date).format('DD.MM.YYYY HH:mm') %>"><a href="/q/giriş">giriş yaptı.</a></li>
+            <% } else if (activity.action === 'logout') { %>
+            <li title="<%= m(activity.date).format('DD.MM.YYYY HH:mm') %>"><a href="/q/çıkış">çıkış yaptı.</a></li>
+            <% } else if (activity.action === 'create_entry') { %>
+            <li title="<%= m(activity.date).format('DD.MM.YYYY HH:mm') %>"><a href="/entry/<%= activity.data.id %>">#<%= activity.data.id %> no'lu entry'i girdi.</a></li>
+            <% } else if (activity.action === 'create_topic') { %>
+            <li title="<%= m(activity.date).format('DD.MM.YYYY HH:mm') %>"><a href="/<%= activity.data.slug + '--' + activity.data.id %>">"<%= activity.data.title %>" başlığını açtı.</a></li>
+            <% } %>
+            <% } %>
+        </ul>
+    </li>
+    <li>
+        <h3>en beğenilenleri</h3>
+        <ul>
+            <% for (var i in most_liked) { %>
+            <li><a href="/entry/<%= most_liked[i].id %>" title="#<%= most_liked[i].id %>"><%- most_liked[i].title %></a>
+            </li>
+            <% } %>
+        </ul>
+    </li>
+    <li>
+        <h3>en gıcık olunanlar</h3>
+        <ul>
+            <% for (var i in most_hated) { %>
+            <li><a href="/entry/<%= most_hated[i].id %>" title="#<%= most_hated[i].id %>"><%- most_hated[i].title %></a>
+            </li>
+            <% } %>
+        </ul>
+    </li>
+    <li>
+        <h3>favori entry'leri</h3>
+        <ul>
+            <% for (var i in liked) { %>
+            <li><a href="/entry/<%= liked[i].id %>" title="#<%= liked[i].id %>"><%- liked[i].title %></a>
+            </li>
+            <% } %>
+        </ul>
+    </li>
+    <% if (isAdmin) { %>
+    <li>
+        <h3>oturumlar</h3>
+        <ul class="sessions">
+        </ul>
+    </li>
+    <% } %>
+</ul>

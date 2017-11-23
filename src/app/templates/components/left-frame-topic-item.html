@@ -1,0 +1,6 @@
+<a href="/<%- (slug + '--' + id + (page !== 1 ? '/' + page : '')) %>">
+    <% if (count) { %>
+    <span class="count"><%- count %></span>
+    <% } %>
+    <span class="subject"><%- title %></span>
+</a>

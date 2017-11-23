@@ -1,0 +1,14 @@
+<% if (fromMe) { %>
+<div class="text text-from-me">
+    <%= message %>
+    <% if (seen) { %>
+        <span class="seen"><i class="fa fa-check" aria-hidden="true"></i></span>
+    <% } %>
+</div>
+<div class="date date-from-me"><%- date %></div>
+<% } else { %>
+<div class="text text-from-others">
+    <%= message %>
+</div>
+<div class="date date-from-others"><%- date %></div>
+<% } %>

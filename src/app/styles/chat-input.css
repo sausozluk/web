@@ -1,0 +1,38 @@
+.compose_message > ul.buttons {
+    display: block;
+    margin-top: 8px;
+}
+
+.compose_message > ul.buttons > li {
+    float: left;
+    margin-right: 6px;
+    height: 32px;
+}
+
+.compose_message > ul.buttons > li.right {
+    position: absolute;
+    right: 0;
+}
+
+.compose_message > ul.buttons > li > a {
+    padding: 6px;
+    background-color: #1f1f1f;
+    font-size: 8pt;
+    color: #bdbdbd;
+    cursor: pointer;
+}
+
+.compose_message> ul.buttons > li > a:hover {
+    background-color: #464646;
+}
+
+.compose_message > ul.buttons > li > a.primary {
+    color: #e0e0e0;
+    background-color: #53a245;
+    border: 1px solid #5c8e31;
+}
+
+.compose_message > ul.buttons > li > a.primary:hover {
+    background-color: #68a138;
+    border-color: #3e6121;
+}

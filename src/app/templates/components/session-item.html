@@ -1,0 +1,3 @@
+<li title="#<%= m(createdAt).format('DD.MM.YYYY HH:mm') %>">
+    <a href="/q/<%- detail.remote_ip ? detail.remote_ip.city.toLowerCase() : 'atlantis' %>"><%- remote_ip %>, <%- detail.remote_ip ? detail.remote_ip.city : '---' %>, <%- detail.user_agent.os + '/' + detail.user_agent.platform %> (<%- active ? 'aktif' : 'pasif' %>)</a>
+</li>

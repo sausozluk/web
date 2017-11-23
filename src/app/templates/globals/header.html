@@ -1,0 +1,49 @@
+<a class="logo" href="#"><%= name %></a>
+
+<input class="search-input" placeholder="başlık, #entry ya da @yazar" autocomplete="off" tabindex="-1"/>
+
+<ul class="menu left-menu" style="float: left; margin-left: 10px;">
+    <li><a href="/bugun" class="menu-link"><i class="fa fa-flash"></i><span class="menu-link-text visible">bugün</span></a></li>
+</ul>
+<ul class="menu">
+    <% if (auth === true) { %>
+    <li><a href="/biri/<%- data.slug %>" class="menu-link"><i class="fa fa-user"></i><span
+            class="menu-link-text">ben</span></a>
+    </li>
+    <li>
+        <a href="/mesaj" class="menu-link"><i class="fa fa-inbox"></i><span class="menu-link-text">mesaj</span>
+            <span class="unread-count"><%= data.unread %></span>
+        </a>
+    </li>
+    <li class="dropdown-menu" tabindex="0" onclick="">
+        <span class="dropdown-link"><i class="fa fa-ellipsis-h"></i></span>
+        <ul class="dropdown-content">
+            <% if (isMod === true) { %>
+            <li>
+                <a href="/mod" class="dropdown-sub-link">moderasyon</a>
+            </li>
+            <% } %>
+            <li>
+                <a href="/ayarlar" class="dropdown-sub-link">ayarlar</a>
+            </li>
+            <li>
+                <a href="/online" class="dropdown-sub-link">kimler ayık</a>
+            </li>
+            <li>
+                <a href="/aktiviteler" class="dropdown-sub-link">neler oluyor</a>
+            </li>
+            <li>
+                <a href="/istatistik" class="dropdown-sub-link">istatistikler</a>
+            </li>
+            <li>
+                <a href="/olan-biten" class="dropdown-sub-link">olan biten</a>
+            </li>
+            <li>
+                <a href="/cikis" class="dropdown-sub-link">çıkış</a>
+            </li>
+        </ul>
+    </li>
+    <% } else { %>
+    <li><a href="/giris" class="menu-link">giriş</a></li>
+    <% } %>
+</ul>

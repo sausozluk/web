@@ -1,0 +1,21 @@
+<% if (isArwen) { %>
+<a href="http://thecatapi.com"><img width="240px" src="http://thecatapi.com/api/images/get?format=src&type=gif"></a>
+<% } %>
+<h1 class="topic_title">
+    <% if (isMod && !single) { %>
+    <span class="topic_edit">
+        <i class="fa fa-pencil-square-o"></i>
+    </span>
+    <% } %>
+    <a href="/<%- (slug + '--' + id) %>"><%- title %></a>
+</h1>
+<ul class="topic_actions">
+    <li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%- site %>/<%- (slug + '--' + id) %>"><i class="fa fa-facebook"></i></a>
+    </li>
+    <li><a target="_blank" href="https://twitter.com/intent/tweet?text=<%- site %>/<%- (slug + '--' + id) %>&via=sozluksau"><i class="fa fa-twitter"></i></a>
+    </li>
+</ul>
+<ul class="entries">
+</ul>
+<div class="pager">
+</div>

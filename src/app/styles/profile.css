@@ -1,0 +1,128 @@
+.page_title.profile {
+    color: #bdbdbd;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+#profile-cards {
+    list-style: none;
+    margin-top: 28px;
+}
+
+#profile-cards:before {
+    display: table;
+    content: "";
+}
+
+ul.user-badges {
+    display: block;
+}
+
+ul.user-badges li {
+    display: inline-block;
+    font-size: 10px;
+}
+
+.user-badge-default {
+    padding: 4px;
+    border-radius: 2px;
+    background-color: #ffb96e;
+    color: #333;
+}
+
+.user-badge-admin {
+    padding: 4px;
+    border-radius: 2px;
+    background-color: darkred;
+    color: #fff;
+}
+
+.user-do-mod {
+    padding: 4px;
+    border-radius: 2px;
+    background-color: darkolivegreen;
+    color: #fff;
+}
+
+.user-do-ban {
+    padding: 4px;
+    border-radius: 2px;
+    background-color: black;
+    color: #fff;
+}
+
+.user-entry-count {
+    padding: 4px;
+    border-radius: 2px;
+    background-color: #53a245;
+    color: #333;
+}
+
+#profile-cards > li {
+    display: inline-block;
+    float: left;
+    width: 48%;
+    margin-right: 2%;
+    margin-bottom: 10px;
+}
+
+#profile-cards > li h3 {
+    font-size: 16px;
+    color: #bdbdbd;
+}
+
+#profile-cards a {
+    color: #666;
+    text-decoration: none;
+    cursor: pointer;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    font-size: 12px;
+}
+
+#profile-cards a span {
+    color: #bdbdbd;
+}
+
+#profile-cards > li > ul {
+    list-style-type: none;
+    text-indent: -8px;
+    padding-left: 8px;
+    margin: 8px;
+}
+
+#profile-cards > li > ul li:before {
+    content: "\00B7\00A0";
+    color: #666;
+}
+
+#profile-cards > li > ul li {
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 380px) {
+    #profile-cards > li {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+ul.profile-actions {
+    display: inline-block;
+    position: relative;
+    top: -3px;
+}
+
+ul.profile-actions > li {
+    display: inline-block;
+}
+
+ul.profile-actions > li a {
+    color: #bdbdbd;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: bold;
+}

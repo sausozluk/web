@@ -1,0 +1,12 @@
+<% if (current_page != 1) { %>
+<a href="/<%- (slug + '--' + id + '/' + (current_page - 1)) %>" rel="prev" title="önceki sayfa" class="prev">«</a>
+<% } %>
+<select id="page">
+    <% for (var i = 1; i <= total_page; i++) { %>
+    <option <% if (i == current_page) { %> selected="selected" <% } %> value="<%- i %>"><%- i %></option>
+    <% } %>
+</select>/
+<a href="/<%- (slug + '--' + id + '/' + total_page) %>" title="son sayfa" class="last"><%- total_page %></a>
+<% if (current_page != total_page) { %>
+<a href="/<%- (slug + '--' + id + '/' + (current_page + 1)) %>" rel="next" title="sonraki sayfa" class="next">»</a>
+<% } %>

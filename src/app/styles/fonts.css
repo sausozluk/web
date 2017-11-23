@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'NotoSans';
+    src: url('../assets/fonts/NotoSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Baloo';
+    src: url('../assets/fonts/Baloo-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

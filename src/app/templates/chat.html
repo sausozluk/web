@@ -1,0 +1,19 @@
+<div class="chat_wrapper">
+    <div class="chat_user_info">
+        <a href="/mesaj">mesajlar</a>
+        <i class="fa fa-caret-right"></i>
+        <span class="user_nick"><a href="/biri/<%- slug %>"><%- nick %></a></span>
+    </div>
+    <div id="chat" class="chat_messages"></div>
+</div>
+<div class="compose_message">
+    <ul class="buttons">
+        <li><a id="bkz">(bkz: hede)</a></li>
+        <li><a id="hede">hede</a></li>
+        <li><a id="yildiz">&nbsp;*&nbsp;</a></li>
+        <li><a id="spoiler">-spoiler-</a></li>
+        <li><a id="link">http://</a></li>
+        <li class="right"><a id="ok" class="primary">ateşle</a></li>
+    </ul>
+    <textarea id="message" placeholder='"<%- nick %>" adlı yazara nası yürüyeceğini anlatsana :>' disabled></textarea>
+</div>

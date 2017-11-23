@@ -1,0 +1,12 @@
+<div class="list-row-message">
+    <span class="user"><%- users[0].username %></span>
+    <span class="text"><%= messages[0].message %></span>
+</div>
+<div class="list-row-info">
+    <span class="time">
+        <%- moment(messages[0].date).format('DD.MM.YYYY HH:mm') %>
+    </span>
+    <span class="delete">
+        <button class="remove"><i class="fa fa-close"></i></button>
+    </span>
+</div>

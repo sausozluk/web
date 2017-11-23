@@ -1,0 +1,85 @@
+.tabs-menu {
+}
+
+.tabs-menu li {
+    display: inline-block;
+    border-radius: 2px 2px 0 0;
+    margin-bottom: -1px;
+    color: #bdbdbd;
+}
+
+.tabs-menu li:first-child {
+    margin-left: 8px;
+}
+
+.tabs-menu li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.tabs-menu li.current {
+    border-bottom: 3px solid #81c14b;
+}
+
+.tabs-menu li > span {
+    cursor: pointer;
+    display: block;
+    padding: 6px;
+    font-size: 12px;
+}
+
+.tab {
+    float: left;
+    margin-bottom: 20px;
+    width: auto;
+}
+
+.tab.developers {
+    float: none;
+    margin-bottom: 20px;
+    width: auto;
+}
+
+.tab.chats {
+    float: none;
+    margin-bottom: 20px;
+    width: auto;
+}
+
+.tab-content {
+    padding: 20px;
+    display: none;
+}
+
+#password-tab {
+    display: block;
+}
+
+#managers-tab {
+    display: block;
+}
+
+#inbox-tab {
+    display: block;
+}
+
+.tab-content.developers, .tab-content.chats {
+    padding: 0;
+    display: none;
+    text-transform: lowercase;
+}
+
+.tab-content.chats#new-tab {
+    padding: 20px;
+}
+
+.tab-content.chats#new-tab > .easy-autocomplete > input {
+    outline: 0;
+    margin-top: 0;
+    padding: 6px;
+    color: #bdbdbd;
+    background-color: #333;
+    border-radius: 8px;
+    border: 1px solid #53a245;
+    font-size: 12px;
+}

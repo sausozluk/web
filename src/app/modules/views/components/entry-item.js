@@ -1,0 +1,131 @@
+define(function (require, exports, module) {
+  var $ = require('jquery');
+  var Backbone = require('backbone');
+  var _ = require('underscore');
+  var EntryItemTemplate = require('template!../../../templates/components/entry-item');
+  var entryController = require('../../controllers/entry');
+  var reportController = require('../../controllers/report');
+  var moment = require('moment');
+  var storage = require('storage');
+  var utils = require('utils');
+  var notification = require('notification');
+  var eventBus = require('eventbus');
+
+  module.exports = Backbone.View.extend({
+    template: EntryItemTemplate,
+
+    tagName: 'li',
+
+    text: '',
+
+    events: {
+      'click .up-vote': 'handleClickUpVote',
+      'click .down-vote': 'handleClickDownVote',
+      'click .remove': 'handleClickRemove',
+      'click .edit': 'handleClickEdit',
+      'click .read-more': 'handleClickReadMore',
+      'click .report': 'handleClickReport',
+      'click .go-votes': 'handleClickGoVotes'
+    },
+
+    handleClickGoVotes: function (e) {
+      e.preventDefault();
+
+      window.router.navigate('/entry/' + this.model.get('id') + '/oylar', true);
+    },
+
+    updateVotes: function (res) {
+      this.model.set({
+        'upvotes_count': res.upvotes_count,
+        'downvotes_count': res.downvotes_count
+      });
+    },
+
+    handleClickReadMore: function (e) {
+      e.preventDefault();
+
+      this.render(true);
+    },
+
+    handleClickReport: function (e) {
+      e.preventDefault();
+
+      notification.confirm('eminsin?', (function () {
+        reportController.report({entry: this.model.get('id')},
+          (function (res) {
+            notification.info('karışma bizde');
+          }).bind(this));
+      }).bind(this));
+    },
+
+    handleClickUpVote: function (e) {
+      e.preventDefault();
+
+      entryController.upVote(
+        this.model.get('id'), (function (res) {
+          this.updateVotes(res.data);
+        }).bind(this));
+    },
+
+    handleClickRemove: function (e) {
+      e.preventDefault();
+
+      notification.confirm('eminsin?', (function () {
+        this.selfDestroy();
+      }).bind(this));
+    },
+
+    handleClickDownVote: function (e) {
+      e.preventDefault();
+
+      entryController.downVote(
+        this.model.get('id'), (function (res) {
+          this.updateVotes(res.data);
+        }).bind(this));
+    },
+
+    handleClickEdit: function (e) {
+      e.preventDefault();
+
+      window.router.navigate('/entry/duzelt/' + this.model.get('id'), true);
+    },
+
+    selfDestroy: function () {
+      this.model.destroy({
+        success: (function () {
+          notification.info('ne kadar güzeldi o günler');
+          eventBus.emit('reload-left');
+          if (this.single) {
+            var topic = this.model.get('topic');
+            window.router.navigate('/' + topic.slug + '--' + topic.id, true);
+          }
+        }).bind(this)
+      });
+    },
+
+    initialize: function (o) {
+      this.model.on('destroy', this.remove, this);
+      this.model.on('change', this.render, this);
+      this.single = o.single ? o.single : false;
+    },
+
+    strCleaner: function (str) {
+      return utils.br(utils.link(utils.hede(utils.yildiz(utils.bkz(_.escape(emoticon(str)))))));
+    },
+
+    render: function (expanded) {
+      var json = this.model.toJSON();
+      var text = this.strCleaner(json.text);
+      var isExpanded = expanded ? expanded : json.text.length < 501;
+      json.system_id = storage.id;
+      json.isMod = storage.permission > 0;
+      json.canivote = storage.id ? storage.id !== json.user.id : false;
+      json.text = isExpanded ? text : utils.htmlSubstring(text, 500);
+      this.text = text;
+      json.moment = moment;
+      json.expanded = isExpanded;
+      $(this.el).html(this.template(json));
+      return this;
+    }
+  });
+});
