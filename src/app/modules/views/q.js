@@ -31,6 +31,8 @@ define(function (require, exports, module) {
     },
 
     render: function (title) {
+      title = title.replace(/  +/g, ' ');
+
       searchController.suggest(title, (function (data) {
         if (data.topics.length) {
           var result = _.find(data.topics, {title: title});
