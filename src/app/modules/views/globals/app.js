@@ -76,7 +76,16 @@ define(function (require, exports, module) {
 
     updateUnread: function (count) {
       count = count || 0;
-      $('.unread-count').text(count);
+
+      var el = $('.unread-count');
+
+      if (count) {
+        el.show();
+        el.text(count);
+      } else {
+        el.hide();
+      }
+
       window.unread = count;
     }
   });
