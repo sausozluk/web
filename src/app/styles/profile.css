@@ -60,6 +60,14 @@ ul.user-badges li {
     color: #333;
 }
 
+.user-generation {
+    padding: 4px;
+    border-radius: 2px;
+    background-color: #666;
+    color: #ccc;
+    font-weight: bold;
+}
+
 #profile-cards > li {
     display: inline-block;
     float: left;

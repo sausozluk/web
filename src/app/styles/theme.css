@@ -781,6 +781,10 @@ ul.votes > li a > span.nick {
     }
 }
 
+.reload-left {
+    cursor: pointer;
+}
+
 .reload-left.spin i {
     -webkit-animation: spin 2s linear infinite;
     -moz-animation: spin 2s linear infinite;
