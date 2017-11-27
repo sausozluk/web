@@ -71,15 +71,21 @@ define(function (require, exports, module) {
     },
 
     renderWithAuth: function (auth) {
+      var count = window.unread || 0;
+
       $(this.el).html(HeaderTemplate({
         name: window.sozlukName,
         isMod: storage.permission > 0,
         auth: auth,
         data: auth ? {
           slug: storage.slug,
-          unread: window.unread || '0'
+          unread: count
         } : {}
       }));
+
+      if (!count) {
+        $(this.el).find('.unread-count').hide();
+      }
 
       var searchInput = $(this.el).find('.search-input');
       utils.makeSearchInput(searchInput);
