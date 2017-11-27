@@ -635,6 +635,7 @@ ul.list-row > li > div.list-row-info > span.time {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 14px;
 }
 
 .list-row-message > span.user {
