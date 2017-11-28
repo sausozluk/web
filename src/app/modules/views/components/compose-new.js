@@ -4,8 +4,6 @@ define(function (require, exports, module) {
   var ComposeTemplate = require('template!../../../templates/components/compose-new');
   var topicController = require('../../controllers/topic');
   var utils = require('utils');
-  var cache = require('cache');
-  var app = require('app');
   var notification = require('notification');
   var eventBus = require('eventbus');
 

@@ -9,11 +9,13 @@ define(function (require, exports, module) {
   var storage = require('storage');
   var utils = require('utils');
   var notification = require('notification');
+  var eventBus = require('eventbus');
 
   module.exports = Backbone.View.extend({
     events: {
       'change #page': 'handleChangePage',
-      'click .topic_edit': 'handleClickTopicEdit'
+      'click .topic_edit': 'handleClickTopicEdit',
+      'click .topic_move': 'handleClickTopicMove',
     },
 
     handleChangePage: function (e) {
@@ -40,6 +42,29 @@ define(function (require, exports, module) {
                   $('h1.topic_title > a').text(res.get('title'));
                   notification.info('böyle daha iyi sanki');
                 }
+              });
+            } else {
+              notification.error('yakışmadı');
+            }
+          }
+        }).bind(this), {ok: 'böyle olsun', cancel: 'kalsın o halde'});
+      }
+    },
+
+    handleClickTopicMove: function (e) {
+      e.preventDefault();
+
+      if (this.topic) {
+        notification.prompt('hedef başlık', this.topic.get('title'), (function (target_title) {
+          if (target_title) {
+            var id = this.topic.get('id');
+            var length = target_title.length;
+
+            if (length > 0 && length < 51 && utils.title(target_title)) {
+              topicController.moveTopic(id, target_title, function (data) {
+                window.router.navigate('/' + data.slug + '--' + data.id, true);
+                notification.info('yolladık öteye');
+                eventBus.emit('reload-left');
               });
             } else {
               notification.error('yakışmadı');

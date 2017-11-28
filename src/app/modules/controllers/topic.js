@@ -55,6 +55,16 @@ define(function (require, exports, module) {
           callback(response.entry_id);
         }
       });
+    },
+    moveTopic: function (id, title, callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/topics/' + id + '/move');
+
+      ajaxModel.save({title: title}, {
+        success: function (model, response) {
+          callback(response.data);
+        }
+      });
     }
   };
 });
