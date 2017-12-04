@@ -203,8 +203,15 @@ define(function (require, exports, module) {
       });
     },
     link: function (str) {
+      var isLocal = function (link) {
+        var dummyEl = document.createElement('a');
+        dummyEl.href = link;
+
+        return location.hostname === dummyEl.hostname || !dummyEl.hostname.length;
+      };
+
       return str.replace(/\[([^ ]+) +([^\]]+)]/g, function (a, t1, t2) {
-        return '<a target="_blank" href="' + t1 + '" data-bypass>' + t2 + ' <i class="fa fa-external-link"></i></a>';
+        return '<a ' + (isLocal(t1) ? '' : 'target="_blank"') + ' href="' + t1 + '" ' + (isLocal(t1) ? '' : 'data-bypass') + '>' + t2 + ' <i class="fa fa-external-link"></i></a>';
       });
     },
     br: function (str) {
