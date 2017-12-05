@@ -1,5 +1,6 @@
 define(function (require, exports, module) {
   var RegisterView = require('../views/register');
+  var ForgotPasswordView = require('../views/forgot-password');
   var ErrorView = require('../views/error');
   var HomeView = require('../views/home');
   var TopicView = require('../views/topic');
@@ -92,6 +93,9 @@ define(function (require, exports, module) {
     },
     'online': function (req) {
       renderPage(new OnlineView());
+    },
+    'forgotPassword': function (req) {
+      renderPage(new ForgotPasswordView());
     }
   };
 });
