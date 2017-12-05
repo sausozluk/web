@@ -22,6 +22,7 @@ define(function (require, exports, module) {
   var ActivitiesView = require('../views/activities');
   var ModView = require('../views/mod');
   var OnlineView = require('../views/online');
+  var DefineNewPasswordView = require('../views/define-new-password');
 
   var appView = window.appView;
   var renderPage = appView.renderPage.bind(appView);
@@ -69,6 +70,9 @@ define(function (require, exports, module) {
     },
     'activate': function (req) {
       renderPage(new ActivateView(), req.params);
+    },
+    'defineNewPassword': function (req) {
+      renderPage(new DefineNewPasswordView(), req.params);
     },
     'activateMail': function (req) {
       renderPage(new ActivateMailView(), req.params);

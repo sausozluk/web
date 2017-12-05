@@ -15,6 +15,10 @@ define(function (require, exports, module) {
       $(this.el).html(ErrorTemplate({code: code, message: message, gif: $('[name="error-gif"]').attr('content')}));
       this.title = code;
       this.description = message;
+
+      setTimeout(function () {
+        window.router.navigate('/', true);
+      }, 3000);
     }
   });
 });

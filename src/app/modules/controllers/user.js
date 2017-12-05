@@ -159,6 +159,16 @@ define(function (require, exports, module) {
         }
       });
     },
+    'defineNewPassword': function (token, data, callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/users/define-new-password/' + token);
+
+      ajaxModel.save(data, {
+        success: function (model, response) {
+          callback(response);
+        }
+      });
+    },
     'activateMail': function (token, callback) {
       var ajaxModel = new AjaxModel();
       ajaxModel.changeUrl('/users/activate-mail/' + token);
