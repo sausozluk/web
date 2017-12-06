@@ -129,6 +129,16 @@ define(function (require, exports, module) {
         }
       });
     },
+    'forgotPassword': function (data, callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/users/forgot-password');
+
+      ajaxModel.save(data, {
+        success: function (model, response) {
+          callback(response.data);
+        }
+      });
+    },
     'changeMail': function (data, callback) {
       var ajaxModel = new AjaxModel();
       ajaxModel.changeUrl('/users/change-mail');
@@ -142,6 +152,16 @@ define(function (require, exports, module) {
     'changePassword': function (data, callback) {
       var ajaxModel = new AjaxModel();
       ajaxModel.changeUrl('/users/change-password');
+
+      ajaxModel.save(data, {
+        success: function (model, response) {
+          callback(response);
+        }
+      });
+    },
+    'defineNewPassword': function (token, data, callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/users/define-new-password/' + token);
 
       ajaxModel.save(data, {
         success: function (model, response) {

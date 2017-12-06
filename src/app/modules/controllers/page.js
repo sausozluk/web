@@ -1,5 +1,6 @@
 define(function (require, exports, module) {
   var RegisterView = require('../views/register');
+  var ForgotPasswordView = require('../views/forgot-password');
   var ErrorView = require('../views/error');
   var HomeView = require('../views/home');
   var TopicView = require('../views/topic');
@@ -22,6 +23,7 @@ define(function (require, exports, module) {
   var ModView = require('../views/mod');
   var OnlineView = require('../views/online');
   var PrivacyView = require('../views/privacy');
+  var DefineNewPasswordView = require('../views/define-new-password');
 
   var appView = window.appView;
   var renderPage = appView.renderPage.bind(appView);
@@ -73,6 +75,9 @@ define(function (require, exports, module) {
     'activate': function (req) {
       renderPage(new ActivateView(), req.params);
     },
+    'defineNewPassword': function (req) {
+      renderPage(new DefineNewPasswordView(), req.params);
+    },
     'activateMail': function (req) {
       renderPage(new ActivateMailView(), req.params);
     },
@@ -96,6 +101,9 @@ define(function (require, exports, module) {
     },
     'online': function (req) {
       renderPage(new OnlineView());
+    },
+    'forgotPassword': function (req) {
+      renderPage(new ForgotPasswordView());
     }
   };
 });
