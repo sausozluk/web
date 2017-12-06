@@ -1,4 +1,4 @@
-require(['jquery', 'backbone', 'moment', 'libraries/vendor/emoji-strip', 'notification', 'nprogress'],
+require(['jquery', 'backbone', 'moment', 'libraries/vendor/emoji-strip', 'notification', 'nprogress', 'libraries/vendor/cookieconsent.min'],
   function ($, Backbone, moment, emojiStrip, notification, NProgress) {
     moment['locale']('tr');
 

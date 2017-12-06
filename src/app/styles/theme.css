@@ -656,7 +656,7 @@ ul.list-row > li > div.list-row-info > span.time {
     text-decoration: none;
 }
 
-.about {
+.about, .cookie-policy {
     display: block;
     font-size: 10pt;
     line-height: 20px;
@@ -665,7 +665,7 @@ ul.list-row > li > div.list-row-info > span.time {
     color: #bdbdbd;
 }
 
-.about > a {
+.about, .cookie-policy > a {
     text-decoration: none;
     color: #53a245;
 }

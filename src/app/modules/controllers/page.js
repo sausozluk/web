@@ -21,6 +21,7 @@ define(function (require, exports, module) {
   var ActivitiesView = require('../views/activities');
   var ModView = require('../views/mod');
   var OnlineView = require('../views/online');
+  var PrivacyView = require('../views/privacy');
 
   var appView = window.appView;
   var renderPage = appView.renderPage.bind(appView);
@@ -44,6 +45,9 @@ define(function (require, exports, module) {
     },
     'logout': function (req) {
       renderPage(new LogoutView());
+    },
+    'privacy': function (req) {
+      renderPage(new PrivacyView());
     },
     'today': function (req) {
       renderPage(new TodayView());
