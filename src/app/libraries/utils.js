@@ -129,6 +129,10 @@ define(function (require, exports, module) {
         next();
       };
     },
+    gaHashPath: function (req, next) {
+      ga('send', 'pageview', {'page': location.pathname + location.search + location.hash});
+      next();
+    },
     insertAtCaret: function (areaId, text) {
       var txtarea = document.getElementById(areaId);
       if (!txtarea) {

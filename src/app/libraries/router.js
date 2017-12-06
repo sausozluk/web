@@ -81,7 +81,7 @@ define(function (require, exports, module) {
       '*path': 'default'
     },
 
-    use: [utils.metaSuccess, utils.pageEventCleaner(window.appView), utils.cleanPageMeta],
+    use: [utils.metaSuccess, utils.pageEventCleaner(window.appView), utils.cleanPageMeta, utils.gaHashPath],
 
     home: [auth.isVoid, page.home],
     register: [auth.isNotSecure, page.register],
