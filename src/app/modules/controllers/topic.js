@@ -65,6 +65,16 @@ define(function (require, exports, module) {
           callback(response.data);
         }
       });
+    },
+    lockTopic: function (id, callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/topics/' + id + '/lock');
+
+      ajaxModel.save({}, {
+        success: function (model, response) {
+          callback(response.data);
+        }
+      });
     }
   };
 });

@@ -3,11 +3,14 @@
 <% } %>
 <h1 class="topic_title">
     <% if (isMod && !single) { %>
-    <span class="topic_edit">
+    <span class="topic_mod_action topic_edit">
         <i class="fa fa-pencil-square-o"></i>
     </span>
-    <span class="topic_move">
+    <span class="topic_mod_action topic_move">
         <i class="fa fa-share"></i>
+    </span>
+    <span class="topic_mod_action topic_lock">
+        <i class="fa <%- locked ? 'fa-lock' : 'fa-unlock' %>"></i>
     </span>
     <% } %>
     <a href="/<%- (slug + '--' + id) %>"><%- title %></a>

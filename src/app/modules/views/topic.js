@@ -16,6 +16,7 @@ define(function (require, exports, module) {
       'change #page': 'handleChangePage',
       'click .topic_edit': 'handleClickTopicEdit',
       'click .topic_move': 'handleClickTopicMove',
+      'click .topic_lock': 'handleClickTopicLock'
     },
 
     handleChangePage: function (e) {
@@ -72,6 +73,26 @@ define(function (require, exports, module) {
           }
         }).bind(this), {ok: 'böyle olsun', cancel: 'kalsın o halde'});
       }
+    },
+
+    handleClickTopicLock: function (e) {
+      e.preventDefault();
+
+      var topic = this.topic;
+
+      var toLockMsg = 'kitlemek istediğine eminsin mi?';
+      var toUnLockMsg = 'kilidi kaldırmak istediğine eminsin mi?';
+
+      var el = $(e.currentTarget).find('i');
+
+      notification.confirm(topic.get('locked') ? toUnLockMsg : toLockMsg, (function () {
+        topicController.lockTopic(topic.get('id'), function (status) {
+          el.removeAttr('class');
+          el.addClass(status ? 'fa fa-lock' : 'fa fa-unlock');
+          notification.info(status ? 'kitlendi kitlendi' : 'açtık artık');
+          topic.set('locked', status);
+        });
+      }).bind(this));
     },
 
     setTitleAndDescription: function (text, entry) {
@@ -147,7 +168,7 @@ define(function (require, exports, module) {
 
         this.generatePager();
 
-        if (storage.username) {
+        if (storage.username && (json.isMod ? true : !topic.get('locked'))) {
           this.renderCompose(topic, topic.entries);
         }
 

@@ -130,7 +130,10 @@ define(function (require, exports, module) {
       };
     },
     gaHashPath: function (req, next) {
-      ga('send', 'pageview', {'page': location.pathname + location.search + location.hash});
+      if (window['ga']) {
+        ga('send', 'pageview', {'page': location.pathname + location.search + location.hash});
+      }
+
       next();
     },
     insertAtCaret: function (areaId, text) {
