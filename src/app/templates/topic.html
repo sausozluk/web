@@ -13,14 +13,34 @@
         <i class="fa <%- locked ? 'fa-lock' : 'fa-unlock' %>"></i>
     </span>
     <% } %>
+    <% if (!isMod && !single && locked) { %>
+    <span class="topic_mod_action topic_status" style="cursor: default;">
+        <i class="fa fa-lock"></i>
+    </span>
+    <% } %>
     <a href="/<%- (slug + '--' + id) %>"><%- title %></a>
 </h1>
+<% if (!single) { %>
 <ul class="topic_actions">
-    <li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%- site %>/<%- (slug + '--' + id) %>"><i class="fa fa-facebook"></i></a>
+    <li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%- site %>/<%- (slug + '--' + id) %>"><i
+            class="fa fa-facebook"></i></a>
     </li>
-    <li><a target="_blank" href="https://twitter.com/intent/tweet?text=<%- site %>/<%- (slug + '--' + id) %>&via=sozluksau"><i class="fa fa-twitter"></i></a>
+    <li><a target="_blank"
+           href="https://twitter.com/intent/tweet?text=<%- site %>/<%- (slug + '--' + id) %>&via=sozluksau"><i
+            class="fa fa-twitter"></i></a>
     </li>
 </ul>
+<% } else { %>
+<ul class="topic_actions">
+    <li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%- site %>/entry/<%- entry_id %>"><i
+            class="fa fa-facebook"></i></a>
+    </li>
+    <li><a target="_blank"
+           href="https://twitter.com/intent/tweet?text=<%- site %>/entry/<%- entry_id %>&via=sozluksau"><i
+            class="fa fa-twitter"></i></a>
+    </li>
+</ul>
+<% } %>
 <ul class="entries">
 </ul>
 <div class="pager">

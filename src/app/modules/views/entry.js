@@ -5,9 +5,6 @@ define(function (require, exports, module) {
   var entryController = require('../controllers/entry');
   var EntryItemComponent = require('./components/entry-item');
   var storage = require('storage');
-  var utils = require('utils');
-  var cache = require('cache');
-  var moment = require('moment');
 
   module.exports = Backbone.View.extend({
     events: {},
@@ -26,6 +23,7 @@ define(function (require, exports, module) {
         json.isMod = storage.permission > 0;
         json.isArwen = storage.slug === 'arwen';
         json.single = true;
+        json.entry_id = entry.get('id');
         $(this.el).html(TopicTemplate(json));
         this.setTitleAndDescription(
           entry.get('topic').title + ' - #' + entry.get('id'),
