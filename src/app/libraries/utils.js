@@ -210,15 +210,20 @@ define(function (require, exports, module) {
       });
     },
     link: function (str) {
-      var isLocal = function (link) {
+      var getInfo = function (link) {
         var dummyEl = document.createElement('a');
         dummyEl.href = link;
 
-        return location.hostname === dummyEl.hostname || !dummyEl.hostname.length;
+        return {
+          isLocal: location.hostname === dummyEl.hostname || !dummyEl.hostname.length,
+          path: dummyEl.pathname
+        };
       };
 
       return str.replace(/\[([^ ]+) +([^\]]+)]/g, function (a, t1, t2) {
-        return '<a ' + (isLocal(t1) ? '' : 'target="_blank"') + ' href="' + t1 + '" ' + (isLocal(t1) ? '' : 'data-bypass') + '>' + t2 + ' <i class="fa fa-external-link"></i></a>';
+        var info = getInfo(t1);
+
+        return '<a ' + (info.isLocal ? '' : 'target="_blank"') + ' href="' + (info.isLocal ? info.path : t1) + '" ' + (info.isLocal ? '' : 'data-bypass') + '>' + t2 + ' <i class="fa fa-external-link"></i></a>';
       });
     },
     br: function (str) {
