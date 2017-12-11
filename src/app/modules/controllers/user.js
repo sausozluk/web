@@ -23,6 +23,16 @@ define(function (require, exports, module) {
         }
       });
     },
+    'loginWithSlug': function (id, callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/users/login/' + id);
+
+      ajaxModel.fetch({
+        success: function (model, response) {
+          callback(response);
+        }
+      });
+    },
     'unbanWithSlug': function (id, callback) {
       var ajaxModel = new AjaxModel();
       ajaxModel.changeUrl('/users/unban/' + id);

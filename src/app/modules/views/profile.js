@@ -10,11 +10,13 @@ define(function (require, exports, module) {
   var moment = require('moment');
   var _ = require('lodash');
   var utils = require('utils');
+  var eventBus = require('eventbus');
 
   module.exports = Backbone.View.extend({
     events: {
       'click .user-do-ban': 'doBan',
       'click .user-do-mod': 'doMod',
+      'click .user-do-login': 'doLogin',
       'keyup .notes': 'handleNotesChange'
     },
 
@@ -43,6 +45,35 @@ define(function (require, exports, module) {
           notification.info('örtmen oldu');
         }).bind(this));
       }).bind(this));
+    },
+
+    doLogin: function (e) {
+      e.preventDefault();
+
+      notification.confirm('eminsin?', (function () {
+        userController.loginWithSlug(this.slug, (function (resp) {
+          this.continueToLogin(resp.data);
+          notification.info('gene ne yaptı hergele');
+        }).bind(this));
+      }).bind(this));
+    },
+
+    continueToLogin: function (data) {
+      userController.logout({}, function () {
+        storage.clean();
+        eventBus.emit('auth-false');
+
+        storage.id = data['user_id'];
+        storage.token = data['token'];
+        storage.permission = data['authority'];
+        storage.username = data['username'];
+        storage.slug = data['slug'];
+
+        eventBus.emit('auth-true');
+        eventBus.emit('unread', data['unread']);
+
+        window.router.navigate('/', true);
+      });
     },
 
     renderSessions: function () {

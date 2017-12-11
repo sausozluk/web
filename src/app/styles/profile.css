@@ -44,6 +44,15 @@ ul.user-badges li {
     border-radius: 2px;
     background-color: darkolivegreen;
     color: #fff;
+    cursor: pointer;
+}
+
+.user-do-login {
+    padding: 4px;
+    border-radius: 2px;
+    background-color: #FF4136;
+    color: #fff;
+    cursor: pointer;
 }
 
 .user-do-ban {
@@ -51,6 +60,7 @@ ul.user-badges li {
     border-radius: 2px;
     background-color: black;
     color: #fff;
+    cursor: pointer;
 }
 
 .user-entry-count {
