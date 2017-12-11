@@ -2,9 +2,6 @@ define(function (require, exports, module) {
   var $ = require('jquery');
   var Backbone = require('backbone');
   var LogoutTemplate = require('template!../../templates/logout');
-  var app = require('app');
-  var cache = require('cache');
-  var utils = require('utils');
   var storage = require('storage');
   var UserController = require('../controllers/user');
   var notification = require('notification');
@@ -21,6 +18,7 @@ define(function (require, exports, module) {
       $(this.el).html(LogoutTemplate({}));
       UserController.logout({}, function () {
         storage.clean();
+        storage.cleanAdminToken();
         eventBus.emit('auth-false');
         notification.info('sad but true :<');
         window.router.navigate('/giris', {trigger: true, replace: true});

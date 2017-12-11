@@ -35,6 +35,9 @@ define(function (require, exports, module) {
     get slug() {
       return storage.get('slug');
     },
+    get adminToken() {
+      return storage.get('adminToken');
+    },
     set id(id) {
       storage.set('id', id);
     },
@@ -49,6 +52,12 @@ define(function (require, exports, module) {
     },
     set slug(slug) {
       storage.set('slug', slug);
+    },
+    set adminToken(token) {
+      storage.set('adminToken', token);
+    },
+    cleanAdminToken: function () {
+      this.remove('adminToken');
     },
     clean: function () {
       this.remove('id');

@@ -59,21 +59,23 @@ define(function (require, exports, module) {
     },
 
     continueToLogin: function (data) {
-      userController.logout({}, function () {
-        storage.clean();
-        eventBus.emit('auth-false');
+      if (storage.permission > 1) {
+        storage.adminToken = storage.token;
+      }
 
-        storage.id = data['user_id'];
-        storage.token = data['token'];
-        storage.permission = data['authority'];
-        storage.username = data['username'];
-        storage.slug = data['slug'];
+      storage.clean();
+      eventBus.emit('auth-false');
 
-        eventBus.emit('auth-true');
-        eventBus.emit('unread', data['unread']);
+      storage.id = data['user_id'];
+      storage.token = data['token'];
+      storage.permission = data['authority'];
+      storage.username = data['username'];
+      storage.slug = data['slug'];
 
-        window.router.navigate('/', true);
-      });
+      eventBus.emit('auth-true');
+      eventBus.emit('unread', data['unread']);
+
+      window.router.navigate('/', true);
     },
 
     renderSessions: function () {
