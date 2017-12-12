@@ -23,6 +23,7 @@ ul.user-badges {
 ul.user-badges li {
     display: inline-block;
     font-size: 10px;
+    height: 18px;
 }
 
 .user-badge-default {

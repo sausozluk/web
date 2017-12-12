@@ -2,6 +2,7 @@
 <a href="http://thecatapi.com"><img width="240px" src="http://thecatapi.com/api/images/get?format=src&type=gif"></a>
 <% } %>
 <h1 class="topic_title">
+    <a href="/<%- (slug + '--' + id) %>"><%- title %></a>
     <% if (isMod && !single) { %>
     <span class="topic_mod_action topic_edit">
         <i class="fa fa-pencil-square-o"></i>
@@ -18,7 +19,6 @@
         <i class="fa fa-lock"></i>
     </span>
     <% } %>
-    <a href="/<%- (slug + '--' + id) %>"><%- title %></a>
 </h1>
 <% if (!single) { %>
 <ul class="topic_actions">
