@@ -26,6 +26,6 @@ before_install:
 deploy:
  provider: script
  skip_cleanup: true
- script: cd .. && chmod 400 deploy_key && ssh -o StrictHostKeyChecking=no -i deploy_key -p 2222 ubuntu@sausozluk.net "cd sozluk && ./deploy.sh"
+ script: cd .. && chmod 400 deploy_key && ssh -o StrictHostKeyChecking=no -i deploy_key -p 2222 ubuntu@sausozluk.net "cd sozluk && ./deploy.sh $TRAVIS_BUILD_NUMBER"
  on:
    branch: master
