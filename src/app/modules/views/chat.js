@@ -34,8 +34,14 @@ define(function (require, exports, module) {
 
     render: function () {
       var json = this.model;
+      var str = '';
       json.fromMe = json.user === storage.id;
-      json.message = this.strCleaner(json.message);
+
+      if (json['deleted']) {
+        str = json['deleted'].indexOf(storage.id) > -1 ? ' <i class="fa fa-trash" aria-hidden="true"></i>' : '';
+      }
+
+      json.message = this.strCleaner(json.message) + str;
       json.date = moment(json.date).format('DD.MM.YYYY HH:mm') + '\'de gönderildi';
       $(this.el).html(this.template(json));
       return this;
@@ -147,7 +153,8 @@ define(function (require, exports, module) {
           message: message,
           user: storage.id,
           date: new Date(),
-          seen: false
+          seen: false,
+          deleted: []
 
         }
       }).render().el);
@@ -168,7 +175,8 @@ define(function (require, exports, module) {
             user: data.from,
             message: data.message,
             date: new Date(),
-            seen: true
+            seen: true,
+            deleted: []
           }
         }).render().el);
 
