@@ -14,9 +14,10 @@ define(function (require, exports, module) {
 
   module.exports = Backbone.View.extend({
     events: {
-      'click .user-do-ban': 'doBan',
-      'click .user-do-mod': 'doMod',
+      'click .user-do-ban': 'toggleBan',
+      'click .user-do-mod': 'toggleMod',
       'click .user-do-login': 'doLogin',
+      'click .user-do-block-chat': 'toggleBlockChat',
       'keyup .notes': 'handleNotesChange'
     },
 
@@ -27,22 +28,32 @@ define(function (require, exports, module) {
       $('[name="twitter:description"]').attr('content', ('"' + text + '" nickli kullanıcı işte'));
     },
 
-    doBan: function (e) {
+    toggleBan: function (e) {
       e.preventDefault();
 
       notification.confirm('eminsin?', (function () {
-        userController.banWithSlug(this.slug, (function () {
-          notification.info('hehe gitti mal');
+        userController.toggleBanWithSlug(this.slug, (function (val) {
+          notification.info(val ? 'hehe gitti mal' : 'yine nerden geliyorsun yaramaz seni?');
         }).bind(this));
       }).bind(this));
     },
 
-    doMod: function (e) {
+    toggleMod: function (e) {
       e.preventDefault();
 
       notification.confirm('eminsin?', (function () {
-        userController.modWithSlug(this.slug, (function () {
-          notification.info('örtmen oldu');
+        userController.toggleModWithSlug(this.slug, (function (val) {
+          notification.info(val === 1 ? 'örtmen oldu' : 'yine bizden biri');
+        }).bind(this));
+      }).bind(this));
+    },
+
+    toggleBlockChat: function (e) {
+      e.preventDefault();
+
+      notification.confirm('eminsin?', (function () {
+        userController.toggleBlockChatWithSlug(this.slug, (function (val) {
+          notification.info(val ? 'sustu' : 'çenesi açıldı');
         }).bind(this));
       }).bind(this));
     },
@@ -117,6 +128,7 @@ define(function (require, exports, module) {
         });
 
         profile.isAdmin = storage.permission > 1 && storage.slug !== nick;
+        profile.isMod = storage.permission > 0 && storage.slug !== nick;
         profile.isMe = storage.slug === nick;
         profile.isLoggedIn = !!storage.token;
         profile.slug = this.slug;

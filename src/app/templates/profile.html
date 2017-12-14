@@ -20,6 +20,9 @@
     <li><span class="user-generation"><%- generation %>. nesil</span></li>
     <li><span class="user-badge-default"><%- status %></span></li>
     <li><span class="user-entry-count"><%- entry_count %> entry</span></li>
+    <% if (isMod) { %>
+    <li><span class="user-do-block-chat">sustur</span></li>
+    <% } %>
     <% if (isAdmin) { %>
     <li><span class="user-do-ban">banla şunu</span></li>
     <% } %>

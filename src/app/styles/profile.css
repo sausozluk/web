@@ -56,6 +56,14 @@ ul.user-badges li {
     cursor: pointer;
 }
 
+.user-do-block-chat {
+    padding: 4px;
+    border-radius: 2px;
+    background-color: #0041ff;
+    color: #fff;
+    cursor: pointer;
+}
+
 .user-do-ban {
     padding: 4px;
     border-radius: 2px;

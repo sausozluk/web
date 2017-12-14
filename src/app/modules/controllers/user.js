@@ -13,13 +13,13 @@ define(function (require, exports, module) {
         }
       });
     },
-    'banWithSlug': function (id, callback) {
+    'toggleBanWithSlug': function (id, callback) {
       var ajaxModel = new AjaxModel();
-      ajaxModel.changeUrl('/users/ban/' + id);
+      ajaxModel.changeUrl('/users/toggle-ban/' + id);
 
       ajaxModel.fetch({
         success: function (model, response) {
-          callback(response);
+          callback(response.data);
         }
       });
     },
@@ -33,33 +33,23 @@ define(function (require, exports, module) {
         }
       });
     },
-    'unbanWithSlug': function (id, callback) {
+    'toggleModWithSlug': function (id, callback) {
       var ajaxModel = new AjaxModel();
-      ajaxModel.changeUrl('/users/unban/' + id);
+      ajaxModel.changeUrl('/users/toggle-mod/' + id);
 
       ajaxModel.fetch({
         success: function (model, response) {
-          callback(response);
+          callback(response.data);
         }
       });
     },
-    'modWithSlug': function (id, callback) {
+    'toggleBlockChatWithSlug': function (id, callback) {
       var ajaxModel = new AjaxModel();
-      ajaxModel.changeUrl('/users/mod/' + id);
+      ajaxModel.changeUrl('/users/toggle-block-chat/' + id);
 
       ajaxModel.fetch({
         success: function (model, response) {
-          callback(response);
-        }
-      });
-    },
-    'unmodWithSlug': function (id, callback) {
-      var ajaxModel = new AjaxModel();
-      ajaxModel.changeUrl('/users/unmod/' + id);
-
-      ajaxModel.fetch({
-        success: function (model, response) {
-          callback(response);
+          callback(response.data);
         }
       });
     },
