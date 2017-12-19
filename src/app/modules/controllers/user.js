@@ -1,6 +1,7 @@
 define(function (require, exports, module) {
   var AjaxModel = require('../models/ajax');
   var eventBus = require('eventbus');
+  var storage = require('storage');
 
   module.exports = {
     'noteWithSlug': function (slug, note, callback) {
@@ -109,11 +110,10 @@ define(function (require, exports, module) {
     },
     'logout': function (data, callback) {
       var ajaxModel = new AjaxModel();
-      ajaxModel.set('notId', +new Date());
-      ajaxModel.changeUrl('/sessions');
+      ajaxModel.changeUrl('/sessions/logout');
 
-      ajaxModel.destroy({
-        url: ajaxModel.urlRoot(),
+      ajaxModel.fetch({
+        data: $.param(storage.adminToken ? {at: storage.adminToken} : {}),
         success: function (model, response) {
           callback();
         }
