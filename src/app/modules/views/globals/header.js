@@ -76,6 +76,7 @@ define(function (require, exports, module) {
       $(this.el).html(HeaderTemplate({
         name: window.sozlukName,
         isMod: storage.permission > 0,
+        isAdmin: storage.permission > 1,
         auth: auth,
         data: auth ? {
           slug: storage.slug,

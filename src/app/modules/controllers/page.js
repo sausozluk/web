@@ -21,6 +21,7 @@ define(function (require, exports, module) {
   var StatsView = require('../views/stats');
   var ActivitiesView = require('../views/activities');
   var ModView = require('../views/mod');
+  var AdminView = require('../views/admin');
   var OnlineView = require('../views/online');
   var PrivacyView = require('../views/privacy');
   var DefineNewPasswordView = require('../views/define-new-password');
@@ -98,6 +99,9 @@ define(function (require, exports, module) {
     },
     'mod': function (req) {
       renderPage(new ModView());
+    },
+    'admin': function (req) {
+      renderPage(new AdminView());
     },
     'online': function (req) {
       renderPage(new OnlineView());

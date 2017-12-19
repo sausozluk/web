@@ -18,6 +18,11 @@
     <li class="dropdown-menu" tabindex="0" onclick="">
         <span class="dropdown-link"><i class="fa fa-ellipsis-h"></i></span>
         <ul class="dropdown-content">
+            <% if (isAdmin === true) { %>
+            <li>
+                <a href="/admin" class="dropdown-sub-link">admin</a>
+            </li>
+            <% } %>
             <% if (isMod === true) { %>
             <li>
                 <a href="/mod" class="dropdown-sub-link">moderasyon</a>

@@ -31,6 +31,16 @@ define(function (require, exports, module) {
           callback(response.data);
         }
       });
+    },
+    'forceGlobalLogout': function (callback) {
+      var ajaxModel = new AjaxModel();
+      ajaxModel.changeUrl('/force-global-logout');
+
+      ajaxModel.fetch({
+        success: function (model, response) {
+          callback(response);
+        }
+      });
     }
   };
 });

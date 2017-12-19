@@ -46,6 +46,13 @@ define(function (require, exports, module) {
         window.router.navigate('/', {trigger: true, replace: true});
       }
     },
+    'isAdmin': function (req, next) {
+      if (storage.permission > 1) {
+        next();
+      } else {
+        window.router.navigate('/', {trigger: true, replace: true});
+      }
+    },
     'isVoid': function (req, next) {
       UserController['check-token']({}, function (message) {
         if (message) {
