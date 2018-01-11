@@ -1,4 +1,4 @@
 {
   "name": "saü sözlük",
-  "api_url": "http://localhost:8080/api/v1"
+  "api_url": "http://sausozluk.net/service/proxy/api/v1"
 }

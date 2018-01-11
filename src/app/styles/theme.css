@@ -166,6 +166,21 @@ div.stairs > span.subtitle {
     padding-left: 12px;
 }
 
+div.stairs > span.message {
+    display: block;
+    font-size: 10pt;
+    color: #ccc;
+    padding-left: 12px;
+    padding-top: 18px;
+}
+
+div.stairs > span.message > a {
+    text-decoration: underline;
+    color: #ccc;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 ul.topics {
     display: block;
     margin-top: 24px;

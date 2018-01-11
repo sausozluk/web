@@ -93,8 +93,11 @@ define(function (require, exports, module) {
     },
 
     render: function () {
+      var date = new Date();
+
       this.getTopics((function (topics) {
         $(this.el).html(this.template({
+          ej_on: date.getDate() === 11 && date.getMonth() === 0,
           title: 'bugün',
           subtitle: topics.topics_count + ' başlık, ' + topics.entries_count + ' entry'
         }));
