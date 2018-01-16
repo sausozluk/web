@@ -64,5 +64,29 @@
   ga('create', 'UA-68750372-4', 'auto');
   ga('send', 'pageview');
 </script>
+<script type='text/javascript'>
+var Countly = Countly || {};
+Countly.q = Countly.q || [];
+
+Countly.app_key = "ba8372afa6ec792f3527fec8c3c8a7ec482006f0";
+Countly.url = "https://furkan.count.ly"; 
+
+//start pushing function calls to queue
+//track sessions automatically
+Countly.q.push(['track_sessions']);
+  
+//track sessions automatically
+Countly.q.push(['track_pageview']);
+  
+//load countly script asynchronously
+(function() {
+	var cly = document.createElement('script'); cly.type = 'text/javascript'; 
+	cly.async = true;
+	//enter url of script here (see below for other option)
+	cly.src = 'https://furkan.count.ly/sdk/web/countly.min.js';
+	cly.onload = function(){Countly.init()};
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(cly, s);
+})();
+</script>
 </body>
 </html>
