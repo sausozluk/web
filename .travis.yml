@@ -19,13 +19,16 @@ env:
   - secure: V0r2k44j5UE6JIAPwG5WQewUsWTAQprYycWbQHVjCKbacAtgymT719eD7qpnYP9KGtkDd5Z26K9c+3T1ZL3MDW4xj+GGGxk81Xkfd416n56HUpzcPPc5pvFFs7/UyMI3fwdH1RTH6L1CI+j3m2CF0lhOaMeNnM9g5u7Is8WRO/N4lJYJqGPb8KB7BajNTcdtTF1DOhbaISv4ItoiqRLwYJawhxFYRi9g2nL3nMO9fN6Z/bergO14CMOU7hFnDvw3CaEyDBC7ewf7z2uPzsHKLxcVjvCgpYYulPfTaWXmDMPcTdX22cHaB4OIbIo4YJqZYo8drIhp+FFNDPFr6iWGy9r0igoGlHm5oFcjdY7pJuVbwL9KnW944h/LE+rtqvUPf2OS7Y1MXcq+Ee8U8frajUXVCYyJ1KMCbVXZ0ZXBbEIYYdvTcQR6P6g6WKDAIDIZTpKkFMJtASE4TlOgNz5fTv45xAF2OwBlrPt0NbKWuL1ZaQXyb/pbCaQZRPp+RWC7kpHLuBBlSuaMBaL56cd67lzaw/m6wbUQewehQ4gKJRm1WMTofoQSPnrmU3wRO8YkEYg0wyUpeCSz0Xk7rHK0QAtFVZL4ZmXEeUYayLXxZvWsSNHQxldRdVXNDdA5qH/P9Oz59Y7mjL2ArCatZP8J1zjdxOFrHvfDu+LmMzt+j20=
   - SOZLUK_ENV=test
 before_install:
+- openssl aes-256-cbc -K $encrypted_aa5f2cc2971c_key -iv $encrypted_aa5f2cc2971c_iv
+  -in deploy_key.enc -out ../../deploy_key -d
 - docker login --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD
 - openssl aes-256-cbc -K $encrypted_aa5f2cc2971c_key -iv $encrypted_aa5f2cc2971c_iv
- -in deploy_key.enc -out ./deploy_key -d
+  -in deploy_key.enc -out ./deploy_key -d
 - docker build -t webtest .
 deploy:
- provider: script
- skip_cleanup: true
- script: cd .. && chmod 400 deploy_key && ssh -o StrictHostKeyChecking=no -i deploy_key ubuntu@sausozluk.net "cd sozluk && ./deploy.sh $TRAVIS_BUILD_NUMBER"
- on:
-   branch: master
+  provider: script
+  skip_cleanup: true
+  script: cd .. && chmod 400 deploy_key && ssh -o StrictHostKeyChecking=no -i deploy_key
+    ubuntu@sausozluk.net "cd sozluk && ./deploy.sh $TRAVIS_BUILD_NUMBER"
+  on:
+    branch: master
