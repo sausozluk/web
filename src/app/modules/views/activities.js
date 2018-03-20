@@ -36,6 +36,9 @@ define(function (require, exports, module) {
 
         var el = $(self.el).find('.activities');
         _.each(data, function (item) {
+          var entryText = item.user.slug === 'igrencespri' ? 'espri yaptı.' : 'entry girdi.';
+          var topicText = item.user.slug === 'igrencespri' ? 'boş yapıyo.' : 'başlık açtı.';
+
           switch (item.action) {
             case 'login':
               el.append(self.renderLiItem('/biri/' + item.user.slug, moment(item.date).fromNow(), '"' + item.user.username + '" giriş yaptı.'));
@@ -47,10 +50,10 @@ define(function (require, exports, module) {
               el.append(self.renderLiItem('/biri/' + item.user.slug, moment(item.date).fromNow(), '"' + item.user.username + '" kayıt oldu.'));
               break;
             case 'create_entry':
-              el.append(self.renderLiItemWithData('/biri/' + item.user.slug, moment(item.date).fromNow(), '"' + item.user.username + '"', '/entry/' + item.data.id, 'entry girdi.'));
+              el.append(self.renderLiItemWithData('/biri/' + item.user.slug, moment(item.date).fromNow(), '"' + item.user.username + '"', '/entry/' + item.data.id, entryText));
               break;
             case 'create_topic':
-              el.append(self.renderLiItemWithData('/biri/' + item.user.slug, moment(item.date).fromNow(), '"' + item.user.username + '"', '/' + item.data.slug + '--' + item.data.id, 'başlık açtı.'));
+              el.append(self.renderLiItemWithData('/biri/' + item.user.slug, moment(item.date).fromNow(), '"' + item.user.username + '"', '/' + item.data.slug + '--' + item.data.id, topicText));
               break;
           }
         });
