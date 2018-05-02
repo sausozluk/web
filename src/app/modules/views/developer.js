@@ -52,6 +52,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
+      mixpanel.track("developer view");
       $(this.el).html(DeveloperTemplate());
 
       gitHubController.getWebCommits((function (collection) {

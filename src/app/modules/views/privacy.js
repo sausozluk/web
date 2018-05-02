@@ -16,6 +16,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
+      mixpanel.track("privacy view");
       var self = this;
 
       $(self.el).html(PrivacyTemplate());

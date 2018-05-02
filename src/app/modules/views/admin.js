@@ -37,6 +37,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
+      mixpanel.track("admin view");
       $(this.el).html(this.template());
       return this;
     }

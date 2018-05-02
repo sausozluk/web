@@ -39,6 +39,7 @@ define(function (require, exports, module) {
     },
 
     render: function (token) {
+      mixpanel.track("change password view");
       this.token = token;
 
       $(this.el).html(DefineNewPassword({}));

@@ -60,6 +60,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
+      mixpanel.track("login view");
       $(this.el).html(LoginTemplate({}));
     }
   });

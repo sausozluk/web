@@ -32,6 +32,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
+      mixpanel.track("reset password view");
       $(this.el).html(ForgotPasswordTemplate({}));
     }
   });

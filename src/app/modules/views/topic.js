@@ -140,6 +140,7 @@ define(function (require, exports, module) {
     },
 
     render: function (url, id, page) {
+      mixpanel.track("topic detail view");
       this.topicUrl = url;
       this.topicId = id;
       this.currentPage = page ? parseInt(page) : 1;

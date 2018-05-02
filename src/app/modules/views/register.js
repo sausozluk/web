@@ -40,6 +40,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
+      mixpanel.track("register view");
       $(this.el).html(RegisterTemplate({}));
     }
   });

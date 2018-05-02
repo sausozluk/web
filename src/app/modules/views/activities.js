@@ -22,6 +22,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
+      mixpanel.track("activities view");
       var self = this;
 
       $(self.el).html(ActivitiesTemplate());

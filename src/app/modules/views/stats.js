@@ -19,6 +19,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
+      mixpanel.track("stats view");
       var self = this;
 
       $(self.el).html(StatsTemplate());

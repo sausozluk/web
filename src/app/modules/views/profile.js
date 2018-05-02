@@ -118,6 +118,7 @@ define(function (require, exports, module) {
     },
 
     render: function (nick) {
+      mixpanel.track("profile view");
       this.slug = nick;
       userController.getProfileWithSlug(nick, (function (profile) {
         profile['last_activities'].sort(function (a, b) {

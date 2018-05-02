@@ -22,6 +22,7 @@ define(function (require, exports, module) {
     },
 
     render: function (id) {
+      mixpanel.track("entry edit view");
       entryController.getEntryById(id, (function (entry) {
         if (storage.id !== entry.get('user').id && storage.permission === 0) {
           window.router.navigate('/entry/' + entry.get('id'), true);

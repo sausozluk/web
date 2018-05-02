@@ -12,6 +12,7 @@ define(function (require, exports, module) {
     },
 
     render: function (code, message) {
+      mixpanel.track("error view");
       $(this.el).html(ErrorTemplate({code: code, message: message, gif: $('[name="error-gif"]').attr('content')}));
       this.title = code;
       this.description = message;

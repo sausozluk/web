@@ -17,6 +17,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
+      mixpanel.track("settings view");
       $(this.el).html(SettingsTemplate());
       $(this.el).find('.settings').html(this.settingsTabComponent.el);
     }

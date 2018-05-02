@@ -15,6 +15,7 @@ define(function (require, exports, module) {
     },
 
     render: function (id) {
+      mixpanel.track("votes view");
       entryController.getEntryVotesById(id, (function (entry) {
         $(this.el).html(VotesTemplate({
           id: id,

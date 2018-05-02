@@ -21,6 +21,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
+      mixpanel.track("today topics view");
       $(this.el).html(this.leftFrameComponent.el);
       $('.content').addClass('today');
     }
