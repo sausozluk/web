@@ -39,6 +39,12 @@ define(function (require, exports, module) {
         password: $('#password').val()
       }, function (data) {
         mixpanel.identify(data['username']);
+        mixpanel.people.set({
+            "$id":data['user_id'],
+            "$email": $('#email').val(),
+            "$last_login": new Date(),
+            "entry_count": data['entry_count']
+        });
         storage.id = data['user_id'];
         storage.token = data['token'];
         storage.permission = data['authority'];
