@@ -41,6 +41,7 @@ define(function (require, exports, module) {
         mixpanel.identify(data['username']);
         mixpanel.people.set({
             "$id":data['user_id'],
+            '$name':data['username'],
             "$email": $('#email').val(),
             "$last_login": new Date(),
             "entry_count": data['entry_count']
