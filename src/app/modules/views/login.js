@@ -38,6 +38,7 @@ define(function (require, exports, module) {
         email: $('#email').val(),
         password: $('#password').val()
       }, function (data) {
+        mixpanel.identify(data['username']);
         storage.id = data['user_id'];
         storage.token = data['token'];
         storage.permission = data['authority'];
