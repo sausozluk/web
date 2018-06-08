@@ -13,6 +13,7 @@ gulp.task('connect', function () {
   return connect.server({
       port: 1337,
       root: 'dist',
+      host: '0.0.0.0',
       middleware: function (connect, options) {
         return [cache, compression(), history({
           rewrites: [
