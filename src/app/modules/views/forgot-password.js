@@ -2,10 +2,6 @@ define(function (require, exports, module) {
   var $ = require('jquery');
   var Backbone = require('backbone');
   var ForgotPasswordTemplate = require('template!../../templates/forgot-password');
-  var app = require('app');
-  var cache = require('cache');
-  var utils = require('utils');
-  var storage = require('storage');
   var userController = require('../controllers/user');
   var notification = require('notification');
 
@@ -32,7 +28,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      mixpanel.track("reset password view");
+      mixpanel.track('reset password view');
       $(this.el).html(ForgotPasswordTemplate({}));
     }
   });

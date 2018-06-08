@@ -31,7 +31,7 @@ define(function (require, exports, module) {
     },
 
     render: function (title) {
-      mixpanel.track("search view");
+      mixpanel.track('search view');
       title = title.replace(/  +/g, ' ');
 
       searchController.suggest(title, (function (data) {

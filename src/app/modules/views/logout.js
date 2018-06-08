@@ -15,7 +15,7 @@ define(function (require, exports, module) {
     events: {},
 
     render: function () {
-      mixpanel.track("logout view");
+      mixpanel.track('logout view');
       $(this.el).html(LogoutTemplate({}));
       UserController.logout({}, function () {
         storage.clean();

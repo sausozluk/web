@@ -2,10 +2,7 @@ define(function (require, exports, module) {
   var $ = require('jquery');
   var Backbone = require('backbone');
   var RegisterTemplate = require('template!../../templates/register');
-  var app = require('app');
-  var cache = require('cache');
   var utils = require('utils');
-  var storage = require('storage');
   var userController = require('../controllers/user');
   var notification = require('notification');
 
@@ -40,7 +37,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      mixpanel.track("register view");
+      mixpanel.track('register view');
       $(this.el).html(RegisterTemplate({}));
     }
   });

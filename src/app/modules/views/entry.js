@@ -17,7 +17,7 @@ define(function (require, exports, module) {
     },
 
     render: function (id) {
-      mixpanel.track("Single entry view");
+      mixpanel.track('Single entry view');
       entryController.getEntryById(id, (function (entry) {
         var json = entry.get('topic');
         json.site = location.origin;

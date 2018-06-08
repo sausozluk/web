@@ -52,7 +52,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      mixpanel.track("developer view");
+      mixpanel.track('developer view');
       $(this.el).html(DeveloperTemplate());
 
       gitHubController.getWebCommits((function (collection) {
@@ -90,7 +90,13 @@ define(function (require, exports, module) {
           return '[/biri/' + item.slug + ' - ' + item.username + ']';
         }).join('\n');
 
-        var str = '\nadmin\n' + adminStr + '\n\nmod\n' + modStr;
+        var hofStr = [
+          {slug: 'wizard-of-oz', username: 'wizard of oz'}
+        ].map(function (item) {
+          return '[/biri/' + item.slug + ' - ' + item.username + ']';
+        }).join('\n');
+
+        var str = '\nadmin\n' + adminStr + '\n\nmod\n' + modStr + '\n\nhalf of fame\n' + hofStr;
         var html = this.strCleaner(str);
 
         about.html(html);

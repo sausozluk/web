@@ -2,10 +2,6 @@ define(function (require, exports, module) {
   var $ = require('jquery');
   var Backbone = require('backbone');
   var DefineNewPassword = require('template!../../templates/define-new-password');
-  var app = require('app');
-  var cache = require('cache');
-  var utils = require('utils');
-  var storage = require('storage');
   var userController = require('../controllers/user');
   var notification = require('notification');
 
@@ -32,14 +28,14 @@ define(function (require, exports, module) {
       userController.defineNewPassword(this.token, {
         new_password_a: new_password_a,
         new_password_b: new_password_b
-      }, function (data) {
+      }, function () {
         notification.info('oldu da bitti');
         window.router.navigate('/', true);
       });
     },
 
     render: function (token) {
-      mixpanel.track("change password view");
+      mixpanel.track('change password view');
       this.token = token;
 
       $(this.el).html(DefineNewPassword({}));

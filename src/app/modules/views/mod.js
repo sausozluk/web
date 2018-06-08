@@ -48,7 +48,7 @@ define(function (require, exports, module) {
     description: 'what a cool girl/guy',
 
     render: function () {
-      mixpanel.track("moderation view");
+      mixpanel.track('moderation view');
       var self = this;
 
       $(this.el).html(ModTemplate());

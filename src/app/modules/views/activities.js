@@ -22,7 +22,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      mixpanel.track("activities view");
+      mixpanel.track('activities view');
       var self = this;
 
       $(self.el).html(ActivitiesTemplate());
@@ -37,24 +37,27 @@ define(function (require, exports, module) {
 
         var el = $(self.el).find('.activities');
         _.each(data, function (item) {
-          var entryText = item.user.slug === 'igrencespri' ? 'espri yaptı.' : 'entry girdi.';
-          var topicText = item.user.slug === 'igrencespri' ? 'boş yapıyo.' : 'başlık açtı.';
+          var slug = item.user.slug;
+          var username = item.user.username;
+          var entryText = slug === 'igrencespri' ? 'espri yaptı.' : 'entry girdi.';
+          var topicText = slug === 'igrencespri' ? 'boş yapıyo.' : 'başlık açtı.';
+          var fromNow = moment(item.date).fromNow();
 
           switch (item.action) {
             case 'login':
-              el.append(self.renderLiItem('/biri/' + item.user.slug, moment(item.date).fromNow(), '"' + item.user.username + '" giriş yaptı.'));
+              el.append(self.renderLiItem('/biri/' + slug, fromNow, '"' + username + '" giriş yaptı.'));
               break;
             case 'logout':
-              el.append(self.renderLiItem('/biri/' + item.user.slug, moment(item.date).fromNow(), '"' + item.user.username + '" çıkış yaptı.'));
+              el.append(self.renderLiItem('/biri/' + slug, fromNow, '"' + username + '" çıkış yaptı.'));
               break;
             case 'register':
-              el.append(self.renderLiItem('/biri/' + item.user.slug, moment(item.date).fromNow(), '"' + item.user.username + '" kayıt oldu.'));
+              el.append(self.renderLiItem('/biri/' + slug, fromNow, '"' + username + '" kayıt oldu.'));
               break;
             case 'create_entry':
-              el.append(self.renderLiItemWithData('/biri/' + item.user.slug, moment(item.date).fromNow(), '"' + item.user.username + '"', '/entry/' + item.data.id, entryText));
+              el.append(self.renderLiItemWithData('/biri/' + slug, fromNow, '"' + username + '"', '/entry/' + item.data.id, entryText));
               break;
             case 'create_topic':
-              el.append(self.renderLiItemWithData('/biri/' + item.user.slug, moment(item.date).fromNow(), '"' + item.user.username + '"', '/' + item.data.slug + '--' + item.data.id, topicText));
+              el.append(self.renderLiItemWithData('/biri/' + slug, fromNow, '"' + username + '"', '/' + item.data.slug + '--' + item.data.id, topicText));
               break;
           }
         });

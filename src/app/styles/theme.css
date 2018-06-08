@@ -19,6 +19,19 @@ div.navbar {
     transition: background-color 1000ms ease;
 }
 
+.force-global-logout {
+    padding: 7px;
+    text-align: center;
+    font-size: 13px !important;
+    width: 160px;
+    cursor: pointer;
+    border-radius: 2px;
+    color: #e0e0e0 !important;
+    background-color: #53a245;
+    border: 1px solid #5c8e31;
+    outline: 0;
+}
+
 a.logo {
     font-family: 'Baloo';
     line-height: 40px;

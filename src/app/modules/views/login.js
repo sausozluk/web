@@ -40,11 +40,11 @@ define(function (require, exports, module) {
       }, function (data) {
         mixpanel.identify(data['username']);
         mixpanel.people.set({
-            "$id":data['user_id'],
+            '$id':data['user_id'],
             '$name':data['username'],
-            "$email": $('#email').val(),
-            "$last_login": new Date(),
-            "entry_count": data['entry_count']
+            '$email': $('#email').val(),
+            '$last_login': new Date(),
+            'entry_count': data['entry_count']
         });
         storage.id = data['user_id'];
         storage.token = data['token'];
@@ -68,7 +68,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      mixpanel.track("login view");
+      mixpanel.track('login view');
       $(this.el).html(LoginTemplate({}));
     }
   });

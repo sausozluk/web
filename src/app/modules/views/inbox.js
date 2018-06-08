@@ -126,7 +126,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      mixpanel.track("Inbox view");
+      mixpanel.track('Inbox view');
       $(this.el).html(InboxTemplate());
 
       chatController.getInbox((function (collection) {

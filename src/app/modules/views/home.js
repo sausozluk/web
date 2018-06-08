@@ -14,7 +14,7 @@ define(function (require, exports, module) {
     events: {},
 
     render: function () {
-      mixpanel.track("home view");
+      mixpanel.track('home view');
       $(this.el).html(HomeTemplate({}));
 
       topicController.random((function (collection) {

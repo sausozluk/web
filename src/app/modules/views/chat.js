@@ -192,7 +192,7 @@ define(function (require, exports, module) {
     },
 
     render: function (slug) {
-      mixpanel.track("chat view");
+      mixpanel.track('chat view');
       var self = this;
 
       if (storage.slug === slug) {

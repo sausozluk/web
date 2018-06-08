@@ -13,7 +13,7 @@ define(function (require, exports, module) {
     events: {},
 
     render: function (token) {
-      mixpanel.track("email activate view");
+      mixpanel.track('email activate view');
       $(this.el).html(ActivateTemplate({}));
       UserController.activateMail(token, function () {
         notification.info('hayırlı olsun ehehe');

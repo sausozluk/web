@@ -17,7 +17,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      mixpanel.track("online users view");
+      mixpanel.track('online users view');
       var self = this;
 
       $(self.el).html(OnlineTemplate());
