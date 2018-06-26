@@ -48,6 +48,18 @@
 <script src="https://use.fontawesome.com/e4f4248f35.js" async></script>
 <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
 <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBD95zNqilmugN8OyaRMbCHUeqAmqY4m8s",
+    authDomain: "sausozluk-bdf9c.firebaseapp.com",
+    databaseURL: "https://sausozluk-bdf9c.firebaseio.com",
+    projectId: "sausozluk-bdf9c",
+    storageBucket: "sausozluk-bdf9c.appspot.com",
+    messagingSenderId: "232450933028"
+  };
+  firebase.initializeApp(config);
+</script>
+<script>
   var link = document.createElement('link');
   link.rel = 'stylesheet';
   link.href = document.getElementById("css").content;
@@ -124,18 +136,6 @@
     for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
     mixpanel.init("b10303a8a73e3c8566d936a92007c6e8");
   <!-- Mixpanel End -->  
-
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBD95zNqilmugN8OyaRMbCHUeqAmqY4m8s",
-    authDomain: "sausozluk-bdf9c.firebaseapp.com",
-    databaseURL: "https://sausozluk-bdf9c.firebaseio.com",
-    projectId: "sausozluk-bdf9c",
-    storageBucket: "",
-    messagingSenderId: "232450933028"
-  };
-  firebase.initializeApp(config);
-
 </script>
 </body>
 <!-- Google Tag Manager (noscript) -->
