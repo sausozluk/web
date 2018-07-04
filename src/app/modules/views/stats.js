@@ -6,6 +6,7 @@ define(function (require, exports, module) {
   var statController = require('../controllers/stat');
   var _ = require('lodash');
   var moment = require('moment');
+  var analytic = require('analytic');
 
   module.exports = Backbone.View.extend({
     tagName: 'div',
@@ -19,7 +20,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      mixpanel.track('stats view');
+      analytic.mixpanel('stats view');
       var self = this;
 
       $(self.el).html(StatsTemplate());

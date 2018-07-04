@@ -7,6 +7,7 @@ define(function (require, exports, module) {
   var homeController = require('../controllers/home');
   var moment = require('moment');
   var utils = require('utils');
+  var analytic = require('analytic');
 
   var CommitItemView = Backbone.View.extend({
     template: DeveloperCommitItemTemplate,
@@ -52,7 +53,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      mixpanel.track('developer view');
+      analytic.mixpanel('developer view');
       $(this.el).html(DeveloperTemplate());
 
       gitHubController.getWebCommits((function (collection) {

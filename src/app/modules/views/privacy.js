@@ -3,6 +3,7 @@ define(function (require, exports, module) {
   var Backbone = require('backbone');
   var PrivacyTemplate = require('template!../../templates/privacy');
   var utils = require('utils');
+  var analytic = require('analytic');
 
   module.exports = Backbone.View.extend({
     tagName: 'div',
@@ -16,7 +17,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      mixpanel.track('privacy view');
+      analytic.mixpanel('privacy view');
       var self = this;
 
       $(self.el).html(PrivacyTemplate());

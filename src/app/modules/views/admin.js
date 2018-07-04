@@ -4,6 +4,7 @@ define(function (require, exports, module) {
   var AdminTemplate = require('template!../../templates/admin');
   var notification = require('notification');
   var homeController = require('../controllers/home');
+  var analytic = require('analytic');
 
   module.exports = Backbone.View.extend({
     tagName: 'div',
@@ -37,7 +38,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      mixpanel.track('admin view');
+      analytic.mixpanel('admin view');
       $(this.el).html(this.template());
       return this;
     }

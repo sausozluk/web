@@ -7,6 +7,7 @@ define(function (require, exports, module) {
   var userController = require('../controllers/user');
   var notification = require('notification');
   var eventBus = require('eventbus');
+  var analytic = require('analytic');
 
   module.exports = Backbone.View.extend({
     title: 'giriş',
@@ -68,7 +69,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      mixpanel.track('login view');
+      analytic.mixpanel('login view');
       $(this.el).html(LoginTemplate({}));
     }
   });

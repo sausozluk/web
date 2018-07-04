@@ -5,6 +5,7 @@ define(function (require, exports, module) {
   var RandomTemplate = require('template!../../templates/components/random');
   var EntryItemComponent = require('./components/entry-item');
   var topicController = require('../controllers/topic');
+  var analytic = require('analytic');
 
   module.exports = Backbone.View.extend({
     title: window.sozlukName,
@@ -14,7 +15,7 @@ define(function (require, exports, module) {
     events: {},
 
     render: function () {
-      mixpanel.track('home view');
+      analytic.mixpanel('home view');
       $(this.el).html(HomeTemplate({}));
 
       topicController.random((function (collection) {

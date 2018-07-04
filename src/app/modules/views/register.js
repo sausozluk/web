@@ -5,6 +5,7 @@ define(function (require, exports, module) {
   var utils = require('utils');
   var userController = require('../controllers/user');
   var notification = require('notification');
+  var analytic = require('analytic');
 
   module.exports = Backbone.View.extend({
     title: 'kaydol',
@@ -37,7 +38,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      mixpanel.track('register view');
+      analytic.mixpanel('register view');
       $(this.el).html(RegisterTemplate({}));
     }
   });

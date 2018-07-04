@@ -9,6 +9,7 @@ require.config({
     'nprogress': '../deps/nprogress/nprogress',
     'app': './app',
     'utils': './libraries/utils',
+    'analytic': './libraries/analytic',
     'eventbus': './libraries/eventbus',
     'cache': './libraries/cache',
     'notification': './libraries/notification',

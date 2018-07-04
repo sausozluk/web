@@ -11,6 +11,7 @@ define(function (require, exports, module) {
   var _ = require('lodash');
   var utils = require('utils');
   var eventBus = require('eventbus');
+  var analytic = require('analytic');
 
   module.exports = Backbone.View.extend({
     events: {
@@ -118,7 +119,7 @@ define(function (require, exports, module) {
     },
 
     render: function (nick) {
-      mixpanel.track('profile view');
+      analytic.mixpanel('profile view');
       this.slug = nick;
       userController.getProfileWithSlug(nick, (function (profile) {
         profile['last_activities'].sort(function (a, b) {

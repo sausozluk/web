@@ -3,6 +3,7 @@ define(function (require, exports, module) {
   var Backbone = require('backbone');
   var VotesTemplate = require('template!../../templates/votes');
   var entryController = require('../controllers/entry');
+  var analytic = require('analytic');
 
   module.exports = Backbone.View.extend({
     events: {},
@@ -15,7 +16,7 @@ define(function (require, exports, module) {
     },
 
     render: function (id) {
-      mixpanel.track('votes view');
+      analytic.mixpanel('votes view');
       entryController.getEntryVotesById(id, (function (entry) {
         $(this.el).html(VotesTemplate({
           id: id,

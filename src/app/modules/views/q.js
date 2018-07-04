@@ -7,6 +7,7 @@ define(function (require, exports, module) {
   var ComposeNewComponent = require('./components/compose-new');
   var storage = require('storage');
   var searchController = require('../controllers/search');
+  var analytic = require('analytic');
 
   module.exports = Backbone.View.extend({
     events: {},
@@ -31,7 +32,7 @@ define(function (require, exports, module) {
     },
 
     render: function (title) {
-      mixpanel.track('search view');
+      analytic.mixpanel('search view');
       title = title.replace(/  +/g, ' ');
 
       searchController.suggest(title, (function (data) {

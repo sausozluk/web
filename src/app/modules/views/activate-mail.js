@@ -4,6 +4,7 @@ define(function (require, exports, module) {
   var ActivateTemplate = require('template!../../templates/activate-mail');
   var UserController = require('../controllers/user');
   var notification = require('notification');
+  var analytic = require('analytic');
 
   module.exports = Backbone.View.extend({
     title: 'yeni posta kutusu şapılıyooo',
@@ -13,7 +14,7 @@ define(function (require, exports, module) {
     events: {},
 
     render: function (token) {
-      mixpanel.track('email activate view');
+      analytic.mixpanel('email activate view');
       $(this.el).html(ActivateTemplate({}));
       UserController.activateMail(token, function () {
         notification.info('hayırlı olsun ehehe');
