@@ -47,6 +47,16 @@ define(function (require, exports, module) {
             '$last_login': new Date(),
             'entry_count': data['entry_count']
         });
+              /* Place this on a template where a customer initially is identified
+           or after authentication. (Important: Update these values) */
+
+        woopra.identify({
+          name: data["username"]
+        });
+
+        // The identify code should be added before the "track()" function
+        woopra.track();
+        
         storage.id = data['user_id'];
         storage.token = data['token'];
         storage.permission = data['authority'];
