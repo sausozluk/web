@@ -24,6 +24,7 @@ define(function (require, exports, module) {
         json.site = location.origin;
         json.isMod = storage.permission > 0;
         json.isArwen = storage.slug === 'arwen';
+        json.isElrond = storage.slug === 'elrond';
         json.single = true;
         json.entry_id = entry.get('id');
         $(this.el).html(TopicTemplate(json));

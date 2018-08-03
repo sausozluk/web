@@ -862,3 +862,14 @@ button.remove i {
     color: #bdbdbd;
     outline: 0;
 }
+
+.yok-bisi {
+    color: #53a245;
+    font-size: 24px;
+    border-radius: 16px;
+    border: 2px solid #bdbdbd;
+    text-align: center;
+    padding: 8px;
+    width: 180px;
+    margin-bottom: 12px;
+}
