@@ -5,7 +5,7 @@ define(function (require, exports, module) {
   var ReportItemTemplate = require('template!../../templates/components/report-item');
   var reportController = require('../controllers/report');
   var notification = require('notification');
-  var analytic = require('analytic');
+  
 
   var ReportItem = Backbone.View.extend({
     template: ReportItemTemplate,
@@ -49,7 +49,7 @@ define(function (require, exports, module) {
     description: 'what a cool girl/guy',
 
     render: function () {
-      analytic.mixpanel('moderation view');
+      
       var self = this;
 
       $(this.el).html(ModTemplate());

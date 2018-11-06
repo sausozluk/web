@@ -4,7 +4,7 @@ define(function (require, exports, module) {
   var OnlineTemplate = require('template!../../templates/online');
   var homeController = require('../controllers/home');
   var _ = require('lodash');
-  var analytic = require('analytic');
+  
 
   module.exports = Backbone.View.extend({
     tagName: 'div',
@@ -18,7 +18,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      analytic.mixpanel('online users view');
+      
       var self = this;
 
       $(self.el).html(OnlineTemplate());

@@ -10,7 +10,7 @@ define(function (require, exports, module) {
   var moment = require('moment');
   var utils = require('utils');
   var notification = require('notification');
-  var analytic = require('analytic');
+  
 
   var MessageItemView = Backbone.View.extend({
     template: ChatMessageItemTemplate,
@@ -193,7 +193,7 @@ define(function (require, exports, module) {
     },
 
     render: function (slug) {
-      analytic.mixpanel('chat view');
+      
       var self = this;
 
       if (storage.slug === slug) {

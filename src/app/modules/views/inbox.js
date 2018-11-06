@@ -8,7 +8,6 @@ define(function (require, exports, module) {
   var utils = require('utils');
   var storage = require('storage');
   var notification = require('notification');
-  var analytic = require('analytic');
   require('EasyAutocomplete');
 
   var ChatItemView = Backbone.View.extend({
@@ -127,7 +126,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      analytic.mixpanel('Inbox view');
+      
       $(this.el).html(InboxTemplate());
 
       chatController.getInbox((function (collection) {

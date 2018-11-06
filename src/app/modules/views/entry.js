@@ -5,7 +5,7 @@ define(function (require, exports, module) {
   var entryController = require('../controllers/entry');
   var EntryItemComponent = require('./components/entry-item');
   var storage = require('storage');
-  var analytic = require('analytic');
+  
 
   module.exports = Backbone.View.extend({
     events: {},
@@ -18,7 +18,6 @@ define(function (require, exports, module) {
     },
 
     render: function (id) {
-      analytic.mixpanel('single entry view');
       entryController.getEntryById(id, (function (entry) {
         var json = entry.get('topic');
         json.site = location.origin;
