@@ -6,7 +6,7 @@ define(function (require, exports, module) {
   var UserController = require('../controllers/user');
   var notification = require('notification');
   var eventBus = require('eventbus');
-  
+  var analytic = require('analytic');
 
   module.exports = Backbone.View.extend({
     title: 'kalkan gemi',
@@ -16,7 +16,7 @@ define(function (require, exports, module) {
     events: {},
 
     render: function () {
-      
+      analytic.mixpanel('logout view');
       $(this.el).html(LogoutTemplate({}));
       UserController.logout({}, function () {
         storage.clean();

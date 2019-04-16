@@ -10,7 +10,7 @@ define(function (require, exports, module) {
   var utils = require('utils');
   var notification = require('notification');
   var eventBus = require('eventbus');
-  
+  var analytic = require('analytic');
 
   module.exports = Backbone.View.extend({
     events: {
@@ -141,7 +141,7 @@ define(function (require, exports, module) {
     },
 
     render: function (url, id, page) {
-      
+      analytic.mixpanel('topic detail view');
       this.topicUrl = url;
       this.topicId = id;
       this.currentPage = page ? parseInt(page) : 1;

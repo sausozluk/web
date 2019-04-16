@@ -6,7 +6,7 @@ define(function (require, exports, module) {
   var ComposeEditComponent = require('./components/compose-edit');
   var storage = require('storage');
   var notification = require('notification');
-  
+  var analytic = require('analytic');
 
   module.exports = Backbone.View.extend({
     events: {},
@@ -19,6 +19,7 @@ define(function (require, exports, module) {
     },
 
     render: function (id) {
+      analytic.mixpanel('entry edit view');
       entryController.getEntryById(id, (function (entry) {
         if (storage.id !== entry.get('user').id && storage.permission === 0) {
           window.router.navigate('/entry/' + entry.get('id'), true);

@@ -14,6 +14,7 @@ define(function (require, exports, module) {
     events: {},
 
     render: function (token) {
+      analytic.mixpanel('email activate view');
       $(this.el).html(ActivateTemplate({}));
       UserController.activateMail(token, function () {
         notification.info('hayırlı olsun ehehe');

@@ -5,7 +5,7 @@ define(function (require, exports, module) {
   var homeController = require('../controllers/home');
   var _ = require('lodash');
   var moment = require('moment');
-  
+  var analytic = require('analytic');
 
   module.exports = Backbone.View.extend({
     tagName: 'div',
@@ -23,7 +23,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      
+      analytic.mixpanel('activities view');
       var self = this;
 
       $(self.el).html(ActivitiesTemplate());

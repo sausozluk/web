@@ -7,7 +7,7 @@ define(function (require, exports, module) {
   var userController = require('../controllers/user');
   var notification = require('notification');
   var eventBus = require('eventbus');
-  
+  var analytic = require('analytic');
 
   module.exports = Backbone.View.extend({
     title: 'giriş',
@@ -39,6 +39,24 @@ define(function (require, exports, module) {
         email: $('#email').val(),
         password: $('#password').val()
       }, function (data) {
+        mixpanel.identify(data['username']);
+        mixpanel.people.set({
+            '$id':data['user_id'],
+            '$name':data['username'],
+            '$email': $('#email').val(),
+            '$last_login': new Date(),
+            'entry_count': data['entry_count']
+        });
+              /* Place this on a template where a customer initially is identified
+           or after authentication. (Important: Update these values) */
+
+        woopra.identify({
+          name: data["username"]
+        });
+
+        // The identify code should be added before the "track()" function
+        woopra.track();
+        
         storage.id = data['user_id'];
         storage.token = data['token'];
         storage.permission = data['authority'];
@@ -61,7 +79,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      
+      analytic.mixpanel('login view');
       $(this.el).html(LoginTemplate({}));
     }
   });

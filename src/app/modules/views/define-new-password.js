@@ -4,7 +4,7 @@ define(function (require, exports, module) {
   var DefineNewPassword = require('template!../../templates/define-new-password');
   var userController = require('../controllers/user');
   var notification = require('notification');
-  
+  var analytic = require('analytic');
 
   module.exports = Backbone.View.extend({
     title: 'yeni şifre tanımla',
@@ -36,6 +36,7 @@ define(function (require, exports, module) {
     },
 
     render: function (token) {
+      analytic.mixpanel('change password view');
       this.token = token;
 
       $(this.el).html(DefineNewPassword({}));

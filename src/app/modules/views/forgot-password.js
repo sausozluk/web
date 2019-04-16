@@ -4,7 +4,7 @@ define(function (require, exports, module) {
   var ForgotPasswordTemplate = require('template!../../templates/forgot-password');
   var userController = require('../controllers/user');
   var notification = require('notification');
-  
+  var analytic = require('analytic');
 
   module.exports = Backbone.View.extend({
     title: 'şifre sıfırlama süreci',
@@ -29,7 +29,7 @@ define(function (require, exports, module) {
     },
 
     render: function () {
-      
+      analytic.mixpanel('reset password view');
       $(this.el).html(ForgotPasswordTemplate({}));
     }
   });
