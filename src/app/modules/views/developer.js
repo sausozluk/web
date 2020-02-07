@@ -56,22 +56,6 @@ define(function (require, exports, module) {
       analytic.mixpanel('developer view');
       $(this.el).html(DeveloperTemplate());
 
-      gitHubController.getWebCommits((function (collection) {
-        var list = $(this.el).find('#web-tab').find('ul');
-
-        collection.forEach(function (model) {
-          list.append(new CommitItemView({model: model}).render().el);
-        });
-      }).bind(this));
-
-      gitHubController.getApiCommits((function (collection) {
-        var list = $(this.el).find('#api-tab').find('ul');
-
-        collection.forEach(function (model) {
-          list.append(new CommitItemView({model: model}).render().el);
-        });
-      }).bind(this));
-
       homeController.managers((function (managers) {
         var about = $(this.el).find('#managers-tab').find('.about');
 
