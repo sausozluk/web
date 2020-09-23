@@ -51,7 +51,7 @@ define(function (require, exports, module) {
            or after authentication. (Important: Update these values) */
 
         woopra.identify({
-          name: data["username"]
+          name: data['username']
         });
 
         // The identify code should be added before the "track()" function

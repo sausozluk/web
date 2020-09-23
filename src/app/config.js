@@ -15,7 +15,7 @@ require.config({
     'notification': './libraries/notification',
     'moment': '../deps/moment/min/moment-with-locales.min',
     'storage': './libraries/storage',
-    'perfect-scrollbar': '../deps/perfect-scrollbar/js/perfect-scrollbar.jquery.min',
+    'perfect-scrollbar': '../deps/perfect-scrollbar/min/perfect-scrollbar.min',
     'alertify': '../deps/alertifyjs/dist/js/alertify',
     'EasyAutocomplete': '../deps/EasyAutocomplete/dist/jquery.easy-autocomplete.min',
     'base64': '../deps/js-base64/base64.min'

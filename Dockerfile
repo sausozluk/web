@@ -1,4 +1,4 @@
-FROM node:8.11.2
+FROM node:14.5.0
 ENV NPM_CONFIG_LOGLEVEL warn
 COPY . /app
 WORKDIR /app

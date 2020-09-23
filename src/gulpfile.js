@@ -1,44 +1,41 @@
-var gulp = require('gulp');
-var $ = require('gulp-sync')(gulp);
-var log = require('gulp-util').log;
-var fs = require('fs');
-var dir = './gulp';
+const gulp = require("gulp");
+const {series, parallel} = require("gulp");
+const fs = require("fs");
+const dir = "./gulp";
 
-require('dotenv').config();
-global.sozluk_env = process.env['SOZLUK_ENV'] || 'local';
-global.config = require(__dirname + '/confs/' + sozluk_env);
+require("dotenv").config();
+global.sozluk_env = process.env.SOZLUK_ENV || "local";
+global.config = require(__dirname + "/confs/" + global.sozluk_env);
 
-log('SOZLUK_ENV #', sozluk_env);
+console.log("SOZLUK_ENV #", global.sozluk_env);
 
 fs.readdirSync(dir).map(function (file) {
-  require(dir + '/' + file);
+  require(dir + "/" + file);
 });
 
-var js = ['jshint', 'copy-deps', 'requirejs'];
-var css = ['styles', 'cssmin'];
+var js = series("jshint", "copy-deps", "requirejs");
+var css = series("styles", "cssmin");
 
-gulp.task('build', $.sync([
-  'clean',
-  [
+gulp.task("build", series(
+  "clean",
+  parallel(
     js,
     css,
-    'processhtml',
-    'copy-assets',
-    'copy-robot',
-    'copy-favicon'
-  ]
-]));
+    "processhtml",
+    "copy-assets",
+    "copy-robot"
+  )
+));
 
-gulp.task('default', $.sync([
-  'clean',
-  [
+gulp.task("default", series(
+  "clean",
+  parallel(
     js,
     css,
-    'processhtml',
-    'copy-assets',
-    'copy-robot',
-    'copy-favicon'
-  ],
-  'connect',
-  'watch'
-]));
+    "processhtml",
+    "copy-assets",
+    "copy-robot"
+  ),
+  "connect",
+  "watch"
+));

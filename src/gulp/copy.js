@@ -1,5 +1,5 @@
-var gulp = require('gulp');
-var $ = require('gulp-sync')(gulp);
+const gulp = require("gulp");
+const {series} = require("gulp");
 
 gulp.task('copy-deps', function () {
   return gulp.src('deps/**').pipe(gulp.dest('dist/deps/'));
@@ -13,8 +13,4 @@ gulp.task('copy-robot', function () {
   return gulp.src('robots.txt').pipe(gulp.dest('dist/'));
 });
 
-gulp.task('copy-favicon', function () {
-  return gulp.src('favicon.ico').pipe(gulp.dest('dist/'));
-});
-
-gulp.task('copy', $.sync(['copy-deps', 'copy-assets', 'copy-robot', 'copy-favicon']));
+gulp.task('copy', series('copy-deps', 'copy-assets', 'copy-robot'));
