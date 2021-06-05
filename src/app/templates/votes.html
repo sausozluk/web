@@ -2,6 +2,11 @@
     <a title="#<%- id %>" href="/entry/<%- id %>">#<%- id %></a> sevenler
 </h1>
 <ul class="votes">
+    <li>
+        <a href="/biri/iyibiri">
+            <span class="nick">iyibiri</span>
+        </a>
+    </li>
     <% for (var i = 0; i < votes.length ; i++) { %>
     <li>
         <a href="/biri/<%- votes[i].slug %>">

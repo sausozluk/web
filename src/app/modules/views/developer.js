@@ -76,6 +76,7 @@ define(function (require, exports, module) {
         }).join('\n');
 
         var hofStr = [
+          {slug: 'iyibiri', username: 'iyibiri'},
           {slug: 'wizard-of-oz', username: 'wizard of oz'}
         ].map(function (item) {
           return '[/biri/' + item.slug + ' - ' + item.username + ']';

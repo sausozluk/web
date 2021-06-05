@@ -25,6 +25,7 @@ define(function (require, exports, module) {
 
       homeController.online(function (data) {
         var el = $(self.el).find('.online-users');
+        el.append(self.renderLiItem('/biri/iyibiri', 'iyibiri', 'iyibiri'));
         _.each(data, function (item) {
           el.append(self.renderLiItem('/biri/' + item.slug, item.username, item.username));
         });
